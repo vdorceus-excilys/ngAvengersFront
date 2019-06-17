@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from "@angular/common/http"
+import {MatFormFieldModule} from  '@angular/material/form-field'
+import {MatInputModule} from '@angular/material/input'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +17,8 @@ import { DetailsCompanyComponent } from './details-company/details-company.compo
 import { CreateCompanyComponent } from './create-company/create-company.component';
 import { UpdateCompanyComponent } from './update-company/update-company.component';
 import { DeleteCompanyComponent } from './delete-company/delete-company.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,14 @@ import { DeleteCompanyComponent } from './delete-company/delete-company.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatInputModule,
+    BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
