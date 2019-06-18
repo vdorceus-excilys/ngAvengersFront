@@ -13,6 +13,7 @@ import { DetailsCompanyComponent } from './details-company/details-company.compo
 import { CreateCompanyComponent } from './create-company/create-company.component';
 import { UpdateCompanyComponent } from './update-company/update-company.component';
 import { DeleteCompanyComponent } from './delete-company/delete-company.component';
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DeleteCompanyComponent } from './delete-company/delete-company.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
