@@ -1,6 +1,6 @@
 
 
 export class CompanyModel {
-    id: number;
+    id: string;
     name: string;
 }
