@@ -19,6 +19,7 @@ import { UpdateCompanyComponent } from './update-company/update-company.componen
 import { DeleteCompanyComponent } from './delete-company/delete-company.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     DetailsCompanyComponent,
     CreateCompanyComponent,
     UpdateCompanyComponent,
-    DeleteCompanyComponent
+    DeleteCompanyComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
