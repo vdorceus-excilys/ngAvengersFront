@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from "@angular/common/http"
 import {MatFormFieldModule} from  '@angular/material/form-field'
 import {MatInputModule} from '@angular/material/input'
+import {MatToolbarModule} from '@angular/material/toolbar'
+import {MatMenuModule} from '@angular/material/menu'
+import {MatIconModule} from '@angular/material/icon'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -44,7 +47,10 @@ import { HeaderComponent } from './header/header.component';
     MatTableModule,
     MatPaginatorModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatMenuModule, 
+    MatIconModule
 
   ],
   providers: [],
