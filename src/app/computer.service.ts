@@ -26,7 +26,7 @@ export class ComputerService {
 
   /* GET computers whose name contains search term */
   searchComputer(search: string): Observable<ComputerModel[]> {
-    return this.http.get<ComputerModel[]>(`${this.computersUrl}/?name=${search}`);
+    return this.http.get<ComputerModel[]>(`${this.computersUrl}?search=${search}`);
   }
 
   /** POST: add a new computer to the server */
