@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class ComputerService {
 
-  private computersUrl = 'https://mock-cdb.firebaseio.com/computers.json';  // URL to web api computers
+  private computersUrl = 'http://10.0.1.25:8080/webapp/api/v1/computers/';  // URL to web api computers
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +25,7 @@ export class ComputerService {
     );
   }
   getComputer(id: number): Observable<ComputerModel> {
-    const url = 'https://mock-cdb.firebaseio.com/computers/' + id + '.json';
+    const url = this.computersUrl + id;
     return this.http.get<ComputerModel>(url);
   }
 
@@ -44,23 +44,23 @@ export class ComputerService {
   /** POST: add a new computer to the server */
   addComputer(computer: ComputerModel): Observable<ComputerModel> {
     return this.http.post<ComputerModel>(this.computersUrl, computer, httpOptions).pipe(
-      tap((newComputer: ComputerModel) => this.log(`added computer w/ id=${newComputer.id}`)),
+      tap((newComputer: ComputerModel) => this.log(`added computer w/ name=${newComputer.name}`)),
       catchError(this.handleError<ComputerModel>('addComputer'))
     );
   }
-  /** DELETE: delete the hero from the server */
+  /** DELETE: delete the computer from the server */
   deleteComputer(computer: ComputerModel | number): Observable<ComputerModel> {
     const id = typeof computer === 'number' ? computer : computer.id;
-    const url = `https://mock-cdb.firebaseio.com/computers/${id}.json`;
+    const url = this.computersUrl + id;
 
     return this.http.delete<ComputerModel>(url, httpOptions).pipe(
       tap(_ => this.log(`deleted computer id=${id}`)),
       catchError(this.handleError<ComputerModel>('deleteComputer'))
     );
   }
-  /** PUT: update the hero on the server */
-  updateComputer (computer: ComputerModel): Observable<any> {
-    return this.http.put(`https://mock-cdb.firebaseio.com/computers/${computer.id}.json`, computer, httpOptions).pipe(
+  /** PUT: update the computer on the server */
+  updateComputer(computer: ComputerModel): Observable<any> {
+    return this.http.put(this.computersUrl + computer.id, computer, httpOptions).pipe(
       tap(_ => this.log(`updated computer id=${computer.id}`)),
       catchError(this.handleError<any>('updateComputer'))
     );
@@ -72,7 +72,7 @@ export class ComputerService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
