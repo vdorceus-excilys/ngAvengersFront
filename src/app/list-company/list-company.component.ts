@@ -29,6 +29,7 @@ export class ListCompanyComponent implements OnInit {
   @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
+
   constructor(private companyService: CompanyService,private changeDetector: ChangeDetectorRef) {     
     
   }
@@ -58,6 +59,16 @@ export class ListCompanyComponent implements OnInit {
     }
   }
 
+}
+
+/** Builds and returns a new User. */
+function createCompany(id: number): CompanyDTO{
+  let myCompany = {
+    id: id.toString(),
+    name: "name="+id.toString()
+  } ;
+  console.log(myCompany);
+  return myCompany;
 }
 
 /** Builds and returns a new User. */
