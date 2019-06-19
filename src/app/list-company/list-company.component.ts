@@ -30,7 +30,7 @@ export class ListCompanyComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(private companyService: CompanyService,private changeDetector: ChangeDetectorRef) {     
-    this.dataSource = new MatTableDataSource([]);
+    
   }
 
   ngOnInit() {
@@ -43,10 +43,12 @@ export class ListCompanyComponent implements OnInit {
   }
 
   refresh(data){
-    this.dataSource = data;
-    this.changeDetector.detectChanges();
+    this.dataSource = new MatTableDataSource(data);
+    //this.dataSource = data;
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    
+    this.changeDetector.detectChanges();
   }
 
   applyFilter(filterValue: string){
