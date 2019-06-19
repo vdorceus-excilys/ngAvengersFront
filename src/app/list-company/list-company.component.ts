@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { ComputerModel } from '../computer-model';
 import { CompanyModel } from '../company-model';
 import { filter } from 'minimatch';
+import { CompanyService } from '../company.service';
 
 export interface CompanyDTO {
   id: string;
@@ -28,16 +29,20 @@ export class ListCompanyComponent implements OnInit {
   @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor() { 
-    // Create 100 users
-    const companyList = Array.from({length: 100}, (_, k) => createCompany(k + 1));
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(companyList);
-  }
+
+  constructor(private companyService: CompanyService,private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit() {
+    this.companyService.getCompanies().subscribe(
+      data => { this.refresh(data); }
+    )
+  }
+
+  refresh(data){
+    this.dataSource = new MatTableDataSource(data);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.changeDetector.detectChanges();
   }
 
   applyFilter(filterValue: string){
@@ -49,12 +54,3 @@ export class ListCompanyComponent implements OnInit {
 
 }
 
-/** Builds and returns a new User. */
-function createCompany(id: number): CompanyDTO{
-  let myCompany = {
-    id: id.toString(),
-    name: "name="+id.toString()
-  } ;
-  console.log(myCompany);
-  return myCompany;
-}
