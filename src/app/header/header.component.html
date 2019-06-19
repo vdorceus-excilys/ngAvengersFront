@@ -8,22 +8,44 @@
           <div class='col-md-3'></div>
           <div class='col-md-3'></div>
           <div class='col-md-3'>
-              <span>
-                  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                      <mat-icon>more_vert</mat-icon>
+              <span class="menu-span">
+                  <button mat-icon-button [matMenuTriggerFor]="menuComputer" aria-label="Example icon-button with a menu">
+                      <mat-icon>computer</mat-icon>
                     </button>
-                    <mat-menu #menu="matMenu">
-                      <button mat-menu-item>
-                        <mat-icon>dialpad</mat-icon>
-                        <span>Redial</span>
+                    <mat-menu #menuComputer="matMenu">
+                      <button routerLink='computer/create' mat-menu-item>
+                        <mat-icon>add_circle_outline</mat-icon>
+                        <span >New Computer</span>
                       </button>
-                      <button mat-menu-item disabled>
-                        <mat-icon>voicemail</mat-icon>
-                        <span>Check voice mail</span>
+                      <button routerLink='computer' mat-menu-item>
+                        <mat-icon>list</mat-icon>
+                        <span >List all computers</span>
                       </button>
-                      <button mat-menu-item>
-                        <mat-icon>notifications_off</mat-icon>
-                        <span>Disable alerts</span>
+                    </mat-menu>
+              </span>
+              <span class="menu-span" >
+                  <button mat-icon-button [matMenuTriggerFor]="menuCompany" aria-label="Example icon-button with a menu">
+                      <mat-icon>business</mat-icon>
+                    </button>
+                    <mat-menu #menuCompany="matMenu">
+                      <button routerLink='company/create' mat-menu-item>
+                        <mat-icon>add_circle_outline</mat-icon>
+                        <span>New Company</span>
+                      </button>
+                      <button routerLink='company' mat-menu-item>
+                        <mat-icon>list</mat-icon>
+                        <span>List all companies</span>
+                      </button>
+                    </mat-menu>
+              </span>
+              <span class="menu-span" >
+                  <button mat-icon-button [matMenuTriggerFor]="menuSettings" aria-label="Example icon-button with a menu">
+                      <mat-icon>settings</mat-icon>
+                    </button>
+                    <mat-menu #menuSettings="matMenu">
+                      <button  mat-menu-item>
+                        <mat-icon>add_circle_outline</mat-icon>
+                        <span>New User</span>
                       </button>
                     </mat-menu>
               </span>
