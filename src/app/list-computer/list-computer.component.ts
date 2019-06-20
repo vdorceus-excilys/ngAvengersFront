@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { ComputerModel } from '../computer-model';
 import { CompanyModel } from '../company-model';
 import { filter } from 'minimatch';
+import { ComputerService } from '../computer.service';
 
 export interface ComputerDTO {
   id: number;
@@ -31,16 +32,10 @@ export class ListComputerComponent implements OnInit {
   @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor() { 
-    // Create 100 users
-    const computerList = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(computerList);
-  }
+  constructor(private computerService: ComputerService,private changeDetector: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.computerService.getComputers().subscribe(data => this.refresh(data));
   }
 
   applyFilter(filterValue: string){
@@ -50,17 +45,18 @@ export class ListComputerComponent implements OnInit {
     }
   }
 
+  refresh(data){
+    const dataDTO = data.map(computer => {
+      return {
+        id: computer.id, name: computer.name, introduced: computer.introduced, 
+        discontinued: computer.discontinued, company: computer.companyName
+      };
+    });
+    this.dataSource = new MatTableDataSource(dataDTO);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    this.changeDetector.detectChanges();
+  }
+
 }
 
-/** Builds and returns a new User. */
-function createNewUser(id: number): ComputerDTO{
-  let myComputer = {
-    id: id,
-    name: "name="+id.toString(),
-    introduced: "01-01-2019",
-    discontinued: "01-01-2019",
-    company: "DELL"
-  } ;
-  console.log(myComputer);
-  return myComputer;
-}
