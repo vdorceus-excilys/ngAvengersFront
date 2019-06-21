@@ -1,15 +1,22 @@
-<link rel="stylesheet" href="css/styles.css">
-<nav class="navbar is-dark">
-    <div class="navbar-brand">
-        <p>Computer Database</p>
-      </div>
+<nav class="navbar">
+  <div class="columns">
+    <div class="column is-one-third">
+        <div class="navbar-item">
+          <p class="brand">Computer Management System</p>
+        </div>
+    </div>
+    <div class="column is-one-third">
+        <div class="tabs is-centered" id="tabs">
+            <ul>
+              <li [ngClass] ="{'is-active': this.active == 'computer'}"><a (click)="navigate('computer')">Computers</a></li>
+              <li [ngClass] ="{'is-active': this.active == 'company'}"><a (click)="navigate('company')">Companies</a></li>
+              <li [ngClass] ="{'is-active': this.active == 'user'}"><a (click)="navigate('user')">Users</a></li>
+            </ul>
+          </div>
+    </div>
+  </div>
+
+
 </nav>
-<div class="tabs is-centered">
-  <ul>
-    <li class="is-active"><a>Pictures</a></li>
-    <li><a>Music</a></li>
-    <li><a>Videos</a></li>
-    <li><a>Documents</a></li>
-  </ul>
-</div>
+
 

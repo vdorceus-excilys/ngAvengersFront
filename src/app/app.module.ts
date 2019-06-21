@@ -23,6 +23,7 @@ import { DeleteCompanyComponent } from './delete-company/delete-company.componen
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HeaderComponent } from './header/header.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { HeaderComponent } from './header/header.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    CommonModule
 
   ],
   providers: [],
