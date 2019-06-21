@@ -20,7 +20,7 @@ export class ComputerService {
     return this.http.get<ComputerModel[]>(this.computersUrl);
   }
 
-  getComputer(id: number): Observable<ComputerModel> {
+  getComputer(id: string): Observable<ComputerModel> {
     return this.http.get<ComputerModel>(this.computersUrl + id);
   }
 
@@ -31,25 +31,35 @@ export class ComputerService {
 
   /** POST: add a new computer to the server */
   addComputer(computer: ComputerModel): Observable<ComputerModel> {
-    const comp = {
+    const computerDTO = {
       id: null,
-      name: computer.name, introduced: computer.introduced, discontinued: computer.discontinued, companyName: computer.company.name, companyId: computer.company.id    }
-    return this.http.post<any>(this.computersUrl, comp, httpOptions);
+      name: computer.name,
+      introduced: computer.introduced,
+      discontinued: computer.discontinued,
+      companyName: computer.company.name,
+      companyId: computer.company.id
+    };
+    return this.http.post<any>(this.computersUrl, computerDTO, httpOptions);
   }
 
   /** DELETE: delete the computer from the server */
-  deleteComputer(computer: ComputerModel | number): Observable<ComputerModel> {
-    const id = typeof computer === 'number' ? computer : computer.id;
+  deleteComputer(computer: ComputerModel | string): Observable<ComputerModel> {
+    const id = typeof computer === 'string' ? computer : computer.id;
     const url = this.computersUrl + id;
 
     return this.http.delete<ComputerModel>(url, httpOptions);
   }
   /** PUT: update the computer on the server */
   updateComputer(computer: ComputerModel): Observable<any> {
-    const comp = {
+    const computerDTO = {
       id: computer.id,
-      name: computer.name, introduced: computer.introduced, discontinued: computer.discontinued, companyName: computer.company.name, companyId: computer.company.id    }
+      name: computer.name,
+      introduced: computer.introduced,
+      discontinued: computer.discontinued,
+      companyName: computer.company.name,
+      companyId: computer.company.id
+    };
 
-    return this.http.put(this.computersUrl + comp.id, comp, httpOptions);
+    return this.http.put(this.computersUrl + computerDTO.id, computerDTO, httpOptions);
   }
 }
