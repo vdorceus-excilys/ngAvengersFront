@@ -12,5 +12,20 @@
     "settingsMenu": {
       "createUser": "Nouvel Utilisateur"
     }
+  },
+  "listComputers": {
+    "id": "Id",
+    "name": "Nom",
+    "introduced": "Date d'introduction",
+    "discontinued": "Date de fin",
+    "company": "Compagnie",
+    "filter": "Filtre",
+    "itemsPerPage": "Elements par page:"
+  },
+  "listCompany": {
+    "id": "Id",
+    "name": "Nom",
+    "filter": "Filtre",
+    "itemsPerPage": "Elements par page:"
   }
 }
