@@ -31,7 +31,10 @@ export class ComputerService {
 
   /** POST: add a new computer to the server */
   addComputer(computer: ComputerModel): Observable<ComputerModel> {
-    return this.http.post<ComputerModel>(this.computersUrl, computer, httpOptions);
+    const comp = {
+      id: null,
+      name: computer.name, introduced: computer.introduced, discontinued: computer.discontinued, companyName: computer.company.name, companyId: computer.company.id    }
+    return this.http.post<any>(this.computersUrl, comp, httpOptions);
   }
 
   /** DELETE: delete the computer from the server */
@@ -43,6 +46,10 @@ export class ComputerService {
   }
   /** PUT: update the computer on the server */
   updateComputer(computer: ComputerModel): Observable<any> {
-    return this.http.put(this.computersUrl + computer.id, computer, httpOptions);
+    const comp = {
+      id: computer.id,
+      name: computer.name, introduced: computer.introduced, discontinued: computer.discontinued, companyName: computer.company.name, companyId: computer.company.id    }
+
+    return this.http.put(this.computersUrl + comp.id, comp, httpOptions);
   }
 }
