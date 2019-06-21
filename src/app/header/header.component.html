@@ -3,7 +3,7 @@
     <div class='container'>
         <div class='row'>
           <div class='col-md-3'>
-            <span>Computer Management System</span>
+            <span>{{ 'header.title' | translate }}</span>
           </div>
           <div class='col-md-6'></div>
           <div class='col-md-3'>
@@ -39,17 +39,22 @@
               </span>
               <span class="menu-span" >
                   <button mat-icon-button [matMenuTriggerFor]="menuSettings" aria-label="Example icon-button with a menu">
-                      <mat-icon>settings</mat-icon>
+                    <mat-icon>settings</mat-icon>
+                  </button>
+                  <mat-menu #menuSettings="matMenu">
+                    <button  mat-menu-item>
+                      <mat-icon>add_circle_outline</mat-icon>
+                      <span>New User</span>
                     </button>
-                    <mat-menu #menuSettings="matMenu">
-                      <button  mat-menu-item>
-                        <mat-icon>add_circle_outline</mat-icon>
-                        <span>New User</span>
-                      </button>
-                    </mat-menu>
+                  </mat-menu>
+              </span>
+              <span class="menu-span">
+                <select #langSelect (change)="useLanguage(langSelect.value)">
+                  <option *ngFor="let lang of languages" [value]="lang" [selected]="lang === currentLanguage">{{ lang }}</option>
+                </select>
               </span>
           </div>
         </div>
     </div>
-  </mat-toolbar-row>  
+  </mat-toolbar-row>
 </mat-toolbar>
