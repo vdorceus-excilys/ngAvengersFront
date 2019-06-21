@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from "@angular/common/http"
-import {MatFormFieldModule} from  '@angular/material/form-field'
-import {MatInputModule} from '@angular/material/input'
-import {MatToolbarModule} from '@angular/material/toolbar'
-import {MatMenuModule} from '@angular/material/menu'
-import {MatIconModule} from '@angular/material/icon'
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {  HttpClient, HttpClientModule } from '@angular/common/http';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +23,9 @@ import { DeleteCompanyComponent } from './delete-company/delete-company.componen
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HeaderComponent } from './header/header.component';
+
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
@@ -49,11 +52,23 @@ import { HeaderComponent } from './header/header.component';
     MatInputModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatMenuModule, 
-    MatIconModule
+    MatMenuModule,
+    MatIconModule,
+    HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
