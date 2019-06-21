@@ -13,7 +13,7 @@ export class UserService {
   private usersUrl: string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://10.0.1.25:8080/webapp/api/v1/users';
+    this.usersUrl = 'http://10.0.1.25:8080/webapp/api/v1/users/';
   }
 
   public getUsers(): Observable<UserModel[]> {
