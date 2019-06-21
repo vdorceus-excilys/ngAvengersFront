@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from "@angular/common/http"
 import {MatFormFieldModule} from  '@angular/material/form-field'
 import {MatInputModule} from '@angular/material/input'
+import {MatToolbarModule} from '@angular/material/toolbar'
+import {MatMenuModule} from '@angular/material/menu'
+import {MatIconModule} from '@angular/material/icon'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +22,7 @@ import { UpdateCompanyComponent } from './update-company/update-company.componen
 import { DeleteCompanyComponent } from './delete-company/delete-company.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { HeaderComponent } from './header/header.component';
 import {MatSelectModule} from '@angular/material';
 
 @NgModule({
@@ -33,7 +37,8 @@ import {MatSelectModule} from '@angular/material';
     DetailsCompanyComponent,
     CreateCompanyComponent,
     UpdateCompanyComponent,
-    DeleteCompanyComponent
+    DeleteCompanyComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,9 @@ import {MatSelectModule} from '@angular/material';
     MatPaginatorModule,
     MatInputModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
+    MatMenuModule, 
+    MatIconModule
     MatSelectModule
 
   ],
