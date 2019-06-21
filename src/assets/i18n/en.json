@@ -1,5 +1,16 @@
 {
   "header": {
-      "title": "Computer Management System"
+    "title": "Computer Management System",
+    "computerMenu": {
+      "createComputer": "New Computer",
+      "listComputers": "List all computers"
+    },
+    "companyMenu": {
+      "createCompany": "New Company",
+      "listCompanies": "List all computers"
+    },
+    "settingsMenu": {
+      "createUser": "New User"
+    }
   }
 }

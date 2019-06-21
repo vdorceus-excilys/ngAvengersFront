@@ -14,11 +14,11 @@
                     <mat-menu #menuComputer="matMenu">
                       <button routerLink='computer/create' mat-menu-item>
                         <mat-icon>add_circle_outline</mat-icon>
-                        <span >New Computer</span>
+                        <span>{{ 'header.computerMenu.createComputer' | translate }}</span>
                       </button>
                       <button routerLink='computer' mat-menu-item>
                         <mat-icon>list</mat-icon>
-                        <span >List all computers</span>
+                        <span>{{ 'header.computerMenu.listComputers' | translate }}</span>
                       </button>
                     </mat-menu>
               </span>
@@ -29,11 +29,11 @@
                     <mat-menu #menuCompany="matMenu">
                       <button routerLink='company/create' mat-menu-item>
                         <mat-icon>add_circle_outline</mat-icon>
-                        <span>New Company</span>
+                        <span>{{ 'header.companyMenu.createCompany' | translate }}</span>
                       </button>
                       <button routerLink='company' mat-menu-item>
                         <mat-icon>list</mat-icon>
-                        <span>List all companies</span>
+                        <span>{{ 'header.companyMenu.listCompanies' | translate }}</span>
                       </button>
                     </mat-menu>
               </span>
@@ -44,7 +44,7 @@
                   <mat-menu #menuSettings="matMenu">
                     <button  mat-menu-item>
                       <mat-icon>add_circle_outline</mat-icon>
-                      <span>New User</span>
+                      <span>{{ 'header.settingsMenu.createUser' | translate }}</span>
                     </button>
                   </mat-menu>
               </span>
