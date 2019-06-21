@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validator, Validators} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {ComputerService} from '../computer.service';
+import {Router} from '@angular/router';
+import {ComputerModel} from '../computer-model';
+import {CompanyService} from '../company.service';
+import {CompanyModel} from '../company-model';
+import {MatInputModule} from '@angular/material';
 
 @Component({
   selector: 'app-create-computer',
@@ -10,25 +15,45 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   styleUrls: ['./create-computer.component.scss']
 })
 export class CreateComputerComponent implements OnInit {
-  computer = { id: '700', name: 'test', introduced: '2018-12-12', discontinued: '2019-12-12', company_id: '36' }
+  computerForm: FormGroup;
+  computer: ComputerModel;
+  companyList: CompanyModel[];
 
 
-  computerForm = new FormGroup({
-    name: new FormControl(''),
-    introduced: new FormControl(''),
-    discontinued: new FormControl(''),
-    company_id: new FormControl(''),
-    company_name: new FormControl(''),
-  });
-
-  constructor(private http: HttpClient) { }
-  private postData(formData: any): Observable<any> {
-    return this.http.post<any>('https://mock-cdb.firebaseio.com/computers.json', formData);
-
+  constructor(private formBuilder: FormBuilder,
+              private computerService: ComputerService,
+              private companyService: CompanyService,
+              private router: Router) {
   }
-
   ngOnInit() {
-    this.postData(this.computer);
+    this.initForm();
+    console.log(this.companyList);
+    this.companyService.getCompanies().subscribe(data =>{this.companyList = data } );
+
+  }
+  initForm() {
+    this.computerForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      introduced: '',
+      discontinued: '',
+      company: ''
+    });
   }
 
+  onSubmitForm() {
+      const formValue = this.computerForm.value;
+      this.computer = new ComputerModel();
+      this.computer.id = null;
+      this.computer.name = formValue['name'],
+      this.computer.introduced = formValue['introduced'],
+      this.computer.discontinued = formValue['discontinued'],
+      this.computer.company = formValue['company']
+
+      this.computerService.addComputer(this.computer).subscribe();
+    console.log(this.computerForm.value);
+    console.log('computer id : ' + this.computer.id +'computer name : '+this.computer.name+
+    'computer introduced : ' + this.computer.introduced +'computer discontinued : ' +this.computer.discontinued+
+    'computer company id : ' + this.computer.company.id +'computer company name : ' +this.computer.company.name);
+    //this.router.navigate(['/computers/']);
+  }
 }

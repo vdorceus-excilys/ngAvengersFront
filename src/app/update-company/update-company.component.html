@@ -1,3 +1,9 @@
-<p>
-  update-company works!
-</p>
+<form [formGroup]="companyForm" (ngSubmit)="onSubmitForm()">
+
+  <mat-form-field>
+    <textarea matInput formControlName="name" placeholder="name" value="{{company.name}}"></textarea>
+  </mat-form-field>
+  <div></div>
+  <button class="btn btn-primary">Enregistrer</button>
+</form>
+
