@@ -1,8 +1,8 @@
-.menu-span{
-    padding-left: 10px;
+.menu-span {
+  padding-left: 10px;
 }
 
-.columns{
+.columns {
   width: 100%;
 }
 
@@ -14,7 +14,11 @@
   border-bottom: 1px solid;
 }
 
-.brand{
+.brand {
   font-family: "Wallman";
   font-size: 1.5em;
+}
+
+.control.has-icons-left {
+  padding: 10px 5px 5px;
 }
