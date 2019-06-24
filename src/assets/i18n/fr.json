@@ -3,7 +3,7 @@
     "title": "Système de Gestion d'Ordinateur",
     "headerMenu": {
       "computers": "Ordinateurs",
-      "companies": "Compagnies",
+      "companies": "Entreprises",
       "users": "Utilisateurs"
     }
   },
@@ -12,7 +12,7 @@
     "name": "Nom",
     "introduced": "Date d'introduction",
     "discontinued": "Date de fin",
-    "company": "Compagnie",
+    "company": "Entreprise",
     "filter": "Filtre"
   },
   "listCompany": {
