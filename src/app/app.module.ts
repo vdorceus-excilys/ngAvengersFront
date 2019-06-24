@@ -24,6 +24,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HeaderComponent } from './header/header.component';
 import {MatSelectModule} from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -51,8 +53,10 @@ import {MatSelectModule} from '@angular/material';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatMenuModule, 
-    MatIconModule
-    MatSelectModule
+    MatIconModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

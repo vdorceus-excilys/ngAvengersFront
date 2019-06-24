@@ -61,14 +61,9 @@ export class UpdateComputerComponent implements OnInit {
     if (formValue.discontinued != '') { this.computer.discontinued = formValue.discontinued; }
     if (formValue.company != '') { this.computer.company = formValue.company; }
 
-
-    console.log(this.computerForm.value);
-    console.log('computer id : ' + this.computer.id + 'computer name : ' + this.computer.name +
-      'computer introduced : ' + this.computer.introduced + 'computer discontinued : ' + this.computer.discontinued +
-      'computer company id : ' + this.computer.company.id + 'computer company name : ' + this.computer.company.name);
     this.computerService.updateComputer(this.computer).subscribe();
 
-    this.router.navigate(['/computer/update/2']);
+    this.router.navigate(['/computer']);
   }
 
 }

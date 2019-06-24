@@ -4,8 +4,7 @@ import {CompanyModel} from '../company-model';
 import {ComputerService} from '../computer.service';
 import {CompanyService} from '../company.service';
 import {Router} from '@angular/router';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-create-company',
   templateUrl: './create-company.component.html',

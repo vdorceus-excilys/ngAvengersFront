@@ -8,6 +8,9 @@ import {ComputerModel} from '../computer-model';
 import {CompanyService} from '../company.service';
 import {CompanyModel} from '../company-model';
 import {MatInputModule} from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-create-computer',
@@ -50,10 +53,6 @@ export class CreateComputerComponent implements OnInit {
       this.computer.company = formValue['company']
 
       this.computerService.addComputer(this.computer).subscribe();
-    console.log(this.computerForm.value);
-    console.log('computer id : ' + this.computer.id +'computer name : '+this.computer.name+
-    'computer introduced : ' + this.computer.introduced +'computer discontinued : ' +this.computer.discontinued+
-    'computer company id : ' + this.computer.company.id +'computer company name : ' +this.computer.company.name);
-    //this.router.navigate(['/computers/']);
+      this.router.navigate(['/computer/']);
   }
 }
