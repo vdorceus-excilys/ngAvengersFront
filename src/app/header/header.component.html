@@ -1,22 +1,30 @@
 <nav class="navbar">
   <div class="columns">
     <div class="column is-one-third">
-        <div class="navbar-item">
-          <p class="brand">Computer Management System</p>
-        </div>
+      <div class="navbar-item">
+        <p class="brand">{{ 'header.title' | translate }}</p>
+      </div>
     </div>
     <div class="column is-one-third">
-        <div class="tabs is-centered" id="tabs">
-            <ul>
-              <li [ngClass] ="{'is-active': this.active == 'computer'}"><a (click)="navigate('computer')">Computers</a></li>
-              <li [ngClass] ="{'is-active': this.active == 'company'}"><a (click)="navigate('company')">Companies</a></li>
-              <li [ngClass] ="{'is-active': this.active == 'user'}"><a (click)="navigate('user')">Users</a></li>
-            </ul>
+      <div class="tabs is-centered" id="tabs">
+        <ul>
+          <li [ngClass] ="{'is-active': this.active == 'computer'}"><a (click)="navigate('computer')">{{ 'header.headerMenu.computers' | translate }}</a></li>
+          <li [ngClass] ="{'is-active': this.active == 'company'}"><a (click)="navigate('company')">{{ 'header.headerMenu.companies' | translate }}</a></li>
+          <li [ngClass] ="{'is-active': this.active == 'user'}"><a (click)="navigate('user')">{{ 'header.headerMenu.users' | translate }}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="column is-1 is-offset-3">
+      <div class="control has-icons-left">
+        <div class="select is-small" id="language">
+          <select #langSelect (change)="useLanguage(langSelect.value)">
+            <option *ngFor="let lang of languages" [value]="lang" [selected]="lang === currentLanguage">{{ lang }}</option>
+          </select>
+          <div class="icon is-small is-left">
+            <i class="fas fa-globe"></i>
           </div>
+        </div>
+      </div>
     </div>
   </div>
-
-
 </nav>
-
-
