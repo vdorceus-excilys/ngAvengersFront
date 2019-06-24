@@ -1,0 +1,29 @@
+{
+  "header": {
+    "title": "Sistema de Gerenciamento de Computadores",
+    "computerMenu": {
+      "createComputer": "Novo computador",
+      "listComputers": "Listar todos os computadores"
+    },
+    "companyMenu": {
+      "createCompany": "Nova empresa",
+      "listCompanies": "Listar todas as empresas"
+    },
+    "settingsMenu": {
+      "createUser": "Novo usuário"
+    }
+  },
+  "listComputers": {
+    "id": "Id",
+    "name": "Nome",
+    "introduced": "Data de introdução",
+    "discontinued": "Data descontinuada",
+    "company": "Empresa",
+    "filter": "Filtro"
+  },
+  "listCompany": {
+    "id": "Id",
+    "name": "Nome",
+    "filter": "Filtro"
+  }
+}
