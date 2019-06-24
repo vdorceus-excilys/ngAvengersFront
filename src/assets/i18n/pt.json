@@ -1,16 +1,10 @@
 {
   "header": {
     "title": "Sistema de Gerenciamento de Computadores",
-    "computerMenu": {
-      "createComputer": "Novo computador",
-      "listComputers": "Listar todos os computadores"
-    },
-    "companyMenu": {
-      "createCompany": "Nova empresa",
-      "listCompanies": "Listar todas as empresas"
-    },
-    "settingsMenu": {
-      "createUser": "Novo usuário"
+    "headerMenu": {
+      "computers": "Computadores",
+      "companies": "Empresas",
+      "users": "Usuários"
     }
   },
   "listComputers": {

@@ -1,16 +1,10 @@
 {
   "header": {
     "title": "Système de Gestion d'Ordinateur",
-    "computerMenu": {
-      "createComputer": "Nouvel Ordinateur",
-      "listComputers": "Lister tous les ordinateurs"
-    },
-    "companyMenu": {
-      "createCompany": "Nouvelle Compagnie",
-      "listCompanies": "Lister toutes les compagnies"
-    },
-    "settingsMenu": {
-      "createUser": "Nouvel Utilisateur"
+    "headerMenu": {
+      "computers": "Ordinateurs",
+      "companies": "Compagnies",
+      "users": "Utilisateurs"
     }
   },
   "listComputers": {
