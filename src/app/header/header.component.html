@@ -1,60 +1,25 @@
-<mat-toolbar color='primary'>
-  <mat-toolbar-row>
-    <div class='container'>
-        <div class='row'>
-          <div class='col-md-3'>
-            <span>{{ 'header.title' | translate }}</span>
-          </div>
-          <div class='col-md-6'></div>
-          <div class='col-md-3'>
-              <span class="menu-span">
-                  <button mat-icon-button [matMenuTriggerFor]="menuComputer" aria-label="Example icon-button with a menu">
-                      <mat-icon>computer</mat-icon>
-                    </button>
-                    <mat-menu #menuComputer="matMenu">
-                      <button routerLink='computer/create' mat-menu-item>
-                        <mat-icon>add_circle_outline</mat-icon>
-                        <span>{{ 'header.computerMenu.createComputer' | translate }}</span>
-                      </button>
-                      <button routerLink='computer' mat-menu-item>
-                        <mat-icon>list</mat-icon>
-                        <span>{{ 'header.computerMenu.listComputers' | translate }}</span>
-                      </button>
-                    </mat-menu>
-              </span>
-              <span class="menu-span" >
-                  <button mat-icon-button [matMenuTriggerFor]="menuCompany" aria-label="Example icon-button with a menu">
-                      <mat-icon>business</mat-icon>
-                    </button>
-                    <mat-menu #menuCompany="matMenu">
-                      <button routerLink='company/create' mat-menu-item>
-                        <mat-icon>add_circle_outline</mat-icon>
-                        <span>{{ 'header.companyMenu.createCompany' | translate }}</span>
-                      </button>
-                      <button routerLink='company' mat-menu-item>
-                        <mat-icon>list</mat-icon>
-                        <span>{{ 'header.companyMenu.listCompanies' | translate }}</span>
-                      </button>
-                    </mat-menu>
-              </span>
-              <span class="menu-span" >
-                  <button mat-icon-button [matMenuTriggerFor]="menuSettings" aria-label="Example icon-button with a menu">
-                    <mat-icon>settings</mat-icon>
-                  </button>
-                  <mat-menu #menuSettings="matMenu">
-                    <button  mat-menu-item>
-                      <mat-icon>add_circle_outline</mat-icon>
-                      <span>{{ 'header.settingsMenu.createUser' | translate }}</span>
-                    </button>
-                  </mat-menu>
-              </span>
-              <span class="menu-span">
-                <select #langSelect (change)="useLanguage(langSelect.value)">
-                  <option *ngFor="let lang of languages" [value]="lang" [selected]="lang === currentLanguage">{{ lang }}</option>
-                </select>
-              </span>
-          </div>
+<nav class="navbar">
+  <div class="columns">
+    <div class="column is-one-third">
+        <div class="navbar-item">
+          <p class="brand">{{ 'header.title' | translate }}</p>
         </div>
     </div>
-  </mat-toolbar-row>
-</mat-toolbar>
+    <div class="column is-one-third">
+        <div class="tabs is-centered" id="tabs">
+            <ul>
+              <li [ngClass] ="{'is-active': this.active == 'computer'}"><a (click)="navigate('computer')">{{ 'header.headerMenu.computers' | translate }}</a></li>
+              <li [ngClass] ="{'is-active': this.active == 'company'}"><a (click)="navigate('company')">{{ 'header.headerMenu.companies' | translate }}</a></li>
+              <li [ngClass] ="{'is-active': this.active == 'user'}"><a (click)="navigate('user')">{{ 'header.headerMenu.users' | translate }}</a></li>
+            </ul>
+          </div>
+    </div>
+    <div>
+      <select #langSelect (change)="useLanguage(langSelect.value)">
+        <option *ngFor="let lang of languages" [value]="lang" [selected]="lang === currentLanguage">{{ lang }}</option>
+      </select>
+    </div>
+  </div>
+
+
+</nav>
