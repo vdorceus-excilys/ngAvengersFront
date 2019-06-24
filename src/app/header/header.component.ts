@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   currentLanguage = this.translate.currentLang;
 
   constructor(private translate: TranslateService) {
-    translate.addLangs(['en', 'fr']);
+    translate.addLangs(['en', 'es', 'fr', 'pt']);
     translate.setDefaultLang('en');
   }
 
