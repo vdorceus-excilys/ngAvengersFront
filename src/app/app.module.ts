@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from "@angular/common/http"
-import {MatFormFieldModule} from  '@angular/material/form-field'
-import {MatInputModule} from '@angular/material/input'
-import {MatToolbarModule} from '@angular/material/toolbar'
-import {MatMenuModule} from '@angular/material/menu'
-import {MatIconModule} from '@angular/material/icon'
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {HttpClientModule} from '@angular/common/http';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,9 +52,15 @@ import { HeaderComponent } from './header/header.component';
     MatInputModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatMenuModule, 
-    MatIconModule
+    MatMenuModule,
+    MatIconModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatButtonModule
 
+  ],
+  entryComponents: [
+      DeleteCompanyComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
