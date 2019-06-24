@@ -35,9 +35,7 @@ export class UserService {
   /** DELETE: delete the user from the server */
   deleteUser(user: UserModel | string): Observable<UserModel> {
     const id = typeof user === 'string' ? user : user.id;
-    const url = this.usersUrl + id;
-
-    return this.http.delete<UserModel>(url, httpOptions);
+    return this.http.delete<UserModel>(this.usersUrl + id, httpOptions);
   }
 
   /** PUT: update the user on the server */
