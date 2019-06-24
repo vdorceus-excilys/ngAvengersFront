@@ -19,13 +19,11 @@
     "introduced": "Date d'introduction",
     "discontinued": "Date de fin",
     "company": "Compagnie",
-    "filter": "Filtre",
-    "itemsPerPage": "Elements par page:"
+    "filter": "Filtre"
   },
   "listCompany": {
     "id": "Id",
     "name": "Nom",
-    "filter": "Filtre",
-    "itemsPerPage": "Elements par page:"
+    "filter": "Filtre"
   }
 }

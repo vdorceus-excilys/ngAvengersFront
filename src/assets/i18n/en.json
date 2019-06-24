@@ -7,7 +7,7 @@
     },
     "companyMenu": {
       "createCompany": "New Company",
-      "listCompanies": "List all computers"
+      "listCompanies": "List all companies"
     },
     "settingsMenu": {
       "createUser": "New User"
@@ -19,13 +19,11 @@
     "introduced": "Introduced",
     "discontinued": "Discontinued",
     "company": "Company",
-    "filter": "Filter",
-    "itemsPerPage": "Items per page:"
+    "filter": "Filter"
   },
   "listCompany": {
     "id": "Id",
     "name": "Name",
-    "filter": "Filter",
-    "itemsPerPage": "Items per page:"
+    "filter": "Filter"
   }
 }
