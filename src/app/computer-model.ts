@@ -6,4 +6,5 @@ export class ComputerModel {
     introduced: string;
     discontinued: string;
     company: CompanyModel;
+    version: string;
 }
