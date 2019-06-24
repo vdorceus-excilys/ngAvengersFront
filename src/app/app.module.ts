@@ -23,6 +23,7 @@ import { DeleteCompanyComponent } from './delete-company/delete-company.componen
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HeaderComponent } from './header/header.component';
+import { ListUsersComponent } from './list-users/list-users.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { HeaderComponent } from './header/header.component';
     CreateCompanyComponent,
     UpdateCompanyComponent,
     DeleteCompanyComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,7 @@ import { HeaderComponent } from './header/header.component';
     MatInputModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatMenuModule, 
+    MatMenuModule,
     MatIconModule
 
   ],
