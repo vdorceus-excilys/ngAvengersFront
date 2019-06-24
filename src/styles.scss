@@ -1,3 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@font-face {
+  font-family: "Wallman";
+  src: url(assets/fonts/Wallman-Bold.ttf) format("truetype");
+}
+
+$background-color:#464646;
+$orange:#F47023;
+$link-color: #808080;
+$hover-color: #ccc;
+
+$navbar-background-color: $background-color;
+$navbar-item-color: $orange;
+
+$tabs-border-bottom-color: $background-color;
+$tabs-link-active-border-bottom-color: $orange;
+$tabs-link-active-color: $orange;
+$tabs-link-color:$link-color;
+$tabs-link-hover-border-bottom-color: $link-color;
+$tabs-link-hover-color: $hover-color;
+$tabs-link-padding: 0.5em 1.5em;
+
+@import "../node_modules/bulma/sass/utilities/_all";
+@import "../node_modules/bulma/sass/base/_all.sass";
+@import "../node_modules/bulma/sass/components/navbar.sass";
+@import "../node_modules/bulma/sass/components/tabs.sass";
+
