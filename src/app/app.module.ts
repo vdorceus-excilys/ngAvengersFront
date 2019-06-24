@@ -53,12 +53,8 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatMenuModule,
-<<<<<<< HEAD
-    MatIconModule
-=======
     MatIconModule,
     CommonModule
->>>>>>> dev
 
   ],
   providers: [],
