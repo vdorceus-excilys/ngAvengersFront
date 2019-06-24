@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { SelectionModel } from '@angular/cdk/collections';
+import { CompanyDTO } from '../list-company/list-company.component';
 
 @Component({
   selector: 'app-delete-company',
   templateUrl: './delete-company.component.html',
   styleUrls: ['./delete-company.component.scss']
 })
-export class DeleteCompanyComponent implements OnInit {
+export class DeleteCompanyComponent {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<DeleteCompanyComponent>) { }
 
-  ngOnInit() {
+  cancel(): void {
+    this.dialogRef.close();
   }
 
 }
