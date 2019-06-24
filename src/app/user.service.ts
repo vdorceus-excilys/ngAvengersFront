@@ -12,11 +12,9 @@ const httpOptions = {
 })
 export class UserService {
 
-  private usersUrl: string;
+  private usersUrl = 'http://10.0.1.25:8080/webapp/api/v1/users/';
 
-  constructor(private http: HttpClient) {
-    this.usersUrl = 'http://10.0.1.25:8080/webapp/api/v1/users/';
-  }
+  constructor(private http: HttpClient) {}
 
   public getUsers(): Observable<UserModel[]> {
     return this.http.get<UserModel[]>(this.usersUrl);
