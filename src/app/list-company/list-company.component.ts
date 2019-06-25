@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import {MatTableDataSource, MatTable} from '@angular/material/table';
 import {SelectionModel} from '@angular/cdk/collections';
 import { ComputerModel } from '../computer-model';
 import { CompanyModel } from '../company-model';
@@ -9,6 +9,7 @@ import { filter } from 'minimatch';
 import { CompanyService } from '../company.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteCompanyComponent } from '../delete-company/delete-company.component';
+import { Router } from '@angular/router';
 
 export interface CompanyDTO {
   id: string;
@@ -30,13 +31,16 @@ export class ListCompanyComponent implements OnInit {
   displayedColumns: string[] = ['select', 'id', 'name'];
   dataSource: MatTableDataSource<CompanyDTO>;
   selection = new SelectionModel<CompanyDTO>(true, []);
-  @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatTable, {static: false}) table: MatTable<CompanyDTO>;
 
 
   constructor(private companyService: CompanyService,
               private changeDetector: ChangeDetectorRef,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private router: Router) {
+              }
 
   ngOnInit() {
     this.companyService.getCompanies().subscribe(
@@ -44,14 +48,14 @@ export class ListCompanyComponent implements OnInit {
     );
   }
 
-  refresh(data){
+  refresh(data) {
     this.dataSource = new MatTableDataSource(data);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.changeDetector.detectChanges();
   }
 
-  applyFilter(filterValue: string){
+  applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
@@ -87,23 +91,21 @@ export class ListCompanyComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      if(result) {
+      if (result) {
         this.selection.selected.forEach(element => {
           this.delete(element);
         });
+        this.refresh(this.dataSource.data);
       }
     });
   }
 
   delete(element: CompanyDTO): void {
-    this.companyService.deleteCompany(element.id).subscribe(
-      () => {
-        console.log(this.dataSource.data);
-        this.dataSource.data.splice(this.dataSource.data.indexOf(element, 1));
-        console.log(this.dataSource.data);
-        this.changeDetector.detectChanges();
-      }
-    );
+    const index = this.dataSource.data.indexOf(element);
+    if (index > -1) {
+      this.dataSource.data.splice(index, 1);
+      this.companyService.deleteCompany(element.id).subscribe();
+    }
   }
 
 }
