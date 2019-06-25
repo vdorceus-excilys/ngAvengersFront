@@ -26,6 +26,7 @@ import { DeleteCompanyComponent } from './delete-company/delete-company.componen
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HeaderComponent } from './header/header.component';
+import { ListUsersComponent } from './list-users/list-users.component';
 import { CommonModule } from '@angular/common';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -45,7 +46,8 @@ import { MatSortModule } from '@angular/material/sort';
     CreateCompanyComponent,
     UpdateCompanyComponent,
     DeleteCompanyComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListUsersComponent
   ],
   imports: [
     BrowserModule,
