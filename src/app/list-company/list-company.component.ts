@@ -28,7 +28,7 @@ export interface CompanyDTO {
 
 export class ListCompanyComponent implements OnInit {
 
-  displayedColumns: string[] = ['select', 'id', 'name'];
+  displayedColumns: string[] = ['select', 'name'];
   dataSource: MatTableDataSource<CompanyDTO>;
   selection = new SelectionModel<CompanyDTO>(true, []);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -84,13 +84,12 @@ export class ListCompanyComponent implements OnInit {
   }
 
   deleteDialog(): void {
-    const dialogRef = this.dialog.open(DeleteCompanyComponent, {
-      height: '400px',
-      width: '600px',
+    const dialogRef = this.selection.isEmpty ? null : this.dialog.open(DeleteCompanyComponent, {
+      height: '30%',
+      width: '30%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       if (result) {
         this.selection.selected.forEach(element => {
           this.delete(element);

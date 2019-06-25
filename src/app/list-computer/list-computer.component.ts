@@ -30,7 +30,7 @@ export interface ComputerDTO {
 
 export class ListComputerComponent implements OnInit {
 
-  displayedColumns: string[] = ['select', 'id', 'name', 'introduced', 'discontinued', 'company'];
+  displayedColumns: string[] = ['select', 'name', 'introduced', 'discontinued', 'company'];
   dataSource: MatTableDataSource<ComputerDTO>;
   selection = new SelectionModel<ComputerDTO>(true, []);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -44,17 +44,17 @@ export class ListComputerComponent implements OnInit {
     this.computerService.getComputers().subscribe(data => this.refresh(data));
   }
 
-  applyFilter(filterValue: string){
+  applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    if(this.dataSource.paginator){
+    if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
 
-  refresh(data){
+  refresh(data) {
     const dataDTO = data.map(computer => {
       return {
-        id: computer.id, name: computer.name, introduced: computer.introduced, 
+        id: computer.id, name: computer.name, introduced: computer.introduced,
         discontinued: computer.discontinued, company: computer.companyName
       };
     });
@@ -86,13 +86,12 @@ export class ListComputerComponent implements OnInit {
   }
 
   deleteDialog(): void {
-    const dialogRef = this.dialog.open(DeleteComputerComponent, {
-      height: '400px',
-      width: '600px',
+    const dialogRef = this.selection.isEmpty ? null : this.dialog.open(DeleteComputerComponent, {
+      height: '30%',
+      width: '30%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       if (result) {
         this.selection.selected.forEach(element => {
           this.delete(element);
