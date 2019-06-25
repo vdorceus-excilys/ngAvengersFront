@@ -40,7 +40,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CreateCompanyComponent,
     UpdateCompanyComponent,
     DeleteCompanyComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +52,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatMenuModule, 
+    MatMenuModule,
     MatIconModule,
     MatSelectModule,
     FormsModule,
