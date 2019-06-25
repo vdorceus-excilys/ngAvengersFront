@@ -35,12 +35,12 @@ export class CreateComputerComponent implements OnInit {
   }
   ngOnInit() {
     this.initForm();
-    this.companyService.getCompanies().subscribe(company =>{this.companyList = company} );
+    this.companyService.getCompanies().subscribe(company => { this.companyList = company; } );
 
   }
   initForm() {
     this.computerForm = this.formBuilder.group({
-      name: ['',Validators.required ],
+      name: ['', Validators.required ],
       introduced: '',
       discontinued: '',
       company: ''
@@ -69,7 +69,7 @@ export class CreateComputerComponent implements OnInit {
             version: 0 ,
           },
           version: 0,
-        }
+        };
 
       } else {
         this.computerModel = {
@@ -83,7 +83,7 @@ export class CreateComputerComponent implements OnInit {
             version: 0,
           },
           version: 0,
-        }
+        };
       }
       this.computerService.addComputer(this.computerModel).subscribe();
       this.router.navigate(['/computer/']);

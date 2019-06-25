@@ -78,13 +78,12 @@ export class UpdateComputerComponent implements OnInit {
       company: {
         id: this.computer.companyId.toString(),
         name: this.computer.companyName,
-        version:0
+        version: 0
       },
-      version:this.computer.version,
+      version: this.computer.version,
 
     }
     this.computerService.updateComputer(this.computerModel).subscribe();
     this.router.navigate(['/computer']);
   }
-
 }
