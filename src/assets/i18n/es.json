@@ -3,7 +3,7 @@
     "title": "Sistema de gestión de computador",
     "headerMenu": {
       "computers": "Computadores",
-      "companies": "Compañias",
+      "companies": "Empresas",
       "users": "Usuarios"
     }
   },
@@ -12,7 +12,7 @@
     "name": "Nombre",
     "introduced": "Fecha introducida",
     "discontinued": "Fecha descontinuada",
-    "company": "Compañia",
+    "company": "Empresa",
     "filter": "Filtrar"
   },
   "listCompany": {
