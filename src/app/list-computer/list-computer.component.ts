@@ -6,13 +6,16 @@ import { ComputerModel } from '../computer-model';
 import { CompanyModel } from '../company-model';
 import { filter } from 'minimatch';
 import { ComputerService } from '../computer.service';
+import { SelectionModel } from '@angular/cdk/collections';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteComputerComponent } from '../delete-computer/delete-computer.component';
 
 export interface ComputerDTO {
-  id: number;
+  id: string;
   name: string;
   introduced: string;
   discontinued: string;
-  company: string   
+  company: string;
 }
 
 @Component({
@@ -27,28 +30,31 @@ export interface ComputerDTO {
 
 export class ListComputerComponent implements OnInit {
 
-  displayedColumns: string[] = ["id","name","introduced","discontinued","company"];
+  displayedColumns: string[] = ['select', 'name', 'introduced', 'discontinued', 'company'];
   dataSource: MatTableDataSource<ComputerDTO>;
-  @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
+  selection = new SelectionModel<ComputerDTO>(true, []);
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private computerService: ComputerService,private changeDetector: ChangeDetectorRef) {}
+  constructor(private computerService: ComputerService,
+              private changeDetector: ChangeDetectorRef,
+              public dialog: MatDialog) {}
 
   ngOnInit() {
     this.computerService.getComputers().subscribe(data => this.refresh(data));
   }
 
-  applyFilter(filterValue: string){
+  applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    if(this.dataSource.paginator){
+    if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
 
-  refresh(data){
+  refresh(data) {
     const dataDTO = data.map(computer => {
       return {
-        id: computer.id, name: computer.name, introduced: computer.introduced, 
+        id: computer.id, name: computer.name, introduced: computer.introduced,
         discontinued: computer.discontinued, company: computer.companyName
       };
     });
@@ -56,6 +62,51 @@ export class ListComputerComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.changeDetector.detectChanges();
+  }
+
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  /** The label for the checkbox on the passed row */
+  checkboxLabel(row?: ComputerDTO): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
+  }
+
+  deleteDialog(): void {
+    const dialogRef = this.selection.isEmpty ? null : this.dialog.open(DeleteComputerComponent, {
+      height: '30%',
+      width: '30%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.selection.selected.forEach(element => {
+          this.delete(element);
+        });
+        this.refresh(this.dataSource.data);
+      }
+    });
+  }
+
+  delete(element: ComputerDTO): void {
+    const index = this.dataSource.data.indexOf(element);
+    if (index > -1) {
+      this.dataSource.data.splice(index, 1);
+      this.computerService.deleteComputer(element.id).subscribe();
+    }
   }
 
 }

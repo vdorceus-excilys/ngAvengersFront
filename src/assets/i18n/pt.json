@@ -1,0 +1,23 @@
+{
+  "header": {
+    "title": "Sistema de Gerenciamento de Computador",
+    "headerMenu": {
+      "computers": "Computadores",
+      "companies": "Empresas",
+      "users": "Usuários"
+    }
+  },
+  "listComputers": {
+    "id": "Id",
+    "name": "Nome",
+    "introduced": "Data de introdução",
+    "discontinued": "Data descontinuada",
+    "company": "Empresa",
+    "filter": "Filtro"
+  },
+  "listCompany": {
+    "id": "Id",
+    "name": "Nome",
+    "filter": "Filtro"
+  }
+}

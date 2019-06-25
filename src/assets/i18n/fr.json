@@ -1,0 +1,23 @@
+{
+  "header": {
+    "title": "Système de Gestion d'Ordinateur",
+    "headerMenu": {
+      "computers": "Ordinateurs",
+      "companies": "Entreprises",
+      "users": "Utilisateurs"
+    }
+  },
+  "listComputers": {
+    "id": "Id",
+    "name": "Nom",
+    "introduced": "Date d'introduction",
+    "discontinued": "Date de fin",
+    "company": "Entreprise",
+    "filter": "Filtre"
+  },
+  "listCompany": {
+    "id": "Id",
+    "name": "Nom",
+    "filter": "Filtre"
+  }
+}

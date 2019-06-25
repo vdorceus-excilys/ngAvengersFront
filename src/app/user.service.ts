@@ -12,11 +12,9 @@ const httpOptions = {
 })
 export class UserService {
 
-  private usersUrl: string;
+  private usersUrl = 'http://10.0.1.25:8080/webapp/api/v1/users/';
 
-  constructor(private http: HttpClient) {
-    this.usersUrl = 'http://10.0.1.25:8080/webapp/api/v1/users/';
-  }
+  constructor(private http: HttpClient) {}
 
   public getUsers(): Observable<UserModel[]> {
     return this.http.get<UserModel[]>(this.usersUrl);
@@ -37,9 +35,7 @@ export class UserService {
   /** DELETE: delete the user from the server */
   deleteUser(user: UserModel | string): Observable<UserModel> {
     const id = typeof user === 'string' ? user : user.id;
-    const url = this.usersUrl + id;
-
-    return this.http.delete<UserModel>(url, httpOptions);
+    return this.http.delete<UserModel>(this.usersUrl + id, httpOptions);
   }
 
   /** PUT: update the user on the server */
