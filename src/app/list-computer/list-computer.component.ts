@@ -6,6 +6,9 @@ import { ComputerModel } from '../computer-model';
 import { CompanyModel } from '../company-model';
 import { filter } from 'minimatch';
 import { ComputerService } from '../computer.service';
+import { SelectionModel } from '@angular/cdk/collections';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteComputerComponent } from '../delete-computer/delete-computer.component';
 
 export interface ComputerDTO {
   id: number;
@@ -27,12 +30,15 @@ export interface ComputerDTO {
 
 export class ListComputerComponent implements OnInit {
 
-  displayedColumns: string[] = ["id","name","introduced","discontinued","company"];
+  displayedColumns: string[] = ['select', 'id', 'name', 'introduced', 'discontinued', 'company'];
   dataSource: MatTableDataSource<ComputerDTO>;
+  selection = new SelectionModel<ComputerDTO>(true, []);
   @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private computerService: ComputerService,private changeDetector: ChangeDetectorRef) {}
+  constructor(private computerService: ComputerService,
+              private changeDetector: ChangeDetectorRef,
+              public dialog: MatDialog) {}
 
   ngOnInit() {
     this.computerService.getComputers().subscribe(data => this.refresh(data));
@@ -56,6 +62,52 @@ export class ListComputerComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.changeDetector.detectChanges();
+  }
+
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  /** The label for the checkbox on the passed row */
+  checkboxLabel(row?: ComputerDTO): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
+  }
+
+  deleteDialog(): void {
+    const dialogRef = this.dialog.open(DeleteComputerComponent, {
+      height: '400px',
+      width: '600px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result) {
+        this.selection.selected.forEach(element => {
+          this.delete(element);
+        });
+        this.refresh(this.dataSource.data);
+      }
+    });
+  }
+
+  delete(element: ComputerDTO): void {
+    const index = this.dataSource.data.indexOf(element);
+    if (index > -1) {
+      this.dataSource.data.splice(index, 1);
+      this.computerService.deleteComputer(element.id).subscribe();
+    }
   }
 
 }

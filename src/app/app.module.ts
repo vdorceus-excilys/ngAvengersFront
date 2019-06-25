@@ -60,7 +60,8 @@ import { HeaderComponent } from './header/header.component';
 
   ],
   entryComponents: [
-      DeleteCompanyComponent
+      DeleteCompanyComponent,
+      DeleteComputerComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
