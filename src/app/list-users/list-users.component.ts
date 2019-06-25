@@ -34,7 +34,8 @@ export class ListUsersComponent implements OnInit {
   refresh(data: any) {
     const dataDTO = data.map(user => {
         return {
-          id: user.id, username: user.username,
+          id: user.id,
+          username: user.username,
           enabled: (user.enabled) ? 'ENABLED' : 'DISABLED',
           role: (user.role === 'ROLE_ADMIN') ? 'ADMIN' : 'USER'
         } as UserDTO;
