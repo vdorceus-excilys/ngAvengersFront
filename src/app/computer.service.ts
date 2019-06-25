@@ -58,7 +58,7 @@ export class ComputerService {
       discontinued: computer.discontinued,
       companyName: computer.company.name,
       companyId: computer.company.id,
-      version:computer.version
+      version: computer.version
     };
 
     return this.http.put(this.computersUrl + computerDTO.id, computerDTO, httpOptions);
