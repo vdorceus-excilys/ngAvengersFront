@@ -11,11 +11,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteComputerComponent } from '../delete-computer/delete-computer.component';
 
 export interface ComputerDTO {
-  id: number;
+  id: string;
   name: string;
   introduced: string;
   discontinued: string;
-  company: string   
+  company: string;
 }
 
 @Component({
@@ -33,7 +33,7 @@ export class ListComputerComponent implements OnInit {
   displayedColumns: string[] = ['select', 'id', 'name', 'introduced', 'discontinued', 'company'];
   dataSource: MatTableDataSource<ComputerDTO>;
   selection = new SelectionModel<ComputerDTO>(true, []);
-  @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(private computerService: ComputerService,
