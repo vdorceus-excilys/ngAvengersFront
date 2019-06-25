@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { MatPaginatorIntl } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  languages = this.translate.getLangs();
+  currentLanguage = this.translate.currentLang;
+  active = 'computer';
+  paginator: MatPaginatorIntl;
 
-  ngOnInit() {
+  constructor(private translate: TranslateService, private router: Router) {
+    translate.addLangs(['en', 'es', 'fr', 'pt']);
+    translate.setDefaultLang('en');
   }
 
+  ngOnInit() { }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
+  }
+
+  navigate(route: string) {
+    this.active = route;
+    this.router.navigate(['/' + route]);
+  }
 }
