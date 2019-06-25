@@ -1,33 +1,27 @@
-<div class="example-container">
-  <form [formGroup]="computerForm" (ngSubmit)="onSubmitForm()">
-
-  <mat-form-field>
-    <input matInput formControlName="name" placeholder="name">
-  </mat-form-field>
-    <div>
-    </div>
-  <mat-form-field>
-    <input matInput type="text" formControlName="introduced" placeholder="introduced">
-  </mat-form-field>
-    <div>
-    </div>
-  <mat-form-field>
-    <input matInput type="text" formControlName="discontinued" placeholder="discontinued">
-  </mat-form-field>
-    <div>
-    </div>
-  <mat-form-field formControlName="company">
-    <div class="form-group">
-      <label for="company">Company</label>
-      <select class="form-control" formControlName="company" id="company" required>
-        <option mat-option  *ngFor="let company of companyList" [ngValue]="{id: company.id, name: company.name}" ngDefaultControl>{{company.name}}
-        </option>
-      </select>
-    </div>
-    <div>
-  </div>
-  </mat-form-field>
-    <div></div>
+<div class="formulaire">
+  <form ngNativeValidate [formGroup]="computerForm" (ngSubmit)="onSubmitForm()">
+    <mat-form-field>
+      <input matInput placeholder="name" required formControlName="name" id="name" >
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <input matInput placeholder="introduced" formControlName="introduced" id="introduced" >
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <input matInput placeholder="discontinued" formControlName="discontinued" id ="discontinued">
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <div class="form-group">
+        <label for="company">Company</label>
+        <mat-select class="form-control" formControlName="company" id="company" required>
+          <mat-option *ngFor="let company of companyList" [value]="company.id">{{company.name}}
+          </mat-option>
+        </mat-select>
+      </div>
+    </mat-form-field>
+    <br/>
     <button class="btn btn-primary">Enregistrer</button>
   </form>
 </div>

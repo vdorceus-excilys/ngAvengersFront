@@ -1,7 +1,7 @@
-<div class="example-container">
-  <form [formGroup]="companyForm" (ngSubmit)="onSubmitForm()">
+<div class="formulaire">
+  <form ngNativeValidate [formGroup]="companyForm" (ngSubmit)="onSubmitForm()">
     <mat-form-field>
-      <input matInput formControlName="name" placeholder="name">
+      <input matInput formControlName="name" placeholder="name" required>
     </mat-form-field>
     <div></div>
     <button class="btn btn-primary">Enregistrer</button>

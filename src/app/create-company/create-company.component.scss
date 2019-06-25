@@ -1,8 +1,8 @@
-.example-container {
+.formulaire{
+  align-items: center;
   display: flex;
   flex-direction: column;
-}
-
-.example-container > * {
-  width: 100%;
+  justify-content: center;
+  height: 500px;
+  width:100%;
 }

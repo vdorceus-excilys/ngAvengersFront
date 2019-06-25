@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CompanyModel} from '../company-model';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validator, Validators} from '@angular/forms';
 import {ComputerService} from '../computer.service';
 import {Router} from '@angular/router';
 import {CompanyService} from '../company.service';
@@ -37,16 +37,14 @@ export class UpdateCompanyComponent implements OnInit {
       this.id = (params['id']);
     });
 
-    this.companyService.getCompany(this.id).subscribe(data =>this.company=data)
+    this.companyService.getCompany(this.id).subscribe(comp => this.company = comp)
     this.initForm();
-
-    console.log(this.id);
 
   }
 
   initForm() {
     this.companyForm = this.formBuilder.group({
-      name: '',
+      name: ['', Validators.required]
 
     });
   }
@@ -55,8 +53,8 @@ export class UpdateCompanyComponent implements OnInit {
     const formValue = this.companyForm.value;
     if (formValue['name'] != '') { this.company.name = formValue['name']; }
 
-    this.companyService.updateCompany(this.company)
-    this.router.navigate(['/companies']);
+    this.companyService.updateCompany(this.company).subscribe()
+    this.router.navigate(['/company/']);
   }
 
 }

@@ -31,9 +31,10 @@ export class CreateCompanyComponent implements OnInit {
 
   onSubmitForm() {
     this.company = new CompanyModel()
-    this.company.id = null
     this.company.name = this.companyForm.value['name']
-    this.companyService.createCompany(this.company)
-    this.router.navigate(['/computers/']);
+
+    console.log(this.company.name);
+    this.companyService.createCompany(this.company).subscribe();
+    this.router.navigate(['/company/']);
   }
 }
