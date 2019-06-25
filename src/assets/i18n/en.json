@@ -1,0 +1,23 @@
+{
+  "header": {
+    "title": "Computer Management System",
+    "headerMenu": {
+      "computers": "Computers",
+      "companies": "Companies",
+      "users": "Users"
+    }
+  },
+  "listComputers": {
+    "id": "Id",
+    "name": "Name",
+    "introduced": "Introduced",
+    "discontinued": "Discontinued",
+    "company": "Company",
+    "filter": "Filter"
+  },
+  "listCompany": {
+    "id": "Id",
+    "name": "Name",
+    "filter": "Filter"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "header": {
+    "title": "Sistema de gestión de computador",
+    "headerMenu": {
+      "computers": "Computadores",
+      "companies": "Compañias",
+      "users": "Usuarios"
+    }
+  },
+  "listComputers": {
+    "id": "Id",
+    "name": "Nombre",
+    "introduced": "Fecha introducida",
+    "discontinued": "Fecha descontinuada",
+    "company": "Compañia",
+    "filter": "Filtrar"
+  },
+  "listCompany": {
+    "id": "Id",
+    "name": "Nombre",
+    "filter": "Filtrar"
+  }
+}
