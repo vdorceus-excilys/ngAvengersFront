@@ -84,9 +84,9 @@ export class ListCompanyComponent implements OnInit {
   }
 
   deleteDialog(): void {
-    const dialogRef = this.selection.isEmpty ? null : this.dialog.open(DeleteCompanyComponent, {
-      height: '30%',
-      width: '30%',
+    const dialogRef = this.selection.isEmpty() ? null : this.dialog.open(DeleteCompanyComponent, {
+      height: '35%',
+      width: '35%',
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -86,9 +86,9 @@ export class ListComputerComponent implements OnInit {
   }
 
   deleteDialog(): void {
-    const dialogRef = this.selection.isEmpty ? null : this.dialog.open(DeleteComputerComponent, {
-      height: '30%',
-      width: '30%',
+    const dialogRef = this.selection.isEmpty() ? null : this.dialog.open(DeleteComputerComponent, {
+      height: '35%',
+      width: '35%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
