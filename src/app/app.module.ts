@@ -30,6 +30,7 @@ import { CommonModule } from '@angular/common';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     MatButtonModule,
     CommonModule,
     HttpClientModule,
+    MatSortModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
