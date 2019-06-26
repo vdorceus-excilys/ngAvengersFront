@@ -45,7 +45,7 @@ export class UpdateComputerComponent implements OnInit {
     });
 
     this.companyService.getCompanies().subscribe(companies => { this.companyList = companies; });
-    this.computerService.getComputer(this.id).subscribe(computer => {this.computer = computer; });
+    this.computerService.getComputer(this.id).subscribe(computer => {this.computer = computer; console.log(this.computer) });
 
     this.initForm();
   }
@@ -83,6 +83,8 @@ export class UpdateComputerComponent implements OnInit {
       version: this.computer.version,
 
     }
+
+    console.log(this.computerModel)
     this.computerService.updateComputer(this.computerModel).subscribe();
     this.router.navigate(['/computer']);
   }
