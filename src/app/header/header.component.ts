@@ -24,7 +24,9 @@ export class HeaderComponent implements OnInit {
     translate.setDefaultLang('en');
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.router.navigate(['/computer']);
+  }
 
   logout() {
     this.eventEmitter.emit('logging out from header');
@@ -42,4 +44,5 @@ export class HeaderComponent implements OnInit {
   toggleDropdown() {
     this.activeDropdown = !this.activeDropdown;
   }
+
 }
