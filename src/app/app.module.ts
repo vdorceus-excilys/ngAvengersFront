@@ -11,6 +11,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {StorageServiceModule} from 'angular-webstorage-service';
+import {MatCardModule, MatProgressSpinnerModule} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +36,9 @@ import { CommonModule } from '@angular/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSortModule } from '@angular/material/sort';
+import { SecurityComponent } from './security/security.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -49,7 +54,9 @@ import { MatSortModule } from '@angular/material/sort';
     UpdateCompanyComponent,
     DeleteCompanyComponent,
     HeaderComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    SecurityComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +81,11 @@ import { MatSortModule } from '@angular/material/sort';
     CommonModule,
     HttpClientModule,
     MatSortModule,
+    StorageServiceModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    FormsModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

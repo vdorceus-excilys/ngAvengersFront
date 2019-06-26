@@ -1,0 +1,16 @@
+<div id="login">
+  <div class="login-card">
+
+    <div class="card-title">
+      <h1>Please Sign In</h1>
+    </div>
+
+    <div class="content">
+      <form method="POST" action="#">
+        <input [(ngModel)]="username" id="username" type="text" name="username" title="username" placeholder="Username" required autofocus>
+        <input [(ngModel)]="password" id="password" type="password" name="password" title="password" placeholder="Password" required>
+      </form>
+      <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+    </div>
+  </div>
+</div>
