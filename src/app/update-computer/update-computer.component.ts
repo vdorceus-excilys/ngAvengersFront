@@ -83,8 +83,6 @@ export class UpdateComputerComponent implements OnInit {
       version: this.computer.version,
 
     }
-
-    console.log(this.computerModel)
     this.computerService.updateComputer(this.computerModel).subscribe();
     this.router.navigate(['/computer']);
   }
