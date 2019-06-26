@@ -7,17 +7,37 @@ import {Router} from '@angular/router';
 import {ComputerModel} from '../computer-model';
 import {CompanyService} from '../company.service';
 import {CompanyModel} from '../company-model';
-import {MatInputModule} from '@angular/material';
+import {MatInputModule, DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS} from '@angular/material';
+import {MomentDateAdapter} from '@angular/material-moment-adapter';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ComputerDTO} from '../list-computer/list-computer.component';
 import {ComputerDTOModel} from '../computerDTO-model';
+import { Moment } from 'moment';
+
+export const MY_FORMATS = {
+  display: {
+    dateInput: 'DD-MM-YYYY',
+    monthYearLabel: 'MMM YYYY',
+  },
+};
 
 @Component({
   selector: 'app-create-computer',
   templateUrl: './create-computer.component.html',
-  styleUrls: ['./create-computer.component.scss']
+  styleUrls: ['./create-computer.component.scss'],
+  providers: [
+    // `MomentDateAdapter` can be automatically provided by importing `MomentDateModule` in your
+    // application's root module. We provide it at the component level here, due to limitations of
+    // our example generation script.
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  ]
 })
 export class CreateComputerComponent implements OnInit {
+
+  minDate = new Date(1943, 0, 1);
+  maxDate = new Date(2020, 0, 1);
 
   computerForm: FormGroup;
 
@@ -46,13 +66,17 @@ export class CreateComputerComponent implements OnInit {
       company: ''
     });
   }
-
+  formatDate(date: Moment){
+    return date.clone().locale('en').format('DD-MM-YYYY');
+  }
   onSubmitForm() {
       const formValue = this.computerForm.value;
       this.computer = new ComputerDTOModel();
       this.computer.name = formValue.name;
-      this.computer.introduced = formValue.introduced;
-      this.computer.discontinued = formValue.discontinued;
+
+      if (formValue.introduced) { this.computer.introduced = this.formatDate(formValue.introduced); }
+
+      if (formValue.discontinued) { this.computer.discontinued = this.formatDate(formValue.discontinued); }
       if (formValue.company != '') {
         this.computer.companyId = formValue.company;
         const company = this.companyList.find(comp => parseInt(comp.id, 10) == this.computer.companyId);
@@ -85,6 +109,7 @@ export class CreateComputerComponent implements OnInit {
           version: 0,
         };
       }
+      console.log(this.computerModel.introduced)
       this.computerService.addComputer(this.computerModel).subscribe();
       this.router.navigate(['/computer/']);
   }
