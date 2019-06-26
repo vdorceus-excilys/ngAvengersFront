@@ -14,7 +14,10 @@
         </ul>
       </div>
     </div>
-    <div class="column is-1 is-offset-3">
+    <div class="columns is-1 is-offset-2">
+        <button (click)="logout()" >Logout</button>
+    </div>
+    <div class="column is-1 ">
       <div class="control has-icons-left">
         <div class="select is-small" id="language">
           <select #langSelect (change)="useLanguage(langSelect.value)">

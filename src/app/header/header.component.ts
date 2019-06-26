@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { MatPaginatorIntl } from '@angular/material/paginator';
@@ -14,6 +14,8 @@ export class HeaderComponent implements OnInit {
   currentLanguage = this.translate.currentLang;
   active = 'computer';
   paginator: MatPaginatorIntl;
+  @Output() eventEmitter: EventEmitter<any> = new EventEmitter();
+
 
   constructor(private translate: TranslateService, private router: Router) {
     translate.addLangs(['en', 'es', 'fr', 'pt']);
@@ -21,6 +23,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() { }
+
+  logout() {
+    console.log('logout - header');
+    this.eventEmitter.emit('logging out from header');
+  }
 
   useLanguage(language: string) {
     this.translate.use(language);
