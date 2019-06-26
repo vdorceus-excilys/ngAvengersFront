@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
 import { UserModel } from './user-model';
+import { Credentials } from './security/security.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +12,28 @@ import { UserModel } from './user-model';
 export class AppComponent implements OnInit {  
   title = 'ngFront';
 
-  user: UserModel;
+  user: Credentials;
   data: any[];
 
 
-  constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService){}
+  constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService, private router: Router){}
 
   ngOnInit(): void {
-    this.user = this.storage.get('user') as UserModel;
+    this.user = this.storage.get('user') as Credentials;
+  }
+
+  updateToken(credentials: Credentials){
+    this.user = credentials;
+    this.router.navigate(['/computer']);
+    console.log('navigating to controller');
+  }
+
+  logout(something) {
+    console.log(something);
+    this.user = undefined;
+    this.storage.remove('user');
+    this.router.navigate(['/']);
+    console.log('loging out');
   }
 
   persist(key: string, value: any) {
