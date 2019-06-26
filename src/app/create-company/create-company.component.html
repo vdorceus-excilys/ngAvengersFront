@@ -1,9 +1,16 @@
 <div class="formulaire">
+  <div class ="unitForm">
+  <h1>Add a company</h1>
+<br/>
+  <br/>
+  <br/>
   <form ngNativeValidate [formGroup]="companyForm" (ngSubmit)="onSubmitForm()">
     <mat-form-field>
-      <input matInput formControlName="name" placeholder="name" required>
+      <input matInput formControlName="name" placeholder="{{ 'listComputers.name' | translate }}" required>
     </mat-form-field>
     <div></div>
     <button class="btn btn-primary">Enregistrer</button>
   </form>
 </div>
+</div>
+
