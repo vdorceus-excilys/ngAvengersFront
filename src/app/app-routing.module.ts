@@ -9,48 +9,54 @@ import { ListCompanyComponent } from './list-company/list-company.component';
 import { CreateCompanyComponent } from './create-company/create-company.component';
 import { UpdateCompanyComponent } from './update-company/update-company.component';
 import { DetailsCompanyComponent } from './details-company/details-company.component';
+import { ErrorsComponent } from './errors/error-component/errors.component';
 
 
 const routes: Routes = [
   {
-    path: "computer",
+    path: 'computer',
     component: ListComputerComponent,
-    pathMatch: "full"
+    pathMatch: 'full'
   },
   {
-    path: "computer/create",
+    path: 'computer/create',
     component: CreateComputerComponent,
-    pathMatch: "full"
+    pathMatch: 'full'
   },
   {
-    path: "computer/update/:id",
+    path: 'computer/update/:id',
     component: UpdateComputerComponent,
-    pathMatch: "full"
+    pathMatch: 'full'
   },
   {
-    path: "computer/show/:id",
+    path: 'computer/show/:id',
     component: DetailsComputerComponent,
-    pathMatch: "full"
+    pathMatch: 'full'
   },
   {
-    path: "company",
+    path: 'company',
     component: ListCompanyComponent,
-    pathMatch: "full"
+    pathMatch: 'full'
   },
   {
-    path: "company/create",
+    path: 'company/create',
     component: CreateCompanyComponent ,
-    pathMatch: "full"
+    pathMatch: 'full'
   },
   {
-    path: "company/update/:id",
+    path: 'company/update/:id',
     component: UpdateCompanyComponent ,
-    pathMatch: "full"
+    pathMatch: 'full'
   },
   {
-    path: "company/show/:id",
+    path: 'company/show/:id',
     component: DetailsCompanyComponent,
-    pathMatch: "full"
+    pathMatch: 'full'
+  },
+  {
+    path: 'error',
+    component: ErrorsComponent,
+    pathMatch: 'full'
   }
 ];
 
