@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {  
+export class AppComponent implements OnInit {
   title = 'ngFront';
 
   user: Credentials;
@@ -25,15 +25,12 @@ export class AppComponent implements OnInit {
   updateToken(credentials: Credentials){
     this.user = credentials;
     this.router.navigate(['/computer']);
-    console.log('navigating to controller');
   }
 
   logout(something) {
-    console.log(something);
     this.user = undefined;
     this.storage.remove('user');
     this.router.navigate(['/']);
-    console.log('loging out');
   }
 
   persist(key: string, value: any) {

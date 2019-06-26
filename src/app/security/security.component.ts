@@ -28,12 +28,10 @@ export class SecurityComponent implements OnInit {
   }
 
   authenticate(credentials) {
-    console.log('authenticate');
     let valid: boolean;
     this.currentUser = this.users.find(user => user.username === credentials.username);
-    console.log(this.currentUser);
     if (this.currentUser === undefined) {
-      console.log('user not found in list of users');
+      // User not found in list of users
     } else if (this.currentUser.enabled) {
       this.userService.checkPassword(credentials.password, this.currentUser.password).subscribe(
         (state) => {
@@ -43,15 +41,13 @@ export class SecurityComponent implements OnInit {
             credentials.role = this.currentUser.role;
             this.storage.set('user', credentials);
             this.eventEmitter.emit(credentials);
-            console.log('successful login');
-            console.log(credentials);
           } else {
-            console.log('failed login');
+            // failed login
           }
         }
       );
     } else {
-      console.log('user not enabled');
+      // user not enabled
     }
   }
 

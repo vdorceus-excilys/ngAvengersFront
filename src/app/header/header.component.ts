@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() { }
 
   logout() {
-    console.log('logout - header');
     this.eventEmitter.emit('logging out from header');
   }
 
