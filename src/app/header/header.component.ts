@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { MatPaginatorIntl } from '@angular/material/paginator';
+import { Credentials } from '../security/security.component';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,9 @@ export class HeaderComponent implements OnInit {
   currentLanguage = this.translate.currentLang;
   active = 'computer';
   paginator: MatPaginatorIntl;
+  @Output() eventEmitter: EventEmitter<any> = new EventEmitter();
+  @Input() credentials: Credentials;
+  activeDropdown = false;
 
   constructor(private translate: TranslateService, private router: Router) {
     translate.addLangs(['en', 'es', 'fr', 'pt']);
@@ -22,6 +26,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() { }
 
+  logout() {
+    this.eventEmitter.emit('logging out from header');
+  }
+
   useLanguage(language: string) {
     this.translate.use(language);
   }
@@ -29,5 +37,9 @@ export class HeaderComponent implements OnInit {
   navigate(route: string) {
     this.active = route;
     this.router.navigate(['/' + route]);
+  }
+
+  toggleDropdown() {
+    this.activeDropdown = !this.activeDropdown;
   }
 }
