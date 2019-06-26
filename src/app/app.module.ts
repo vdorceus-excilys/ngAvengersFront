@@ -26,9 +26,10 @@ import { DeleteCompanyComponent } from './delete-company/delete-company.componen
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HeaderComponent } from './header/header.component';
+import {MatSelectModule} from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { CommonModule } from '@angular/common';
-
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSortModule } from '@angular/material/sort';
@@ -61,6 +62,9 @@ import { MatSortModule } from '@angular/material/sort';
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatDialogModule,
     MatCheckboxModule,
     MatButtonModule,

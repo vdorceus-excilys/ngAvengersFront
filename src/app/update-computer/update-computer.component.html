@@ -1,3 +1,27 @@
-<p>
-  update-computer works!
-</p>
+<div *ngIf="computer" class="formulaire">
+  <form ngNativeValidate [formGroup]="computerForm" (ngSubmit)="onSubmitForm()">
+    <mat-form-field>
+      <input matInput placeholder="name" formControlName="name" required value="{{computer.name}}" >
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <input matInput placeholder="introduced" formControlName="introduced" value="{{computer.introduced}}">
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <input matInput placeholder="discontinued" formControlName="discontinued" value="{{computer.discontinued}}">
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <div class="form-group">
+        <label for="company">Company</label>
+        <mat-select [(ngModel)]="computer.companyId" class="form-control" formControlName="company" id="company" required>
+          <mat-option *ngFor="let company of companyList" [value]="company.id">{{company.name}}
+          </mat-option>
+        </mat-select>
+      </div>
+    </mat-form-field>
+    <br/>
+    <button class="btn btn-primary">Enregistrer</button>
+  </form>
+</div>
