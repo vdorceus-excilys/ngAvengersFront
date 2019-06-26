@@ -88,7 +88,7 @@ export class ListComputerComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
   }
 
-  deleteDialog(row: any): void {
+  deleteDialog(row: ComputerDTO): void {
     console.log(row);
     const dialogRef = this.dialog.open(DeleteComputerComponent, {
       height: '35%',
@@ -104,12 +104,13 @@ export class ListComputerComponent implements OnInit {
     });
   }
 
-  delete(element: ComputerDTO): void {
-    console.log(element);
-    const index = this.dataSource.data.indexOf(element);
+  delete(computer: ComputerDTO): void {
+    console.log(computer.id);
+    const index = this.dataSource.data.indexOf(computer);
     if (index > -1) {
+      console.log(index);
       this.dataSource.data.splice(index, 1);
-      this.computerService.deleteComputer(element.id).subscribe();
+      this.computerService.deleteComputer('' + computer.id).subscribe();
     }
   }
 
