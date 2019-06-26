@@ -65,7 +65,6 @@ export class ComputerService {
       companyName: computer.company.name,
       companyId: computer.company.id,
       version: computer.version
-
     };
     console.log(computerDTO);
 
