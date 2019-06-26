@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {FormBuilder, FormControl, FormGroup, Validator, Validators} from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {ComputerService} from '../computer.service';
 import {Router} from '@angular/router';
 import {ComputerModel} from '../computer-model';
@@ -9,8 +8,6 @@ import {CompanyService} from '../company.service';
 import {CompanyModel} from '../company-model';
 import {MatInputModule, DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS} from '@angular/material';
 import {MomentDateAdapter} from '@angular/material-moment-adapter';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {ComputerDTO} from '../list-computer/list-computer.component';
 import {ComputerDTOModel} from '../computerDTO-model';
 import { Moment } from 'moment';
 
@@ -26,9 +23,6 @@ export const MY_FORMATS = {
   templateUrl: './create-computer.component.html',
   styleUrls: ['./create-computer.component.scss'],
   providers: [
-    // `MomentDateAdapter` can be automatically provided by importing `MomentDateModule` in your
-    // application's root module. We provide it at the component level here, due to limitations of
-    // our example generation script.
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
 
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
@@ -66,7 +60,7 @@ export class CreateComputerComponent implements OnInit {
       company: ''
     });
   }
-  formatDate(date: Moment){
+  formatDate(date: Moment) {
     return date.clone().locale('en').format('DD-MM-YYYY');
   }
   onSubmitForm() {
@@ -109,7 +103,7 @@ export class CreateComputerComponent implements OnInit {
           version: 0,
         };
       }
-      console.log(this.computerModel.introduced)
+      console.log(this.computerModel.introduced);
       this.computerService.addComputer(this.computerModel).subscribe();
       this.router.navigate(['/computer/']);
   }
