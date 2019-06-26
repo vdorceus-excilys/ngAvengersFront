@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-delete-computer',
   templateUrl: './delete-computer.component.html',
   styleUrls: ['./delete-computer.component.scss']
 })
-export class DeleteComputerComponent implements OnInit {
+export class DeleteComputerComponent {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<DeleteComputerComponent>) { }
 
-  ngOnInit() {
+  cancel(): void {
+    this.dialogRef.close();
   }
+
 
 }
