@@ -27,8 +27,6 @@ export class UpdateComputerComponent implements OnInit {
 
   computer: ComputerDTOModel;
 
-  computerModel: ComputerModel;
-
   companyModel: CompanyModel;
 
   constructor(private formBuilder: FormBuilder,
@@ -70,20 +68,8 @@ export class UpdateComputerComponent implements OnInit {
                                    const company = this.companyList.find(comp => parseInt(comp.id, 10) == this.computer.companyId) ;
                                    this.computer.companyName = company.name;
     }
-    this.computerModel = {
-      id: this.computer.id,
-      name: this.computer.name,
-      introduced: this.computer.introduced,
-      discontinued: this.computer.discontinued,
-      company: {
-        id: this.computer.companyId.toString(),
-        name: this.computer.companyName,
-        version: 0
-      },
-      version: this.computer.version,
 
-    }
-    this.computerService.updateComputer(this.computerModel).subscribe();
+    this.computerService.updateComputer(this.computer).subscribe();
     this.router.navigate(['/computer']);
   }
 }

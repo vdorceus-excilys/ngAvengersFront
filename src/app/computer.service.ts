@@ -56,19 +56,7 @@ export class ComputerService {
     return this.http.delete<ComputerModel>(url, httpOptions);
   }
   /** PUT: update the computer on the server */
-  updateComputer(computer: ComputerModel): Observable<any> {
-    const computerDTO = {
-      id: computer.id,
-      name: computer.name,
-      introduced: computer.introduced,
-      discontinued: computer.discontinued,
-      companyName: computer.company.name,
-      companyId: computer.company.id,
-      version: computer.version
-    };
-    console.log(computerDTO);
-
-
-    return this.http.put(this.computersUrl + computerDTO.id, computerDTO, httpOptions);
+  updateComputer(computer: ComputerDTOModel): Observable<any> {
+    return this.http.put(this.computersUrl + computer.id, computer, httpOptions);
   }
 }
