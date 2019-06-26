@@ -30,7 +30,7 @@ export interface ComputerDTO {
 
 export class ListComputerComponent implements OnInit {
 
-  displayedColumns: string[] = ['select', 'name', 'introduced', 'discontinued', 'company'];
+  displayedColumns: string[] = ['name', 'introduced', 'discontinued', 'company', 'actions'];
   dataSource: MatTableDataSource<ComputerDTO>;
   selection = new SelectionModel<ComputerDTO>(true, []);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -54,8 +54,11 @@ export class ListComputerComponent implements OnInit {
   refresh(data) {
     const dataDTO = data.map(computer => {
       return {
-        id: computer.id, name: computer.name, introduced: computer.introduced,
-        discontinued: computer.discontinued, company: computer.companyName
+        id: computer.id,
+        name: computer.name,
+        introduced: computer.introduced,
+        discontinued: computer.discontinued,
+        company: computer.companyName
       };
     });
     this.dataSource = new MatTableDataSource(dataDTO);
@@ -85,23 +88,24 @@ export class ListComputerComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
   }
 
-  deleteDialog(): void {
-    const dialogRef = this.selection.isEmpty() ? null : this.dialog.open(DeleteComputerComponent, {
+  deleteDialog(row: any): void {
+    console.log(row);
+    const dialogRef = this.dialog.open(DeleteComputerComponent, {
       height: '35%',
       width: '35%',
+      minWidth: '400px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.selection.selected.forEach(element => {
-          this.delete(element);
-        });
+        this.delete(row);
         this.refresh(this.dataSource.data);
       }
     });
   }
 
   delete(element: ComputerDTO): void {
+    console.log(element);
     const index = this.dataSource.data.indexOf(element);
     if (index > -1) {
       this.dataSource.data.splice(index, 1);
