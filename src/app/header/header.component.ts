@@ -20,7 +20,9 @@ export class HeaderComponent implements OnInit {
     translate.setDefaultLang('en');
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.router.navigate(['/computer']);
+  }
 
   useLanguage(language: string) {
     this.translate.use(language);
@@ -30,4 +32,5 @@ export class HeaderComponent implements OnInit {
     this.active = route;
     this.router.navigate(['/' + route]);
   }
+
 }
