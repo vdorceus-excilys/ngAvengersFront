@@ -10,6 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
+import {StorageServiceModule} from 'angular-webstorage-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { CommonModule } from '@angular/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSortModule } from '@angular/material/sort';
+import { SecurityComponent } from './security/security.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { MatSortModule } from '@angular/material/sort';
     UpdateCompanyComponent,
     DeleteCompanyComponent,
     HeaderComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    SecurityComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +70,7 @@ import { MatSortModule } from '@angular/material/sort';
     CommonModule,
     HttpClientModule,
     MatSortModule,
+    StorageServiceModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

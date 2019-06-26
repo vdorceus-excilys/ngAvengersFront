@@ -1,2 +1,3 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+<app-header *ngIf="user"></app-header>
+<router-outlet *ngIf="user"></router-outlet>
+<app-security *ngIf="user==undefined"></app-security>
