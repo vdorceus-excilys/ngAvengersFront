@@ -103,7 +103,6 @@ export class CreateComputerComponent implements OnInit {
           version: 0,
         };
       }
-      console.log(this.computerModel.introduced);
       this.computerService.addComputer(this.computerModel).subscribe();
       this.router.navigate(['/computer/']);
   }
