@@ -1,7 +1,8 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { MatPaginatorIntl } from '@angular/material/paginator';
+import { Credentials } from '../security/security.component';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,8 @@ export class HeaderComponent implements OnInit {
   active = 'computer';
   paginator: MatPaginatorIntl;
   @Output() eventEmitter: EventEmitter<any> = new EventEmitter();
-
+  @Input() credentials: Credentials;
+  activeDropdown = false;
 
   constructor(private translate: TranslateService, private router: Router) {
     translate.addLangs(['en', 'es', 'fr', 'pt']);
@@ -36,5 +38,9 @@ export class HeaderComponent implements OnInit {
   navigate(route: string) {
     this.active = route;
     this.router.navigate(['/' + route]);
+  }
+
+  toggleDropdown() {
+    this.activeDropdown = !this.activeDropdown;
   }
 }

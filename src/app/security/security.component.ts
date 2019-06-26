@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { UserModel } from '../user-model';
 
-export interface Credentials{
+export interface Credentials {
   username: string;
   password: string;
   role: string;

@@ -14,9 +14,6 @@
         </ul>
       </div>
     </div>
-    <div class="columns is-1 is-offset-2">
-        <button (click)="logout()" >Logout</button>
-    </div>
     <div class="column is-1 ">
       <div class="control has-icons-left">
         <div class="select is-small" id="language">
@@ -25,6 +22,25 @@
           </select>
           <div class="icon is-small is-left">
             <i class="fas fa-globe"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div id="dropdown" class="dropdown" [ngClass]="{'is-active': activeDropdown}" (click)="toggleDropdown()">
+        <div class="dropdown-trigger">
+          <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span>{{credentials.username}} ({{credentials.role.substring(5)}})</span>
+            <span class="icon is-small">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+          <div class="dropdown-content">
+            <a (click)="logout()" class="dropdown-item">
+              Logout
+            </a>
           </div>
         </div>
       </div>
