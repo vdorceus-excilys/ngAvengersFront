@@ -1,21 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import {ComputerService} from '../computer.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ComputerDTOModel } from '../computerDTO-model';
 import {CompanyModel} from '../company-model';
 import {CompanyService} from '../company.service';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {ComputerModel} from '../computer-model';
+import { Moment } from 'moment';
+import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import * as moment from 'moment';
+
+
+export const MY_FORMATS = {
+  display: {
+    dateInput: 'DD-MM-YYYY',
+    monthYearLabel: 'MMM YYYY',
+  },
+};
 
 
 @Component({
   selector: 'app-update-computer',
   templateUrl: './update-computer.component.html',
-  styleUrls: ['./update-computer.component.scss']
+  styleUrls: ['./update-computer.component.scss'],
+  providers: [
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  ]
 })
 export class UpdateComputerComponent implements OnInit {
+
+  minDate = new Date(1943, 0, 1);
+  maxDate = new Date(2020, 0, 1);
+
+  introducedDate = new FormControl(moment());
+  discontinuedDate = new FormControl(moment());
 
   computerForm: FormGroup;
 
@@ -43,7 +65,14 @@ export class UpdateComputerComponent implements OnInit {
     });
 
     this.companyService.getCompanies().subscribe(companies => { this.companyList = companies; });
-    this.computerService.getComputerModel(this.id).subscribe(computer => {this.computer = computer; });
+    this.computerService.getComputerModel(this.id).subscribe(computer => {
+      this.computer = computer;
+      this.introducedDate = new FormControl(moment(computer.introduced, 'DD-MM-YYYY'));
+      this.discontinuedDate = new FormControl(moment(computer.discontinued, 'DD-MM-YYYY'));
+      console.log(computer.introduced.toString());
+    });
+
+
 
     this.initForm();
   }
@@ -58,12 +87,20 @@ export class UpdateComputerComponent implements OnInit {
     });
   }
 
+  formatDate(date: Moment) {
+    return date.clone().locale('en').format('DD-MM-YYYY');
+  }
+
   onSubmitForm() {
     const formValue = this.computerForm.value;
 
     if (formValue.name != '') { this.computer.name = formValue.name; }
-    if (formValue.introduced != '') { this.computer.introduced = formValue.introduced; }
-    if (formValue.discontinued != '') { this.computer.discontinued = formValue.discontinued; }
+    if (formValue.introduced != '' && formValue.introduced) {
+      this.computer.introduced = this.formatDate(formValue.introduced);
+    }
+    if (formValue.discontinued != '' && formValue.discontinued) {
+      this.computer.discontinued = this.formatDate(formValue.discontinued);
+    }
     if (formValue.company != '') { this.computer.companyId = formValue.company;
                                    const company = this.companyList.find(comp => parseInt(comp.id, 10) == this.computer.companyId) ;
                                    this.computer.companyName = company.name;

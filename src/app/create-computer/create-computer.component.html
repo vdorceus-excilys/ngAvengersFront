@@ -1,12 +1,17 @@
 <div class="formulaire">
+    <div class ="unitForm">
+        <h1>
+          {{ 'form.add' | translate }}
+        </h1>
+          <br/>
   <form ngNativeValidate [formGroup]="computerForm" (ngSubmit)="onSubmitForm()">
     <mat-form-field>
-      <input matInput placeholder="name" required formControlName="name" id="name" >
+      <input matInput placeholder="{{ 'listComputers.name' | translate }}" required formControlName="name" id="name" >
     </mat-form-field>
     <br/>
     <mat-form-field>
 
-      <input matInput [min]="minDate" [max]="maxDate" placeholder="introduced date (dd-mm-yyyy)" 
+      <input matInput [min]="minDate" [max]="maxDate" placeholder="{{ 'listComputers.introduced' | translate }}" 
       [matDatepicker]="introduced" formControlName="introduced" id="introduced">
       
       <mat-datepicker-toggle matSuffix [for]="introduced"></mat-datepicker-toggle>
@@ -15,7 +20,7 @@
     <br/>
     <mat-form-field>
 
-      <input matInput [min]="minDate" [max]="maxDate" placeholder="discontinued date (dd-mm-yyyy)" 
+      <input matInput [min]="minDate" [max]="maxDate" placeholder="{{ 'listComputers.discontinued' | translate }}" 
       [matDatepicker]="discontinued" formControlName="discontinued" id="discontinued">
 
       <mat-datepicker-toggle matSuffix [for]="discontinued"></mat-datepicker-toggle>
@@ -23,15 +28,16 @@
     </mat-form-field>
     <br/>
     <mat-form-field>
-      <div class="form-group">
-        <label for="company">Company</label>
-        <mat-select class="form-control" formControlName="company" id="company" required>
-          <mat-option *ngFor="let company of companyList" [value]="company.id">{{company.name}}
-          </mat-option>
-        </mat-select>
-      </div>
-    </mat-form-field>
-    <br/>
-    <button class="btn btn-primary">Enregistrer</button>
-  </form>
-</div>
+        <div class="form-group">
+          <label for="company">{{ 'listComputers.company' | translate }}</label>
+          <mat-select class="form-control" formControlName="company" id="company" required>
+            <mat-option *ngFor="let company of companyList" [value]="company.id">{{company.name}}
+            </mat-option>
+          </mat-select>
+        </div>
+      </mat-form-field>
+      <br/>
+      <button class="btn btn-primary">Enregistrer</button>
+    </form>
+    </div>
+  </div>

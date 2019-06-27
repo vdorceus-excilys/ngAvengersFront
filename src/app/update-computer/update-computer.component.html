@@ -1,20 +1,35 @@
 <div *ngIf="computer" class="formulaire">
+    <div class="unitForm">
+        <h1>
+          {{ 'form.add' | translate }}
+        </h1>
+          <br/>
   <form ngNativeValidate [formGroup]="computerForm" (ngSubmit)="onSubmitForm()">
     <mat-form-field>
-      <input matInput placeholder="name" formControlName="name" required value="{{computer.name}}" >
+      <input matInput placeholder="{{ 'listComputers.name' | translate }}" formControlName="name" required value="{{computer.name}}" >
     </mat-form-field>
     <br/>
     <mat-form-field>
-      <input matInput placeholder="introduced" formControlName="introduced" value="{{computer.introduced}}">
+
+      <input matInput [min]="minDate" [max]="maxDate" placeholder="{{ 'listComputers.introduced' | translate }}" 
+      [matDatepicker]="introduced" formControlName="introduced" id="introduced" [formControl]="introducedDate">
+      
+      <mat-datepicker-toggle matSuffix [for]="introduced"></mat-datepicker-toggle>
+      <mat-datepicker #introduced></mat-datepicker>
     </mat-form-field>
     <br/>
     <mat-form-field>
-      <input matInput placeholder="discontinued" formControlName="discontinued" value="{{computer.discontinued}}">
+
+      <input matInput [min]="minDateDiscontinued" [max]="maxDate" placeholder="{{ 'listComputers.discontinued' | translate }}" 
+      [matDatepicker]="discontinued" formControlName="discontinued" id="discontinued" [formControl]="discontinuedDate">
+
+      <mat-datepicker-toggle matSuffix [for]="discontinued"></mat-datepicker-toggle>
+      <mat-datepicker #discontinued></mat-datepicker>
     </mat-form-field>
     <br/>
     <mat-form-field>
       <div class="form-group">
-        <label for="company">Company</label>
+        <label for="company">{{ 'listComputers.company' | translate }}</label>
         <mat-select [(ngModel)]="computer.companyId" class="form-control" formControlName="company" id="company" required>
           <mat-option *ngFor="let company of companyList" [value]="company.id">{{company.name}}
           </mat-option>
@@ -22,6 +37,7 @@
       </div>
     </mat-form-field>
     <br/>
-    <button class="btn btn-primary">Enregistrer</button>
+    <button>Enregistrer</button>
   </form>
+</div>
 </div>
