@@ -55,7 +55,7 @@ import { LoginComponent } from './login/login.component';
     DeleteCompanyComponent,
     HeaderComponent,
     ListUsersComponent,
-    ScrollTopComponent
+    ScrollTopComponent,
     SecurityComponent,
     LoginComponent
   ],
