@@ -1,15 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./variables.scss";
 
 @font-face {
   font-family: "Wallman";
   src: url(assets/fonts/Wallman-Bold.ttf) format("truetype");
 }
 
-$background-color:#464646;
-$orange:#F47023;
-$link-color: #808080;
-$hover-color: #ccc;
+
 
 $navbar-background-color: $background-color;
 $navbar-item-color: $orange;
@@ -24,6 +22,10 @@ $tabs-link-padding: 0.5em 1.5em;
 
 #language.select:after {
   border-color: $orange;
+}
+
+.fa-angle-down:before {
+  color: $primary;
 }
 
 @import "../node_modules/bulma/sass/utilities/_all";

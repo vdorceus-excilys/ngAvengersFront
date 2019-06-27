@@ -5,11 +5,21 @@
     </mat-form-field>
     <br/>
     <mat-form-field>
-      <input matInput placeholder="introduced" formControlName="introduced" id="introduced" >
+
+      <input matInput [min]="minDate" [max]="maxDate" placeholder="introduced date (dd-mm-yyyy)" 
+      [matDatepicker]="introduced" formControlName="introduced" id="introduced">
+      
+      <mat-datepicker-toggle matSuffix [for]="introduced"></mat-datepicker-toggle>
+      <mat-datepicker #introduced></mat-datepicker>
     </mat-form-field>
     <br/>
     <mat-form-field>
-      <input matInput placeholder="discontinued" formControlName="discontinued" id ="discontinued">
+
+      <input matInput [min]="minDate" [max]="maxDate" placeholder="discontinued date (dd-mm-yyyy)" 
+      [matDatepicker]="discontinued" formControlName="discontinued" id="discontinued">
+
+      <mat-datepicker-toggle matSuffix [for]="discontinued"></mat-datepicker-toggle>
+      <mat-datepicker #discontinued></mat-datepicker>
     </mat-form-field>
     <br/>
     <mat-form-field>

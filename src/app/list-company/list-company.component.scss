@@ -1,13 +1,19 @@
 table {
-    width: 100%;
-  }
+  width: 100%; 
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
   
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  td, th {
-    width: 25%;
-  }
-  
+td, th {
+  width: 25%;
+  vertical-align:middle;
+}
+
+.mat-paginator-sticky {
+  bottom: 0px;
+  position: sticky;
+  z-index: 10;
+}

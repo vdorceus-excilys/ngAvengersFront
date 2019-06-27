@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Credentials } from '../security/security.component';
 
 @Component({
   selector: 'app-delete-computer',
