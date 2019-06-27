@@ -3,7 +3,7 @@
     "title": "Computer Management System",
     "headerMenu": {
       "computers": "Computers",
-      "companies": "Companies",
+      "companies": "Manufacturers",
       "users": "Users"
     }
   },

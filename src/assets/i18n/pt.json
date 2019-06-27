@@ -3,7 +3,7 @@
     "title": "Sistema de Gerenciamento de Computador",
     "headerMenu": {
       "computers": "Computadores",
-      "companies": "Empresas",
+      "companies": "Fabricantes",
       "users": "Usuários"
     }
   },
