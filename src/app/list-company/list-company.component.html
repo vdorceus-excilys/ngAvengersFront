@@ -1,40 +1,42 @@
-<div class="column-container">
-  <div class="columns is-mobile">
-    <div class="column is-4">
-      <input id="search" class="input" (keyup)="applyFilter($event.target.value)" placeholder="{{ 'listCompanies.filter' | translate }}">
-    </div>
-    <div class="column is-1 is-offset-7">
-      <button class="button is-primary" (click)="addDialog()">Add</button>
+<div class="container">
+  <div class="column-container">
+    <div class="columns is-mobile">
+      <div class="column is-4">
+        <input id="search" class="input" (keyup)="applyFilter($event.target.value)" placeholder="{{ 'listCompanies.filter' | translate }}">
+      </div>
+      <div class="column is-1 is-offset-7">
+        <button class="button is-primary" (click)="addDialog()">Add</button>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource" matSort>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
 
-    <!-- ID Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'listCompanies.id' | translate }} </th>
-      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
-    </ng-container>
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'listCompanies.id' | translate }} </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'listCompanies.name' | translate }} </th>
-      <td mat-cell *matCellDef="let row"> {{row.name}} </td>
-    </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'listCompanies.name' | translate }} </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
 
-    <!-- Actions Column -->
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'listCompanies.actions' | translate }} </th>
-      <td mat-cell *matCellDef="let row" > <a class="button is-link is-small" (click)="editDialog(row)">Edit</a><a class="button is-danger is-small" (click)="deleteDialog(row)">Delete</a> </td>
-    </ng-container>
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'listCompanies.actions' | translate }} </th>
+        <td mat-cell *matCellDef="let row" > <a class="button is-link is-small" (click)="editDialog(row)">Edit</a><a class="button is-danger is-small" (click)="deleteDialog(row)">Delete</a> </td>
+      </ng-container>
 
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
-    </tr>
-  </table>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [showFirstLastButtons]='true' class="mat-paginator-sticky"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [showFirstLastButtons]='true' class="mat-paginator-sticky"></mat-paginator>
+  </div>
 </div>
