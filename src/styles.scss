@@ -49,11 +49,31 @@ th.mat-column-name{
   font-weight: bold;
 }
 
+td.mat-column-actions .button {
+  padding: 0 1em;
+  margin: 0 0.5em;
+}
+
 .button.is-primary,
 .button.is-primary:hover {
   background-color: $primary;
   border-color: transparent;
   color: #fff;
+}
+
+.button.is-primary.is-focused:not(:active),
+.button.is-primary:focus:not(:active) {
+  box-shadow: 0 0 0 0.125em rgba($primary,.25);
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled),
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow,
+mat-select:hover .mat-select-arrow {
+  color: $primary;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: $primary;
 }
 
 
