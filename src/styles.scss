@@ -1,16 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./variables.scss";
 
 @font-face {
   font-family: "Wallman";
   src: url(assets/fonts/Wallman-Bold.ttf) format("truetype");
 }
 
-$background-color:#464646;
-$orange:#F47023;
-$link-color: #808080;
-$hover-color: #ccc;
-$primary: $orange;
 
 $navbar-background-color: $background-color;
 $navbar-item-color: $primary;
@@ -54,6 +50,7 @@ td.mat-column-actions .button {
   margin: 0 0.5em;
 }
 
+
 .button.is-primary,
 .button.is-primary:hover {
   background-color: $primary;
@@ -76,7 +73,9 @@ mat-select:hover .mat-select-arrow {
   background-color: $primary;
 }
 
-
+.fa-angle-down:before {
+  color: $primary;
+}
 
 @import "../node_modules/bulma/sass/utilities/_all";
 @import "../node_modules/bulma/sass/base/_all.sass";

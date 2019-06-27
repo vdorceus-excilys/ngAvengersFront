@@ -42,4 +42,8 @@ export class UserService {
   updateUser(user: UserModel): Observable<any> {
     return this.http.put(this.usersUrl + user.id, user, httpOptions);
   }
+
+  checkPassword(password: string, hash: string) {
+    return this.http.get(this.usersUrl + 'check?password=' + password + '&hash=' + hash);
+  }
 }
