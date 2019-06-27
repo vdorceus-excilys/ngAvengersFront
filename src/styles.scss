@@ -8,20 +8,69 @@
 }
 
 
-
 $navbar-background-color: $background-color;
-$navbar-item-color: $orange;
+$navbar-item-color: $primary;
 
 $tabs-border-bottom-color: $background-color;
-$tabs-link-active-border-bottom-color: $orange;
-$tabs-link-active-color: $orange;
+$tabs-link-active-border-bottom-color: $primary;
+$tabs-link-active-color: $primary;
 $tabs-link-color:$link-color;
 $tabs-link-hover-border-bottom-color: $link-color;
 $tabs-link-hover-color: $hover-color;
 $tabs-link-padding: 0.5em 1.5em;
 
+$input-focus-border-color: $primary;
+$input-focus-box-shadow-color: rgba($primary, 0.25)	;
+
 #language.select:after {
-  border-color: $orange;
+  border-color: $primary;
+}
+
+svg.mat-paginator-icon:hover {
+  color: $primary;
+}
+
+.mat-sort-header-stem,
+.mat-sort-header-pointer-left.ng-trigger.ng-trigger-leftPointer,
+.mat-sort-header-pointer-right.ng-trigger.ng-trigger-rightPointer,
+.mat-sort-header-pointer-middle  {
+  color: $primary;
+}
+
+td.mat-column-name{
+  color: $primary;
+}
+
+th.mat-column-name{
+  font-weight: bold;
+}
+
+td.mat-column-actions .button {
+  padding: 0 1em;
+  margin: 0 0.5em;
+}
+
+
+.button.is-primary,
+.button.is-primary:hover {
+  background-color: $primary;
+  border-color: transparent;
+  color: #fff;
+}
+
+.button.is-primary.is-focused:not(:active),
+.button.is-primary:focus:not(:active) {
+  box-shadow: 0 0 0 0.125em rgba($primary,.25);
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled),
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow,
+mat-select:hover .mat-select-arrow {
+  color: $primary;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: $primary;
 }
 
 .fa-angle-down:before {
@@ -32,3 +81,4 @@ $tabs-link-padding: 0.5em 1.5em;
 @import "../node_modules/bulma/sass/base/_all.sass";
 @import "../node_modules/bulma/sass/components/navbar.sass";
 @import "../node_modules/bulma/sass/components/tabs.sass";
+@import "../node_modules/bulma/sass/form/_all.sass";
