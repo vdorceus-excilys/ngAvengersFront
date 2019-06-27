@@ -45,9 +45,7 @@ export class ListCompanyComponent implements OnInit {
               }
 
   ngOnInit() {
-    this.companyService.getCompanies().subscribe(
-      data => { this.refresh(data); }
-    );
+    this.companyService.getCompanies().subscribe(data => this.refresh(data));
   }
 
   refresh(data) {
@@ -113,27 +111,27 @@ export class ListCompanyComponent implements OnInit {
     const dialogRef = this.dialog.open(CreateCompanyComponent, {
       height: '35%',
       width: '35%',
-      minWidth: '400px'
+      minWidth: '400px',
+      minHeight: '180px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        //TODO call service
-      }
+      this.companyService.getCompanies().subscribe(data => this.refresh(data));
     });
   }
 
-  editDialog(row: any) {
+  editDialog(row: CompanyDTO) {
     const dialogRef = this.dialog.open(UpdateCompanyComponent, {
       height: '35%',
       width: '35%',
-      minWidth: '400px'
+      minWidth: '400px',
+      data: {
+        id: row.id
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        //TODO call service
-      }
+      this.companyService.getCompanies().subscribe(data => this.refresh(data));
     });
   }
 

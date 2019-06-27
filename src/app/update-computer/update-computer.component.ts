@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {ComputerService} from '../computer.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -8,6 +8,7 @@ import {CompanyService} from '../company.service';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {ComputerModel} from '../computer-model';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 
 @Component({
@@ -34,13 +35,14 @@ export class UpdateComputerComponent implements OnInit {
               private router: Router,
               private companyService: CompanyService,
               private computerService: ComputerService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              public dialogRef: MatDialogRef<UpdateComputerComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
+                this.id = data.id;
+              }
 
 
   ngOnInit() {
-    this.routeSub = this.route.params.subscribe(params => {
-      this.id = (params.id);
-    });
 
     this.companyService.getCompanies().subscribe(companies => { this.companyList = companies; });
     this.computerService.getComputerModel(this.id).subscribe(computer => {this.computer = computer; });
@@ -68,8 +70,10 @@ export class UpdateComputerComponent implements OnInit {
                                    const company = this.companyList.find(comp => parseInt(comp.id, 10) == this.computer.companyId) ;
                                    this.computer.companyName = company.name;
     }
+    this.computerService.updateComputer(this.computer).subscribe(res => {this.cancel(); });
+  }
 
-    this.computerService.updateComputer(this.computer).subscribe();
-    this.router.navigate(['/computer']);
+  cancel(): void {
+    this.dialogRef.close();
   }
 }

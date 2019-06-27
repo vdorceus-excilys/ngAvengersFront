@@ -46,7 +46,7 @@
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'list.actions' | translate }} </th>
-        <td mat-cell *matCellDef="let row" > <a class="button is-link is-small" (click)="editDialog(row)">{{ 'listComputers.edit' | translate }}</a><a class="button is-danger is-small" (click)="deleteDialog(row)">{{ 'listComputers.delete' | translate }}</a> </td>
+        <td mat-cell *matCellDef="let row" > <a class="button is-link is-small" (click)="editDialog(row)">{{ 'list.edit' | translate }}</a><a class="button is-danger is-small" (click)="deleteDialog(row)">{{ 'list.delete' | translate }}</a> </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {Observable} from 'rxjs';
 import {FormBuilder, FormControl, FormGroup, Validator, Validators} from '@angular/forms';
 import {ComputerService} from '../computer.service';
@@ -6,10 +6,11 @@ import {Router} from '@angular/router';
 import {ComputerModel} from '../computer-model';
 import {CompanyService} from '../company.service';
 import {CompanyModel} from '../company-model';
-import {MatInputModule, DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS} from '@angular/material';
+import {MatInputModule, DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material';
 import {MomentDateAdapter} from '@angular/material-moment-adapter';
 import {ComputerDTOModel} from '../computerDTO-model';
 import { Moment } from 'moment';
+import { MatDialogRef } from '@angular/material/dialog';
 
 export const MY_FORMATS = {
   display: {
@@ -41,11 +42,14 @@ export class CreateComputerComponent implements OnInit {
 
   computer: ComputerDTOModel;
 
+  @Output() event = new EventEmitter<string>();
+
 
   constructor(private formBuilder: FormBuilder,
               private computerService: ComputerService,
               private companyService: CompanyService,
-              private router: Router) {
+              private router: Router,
+              public dialogRef: MatDialogRef<CreateComputerComponent>) {
   }
   ngOnInit() {
     this.initForm();
@@ -103,7 +107,10 @@ export class CreateComputerComponent implements OnInit {
           version: 0,
         };
       }
-      this.computerService.addComputer(this.computerModel).subscribe();
-      this.router.navigate(['/computer/']);
+      this.computerService.addComputer(this.computerModel).subscribe(res => { this.cancel(); this.event.emit(); });
+  }
+
+  cancel(): void {
+    this.dialogRef.close();
   }
 }

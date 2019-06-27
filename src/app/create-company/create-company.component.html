@@ -1,9 +1,10 @@
 <div class="formulaire">
-  <form ngNativeValidate [formGroup]="companyForm" (ngSubmit)="onSubmitForm()">
+  <form ngNativeValidate [formGroup]="companyForm">
     <mat-form-field>
       <input matInput formControlName="name" placeholder="name" required>
     </mat-form-field>
     <div></div>
-    <button class="btn btn-primary">Enregistrer</button>
+    <button type="button" class="button" (click)="cancel()">{{ 'form.cancel' | translate }}</button>
+    <button class="button is-primary" (click)="onSubmitForm()" mat-dialog-close>{{ 'form.save' | translate }}</button>
   </form>
 </div>
