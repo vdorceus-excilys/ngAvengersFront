@@ -5,6 +5,9 @@
       "computers": "Ordinateurs",
       "companies": "Fabricants",
       "users": "Utilisateurs"
+    },
+    "user": {
+      "logout": "Déconnecter"
     }
   },
   "listComputers": {
@@ -24,5 +27,11 @@
   "form": {
     "add": "Ajouter un ordinateur",
     "update": "Mettre à jour un ordinateur"
+  },
+  "login": {
+    "authentification": "Veuillez vous connecter",
+    "userName": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "login": "Se connecter"
   }
 }

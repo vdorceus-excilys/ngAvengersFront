@@ -5,6 +5,9 @@
       "computers": "Computadores",
       "companies": "Fabricantes",
       "users": "Usuarios"
+    },
+    "user": {
+      "logout": "Cerrar sesión"
     }
   },
   "listComputers": {
@@ -24,5 +27,11 @@
   "form": {
     "add": "Agregar una computadora",
     "update": "Actualizar una computadora"
+  },
+  "login": {
+    "authentification": "Por favor inicie sesión",
+    "userName": "Nombre del usuario",
+    "password": "Contraseña",
+    "login": "Iniciar sesión"
   }
 }

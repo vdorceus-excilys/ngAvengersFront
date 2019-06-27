@@ -2,15 +2,30 @@
   <div class="login-card">
 
     <div class="card-title">
-      <h1>Please Sign In</h1>
+      <h1>{{ 'login.authentification' | translate }}</h1>
     </div>
 
     <div class="content">
       <form method="POST" action="#">
-        <input [(ngModel)]="username" id="username" type="text" name="username" title="username" placeholder="Username" required autofocus>
-        <input [(ngModel)]="password" id="password" type="password" name="password" title="password" placeholder="Password" required>
+        <input [(ngModel)]="username" id="username" type="text" name="username" title="username" placeholder="{{ 'login.userName' | translate }}" required autofocus>
+        <input [(ngModel)]="password" id="password" type="password" name="password" title="password" placeholder="{{ 'login.password' | translate }}" required>
       </form>
-      <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+      <button type="submit" class="btn btn-primary" (click)="login()">{{ 'login.login' | translate }}</button>
+      <div class="columns is-centered">
+        <div class="column is-narrow">
+          <div class="control has-icons-left">
+            <div class="select is-small" id="language">
+              <select #langSelect (change)="useLanguage(langSelect.value)">
+                <option *ngFor="let lang of languages" [value]="lang" [selected]="lang === currentLanguage">{{ lang }}</option>
+              </select>
+              <div class="icon is-small is-left">
+                <i class="fas fa-globe"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

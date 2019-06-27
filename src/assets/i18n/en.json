@@ -5,6 +5,9 @@
       "computers": "Computers",
       "companies": "Manufacturers",
       "users": "Users"
+    },
+    "user": {
+      "logout": "Logout"
     }
   },
   "listComputers": {
@@ -24,5 +27,11 @@
   "form": {
     "add": "Add a computer",
     "update": "Update a computer"
+  },
+  "login": {
+    "authentification": "Please Sign In",
+    "userName": "Username",
+    "password": "Password",
+    "login": "Login"
   }
 }
