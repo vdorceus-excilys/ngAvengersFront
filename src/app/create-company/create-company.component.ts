@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators,  FormControl} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CompanyModel} from '../company-model';
 import {ComputerService} from '../computer.service';
 import {CompanyService} from '../company.service';
 import {Router} from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-create-company',
   templateUrl: './create-company.component.html',
@@ -30,8 +30,8 @@ export class CreateCompanyComponent implements OnInit {
   }
 
   onSubmitForm() {
-    this.company = new CompanyModel()
-    this.company.name = this.companyForm.value['name']
+    this.company = new CompanyModel();
+    this.company.name = this.companyForm.value.name;
     this.companyService.createCompany(this.company).subscribe();
     this.router.navigate(['/company/']);
   }
