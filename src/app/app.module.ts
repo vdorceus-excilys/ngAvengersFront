@@ -39,6 +39,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 import { SecurityComponent } from './security/security.component';
 import { LoginComponent } from './login/login.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { LoginComponent } from './login/login.component';
     ListUsersComponent,
     ScrollTopComponent,
     SecurityComponent,
-    LoginComponent
+    LoginComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

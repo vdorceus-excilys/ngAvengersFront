@@ -11,7 +11,7 @@ $grey-lighter: hsl(0, 0%, 86%);
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
-	background: #F7F7F7;
+	background: linear-gradient(rgba($primary,0.5),rgba($primary,0.7));
 
 	.login-card {
 		background: #fff;

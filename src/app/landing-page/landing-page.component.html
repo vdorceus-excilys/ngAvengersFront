@@ -1,0 +1,49 @@
+<div id="home">
+  <div  style="display: flex" >
+    <div class="card">
+      <div class="card-image">
+        <figure class="image">
+          <img src="http://www.myiconfinder.com/uploads/iconsets/256-256-251c205de6105b216e43f280285d959d.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="content">
+          <p>Computers : {{computerNumber}}</p>
+          <button class="button is-primary" [routerLink]="['/computer']">Manage</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <figure class="image">
+          <img src="http://www.anisolutions.com/wp-content/uploads/2015/07/icon-enterprise.png" alt="Company icon">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="content">
+          <p>Companies : {{companyNumber}}</p>
+          <button class="button is-primary" [routerLink]="['/computer']">Manage</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <figure class="image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGdPSDLXSdfpFcdY0GpCL7y4E-s5rkWX-E47wAOQRAXJSv3nbfNQ" alt="User icon">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="content">
+          <p>Users: {{userNumber}}</p>
+          <button class="button is-primary" [routerLink]="['/user']">Manage</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+

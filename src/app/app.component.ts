@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
 
   updateToken(credentials: Credentials){
     this.user = credentials;
-    this.router.navigate(['/computer']);
+    this.router.navigate(['/home']);
   }
 
   logout(something) {
