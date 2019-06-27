@@ -99,7 +99,9 @@ mat-select:hover .mat-select-arrow {
   background-color: $primary;
 }
 
-
+.fa-angle-down:before {
+  color: $primary;
+}
 
 @import "../node_modules/bulma/sass/utilities/_all";
 @import "../node_modules/bulma/sass/base/_all.sass";
