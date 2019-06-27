@@ -33,6 +33,7 @@ import { CommonModule } from '@angular/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSortModule } from '@angular/material/sort';
+import { ErrorHandlerComponent } from './error-handler/error-handler.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { MatSortModule } from '@angular/material/sort';
     UpdateCompanyComponent,
     DeleteCompanyComponent,
     HeaderComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    ErrorHandlerComponent
   ],
   imports: [
     BrowserModule,
