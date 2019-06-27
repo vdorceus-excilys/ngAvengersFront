@@ -1,16 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./variables.scss";
 
 @font-face {
   font-family: "Wallman";
   src: url(assets/fonts/Wallman-Bold.ttf) format("truetype");
 }
 
-$background-color:#464646;
-$orange:#F47023;
-$link-color: #808080;
-$hover-color: #ccc;
-$primary: $orange;
 
 $navbar-background-color: $background-color;
 $navbar-item-color: $primary;
@@ -52,6 +48,33 @@ th.mat-column-name{
 td.mat-column-actions .button {
   padding: 0 1em;
   margin: 0 0.5em;
+}
+
+
+.button.is-primary,
+.button.is-primary:hover {
+  background-color: $primary;
+  border-color: transparent;
+  color: #fff;
+}
+
+.button.is-primary.is-focused:not(:active),
+.button.is-primary:focus:not(:active) {
+  box-shadow: 0 0 0 0.125em rgba($primary,.25);
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled),
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow,
+mat-select:hover .mat-select-arrow {
+  color: $primary;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: $primary;
+}
+
+.fa-angle-down:before {
+  color: $primary;
 }
 
 .button.is-primary,

@@ -19,5 +19,9 @@
     "id": "Id",
     "name": "Nome",
     "filter": "Filtro"
+  },
+  "form": {
+    "add": "Adicione um computador",
+    "update": "Atualize um computador"
   }
 }
