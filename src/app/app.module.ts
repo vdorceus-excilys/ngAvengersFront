@@ -36,6 +36,7 @@ import { CommonModule } from '@angular/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSortModule } from '@angular/material/sort';
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 import { SecurityComponent } from './security/security.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -55,6 +56,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DeleteCompanyComponent,
     HeaderComponent,
     ListUsersComponent,
+    ScrollTopComponent
     SecurityComponent,
     LoginComponent
   ],
