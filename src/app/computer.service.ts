@@ -51,7 +51,6 @@ export class ComputerService {
   /** DELETE: delete the computer from the server */
   deleteComputer(computer: ComputerModel | string): Observable<ComputerModel> {
     const id = typeof computer === 'string' ? computer : computer.id;
-    console.log(typeof computer);
     const url = this.computersUrl + id;
 
     return this.http.delete<ComputerModel>(url, httpOptions);

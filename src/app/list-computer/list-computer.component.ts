@@ -108,7 +108,6 @@ export class ListComputerComponent implements OnInit {
   delete(computer: ComputerDTO): void {
     const index = this.dataSource.data.indexOf(computer);
     if (index > -1) {
-      console.log(index);
       this.dataSource.data.splice(index, 1);
       this.computerService.deleteComputer('' + computer.id).subscribe();
     }
@@ -123,7 +122,7 @@ export class ListComputerComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(result);
+        //TODO call service
       }
     });
   }
@@ -137,7 +136,7 @@ export class ListComputerComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(result);
+        //TODO call service
       }
     });
   }
