@@ -10,6 +10,7 @@ import { CreateCompanyComponent } from './create-company/create-company.componen
 import { UpdateCompanyComponent } from './update-company/update-company.component';
 import { DetailsCompanyComponent } from './details-company/details-company.component';
 import { ListUsersComponent } from './list-users/list-users.component';
+import { ErrorHandlerComponent } from './error-handler/error-handler.component';
 
 
 const routes: Routes = [
@@ -57,6 +58,10 @@ const routes: Routes = [
     path: 'user',
     component: ListUsersComponent,
     pathMatch: 'full'
+  },
+  {
+    path: '**',
+    component: ErrorHandlerComponent
   }
 ];
 
