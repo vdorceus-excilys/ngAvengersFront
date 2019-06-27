@@ -9,6 +9,8 @@ import { ComputerService } from '../computer.service';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteComputerComponent } from '../delete-computer/delete-computer.component';
+import { CreateComputerComponent } from '../create-computer/create-computer.component';
+import { UpdateComputerComponent } from '../update-computer/update-computer.component';
 
 export interface ComputerDTO {
   id: string;
@@ -89,7 +91,6 @@ export class ListComputerComponent implements OnInit {
   }
 
   deleteDialog(row: ComputerDTO): void {
-    console.log(row);
     const dialogRef = this.dialog.open(DeleteComputerComponent, {
       height: '35%',
       width: '35%',
@@ -105,13 +106,40 @@ export class ListComputerComponent implements OnInit {
   }
 
   delete(computer: ComputerDTO): void {
-    console.log(computer.id);
     const index = this.dataSource.data.indexOf(computer);
     if (index > -1) {
       console.log(index);
       this.dataSource.data.splice(index, 1);
       this.computerService.deleteComputer('' + computer.id).subscribe();
     }
+  }
+
+  addDialog(): void {
+    const dialogRef = this.dialog.open(CreateComputerComponent, {
+      height: '35%',
+      width: '35%',
+      minWidth: '400px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result);
+      }
+    });
+  }
+
+  editDialog(row: any) {
+    const dialogRef = this.dialog.open(UpdateComputerComponent, {
+      height: '35%',
+      width: '35%',
+      minWidth: '400px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result);
+      }
+    });
   }
 
 }
