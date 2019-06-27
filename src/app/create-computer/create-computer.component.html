@@ -1,21 +1,21 @@
 <div class="formulaire">
   <form ngNativeValidate [formGroup]="computerForm" (ngSubmit)="onSubmitForm()">
     <mat-form-field>
-      <input matInput placeholder="name" required formControlName="name" id="name" >
+      <input matInput placeholder="{{ 'form.name' | translate }}" required formControlName="name" id="name" >
     </mat-form-field>
     <br/>
     <mat-form-field>
 
-      <input matInput [min]="minDate" [max]="maxDate" placeholder="introduced date (dd-mm-yyyy)" 
+      <input matInput [min]="minDate" [max]="maxDate" placeholder="{{ 'form.introduced' | translate }} (dd-mm-yyyy)"
       [matDatepicker]="introduced" formControlName="introduced" id="introduced">
-      
+
       <mat-datepicker-toggle matSuffix [for]="introduced"></mat-datepicker-toggle>
       <mat-datepicker #introduced></mat-datepicker>
     </mat-form-field>
     <br/>
     <mat-form-field>
 
-      <input matInput [min]="minDate" [max]="maxDate" placeholder="discontinued date (dd-mm-yyyy)" 
+      <input matInput [min]="minDate" [max]="maxDate" placeholder="{{ 'form.discontinued' | translate }} (dd-mm-yyyy)"
       [matDatepicker]="discontinued" formControlName="discontinued" id="discontinued">
 
       <mat-datepicker-toggle matSuffix [for]="discontinued"></mat-datepicker-toggle>
@@ -24,7 +24,7 @@
     <br/>
     <mat-form-field>
       <div class="form-group">
-        <label for="company">Company</label>
+        <label for="company">{{ 'form.company' | translate }}</label>
         <mat-select class="form-control" formControlName="company" id="company" required>
           <mat-option *ngFor="let company of companyList" [value]="company.id">{{company.name}}
           </mat-option>
@@ -32,6 +32,6 @@
       </div>
     </mat-form-field>
     <br/>
-    <button class="btn btn-primary">Enregistrer</button>
+    <button class="btn btn-primary">{{ 'form.save' | translate }}</button>
   </form>
 </div>

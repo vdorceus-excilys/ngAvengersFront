@@ -15,9 +15,12 @@
     "name": "Nome",
     "introduced": "Data de introdução",
     "discontinued": "Data descontinuada",
-    "company": "Empresa",
+    "company": "Fabricantes",
     "filter": "Filtro",
-    "actions": "Ações"
+    "actions": "Ações",
+    "add": "Adicionar",
+    "edit": "Modificar",
+    "delete": "Suprimir"
   },
   "listCompanies": {
     "id": "Id",
@@ -25,6 +28,11 @@
     "filter": "Filtro"
   },
   "form": {
+    "name": "Nome",
+    "introduced": "Data de introdução",
+    "discontinued": "Data descontinuada",
+    "company": "Fabricantes",
+    "save": "Guardar",
     "add": "Adicione um computador",
     "update": "Atualize um computador"
   },
