@@ -10,6 +10,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {StorageServiceModule} from 'angular-webstorage-service';
+import {MatCardModule, MatProgressSpinnerModule} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,7 +29,7 @@ import { DeleteCompanyComponent } from './delete-company/delete-company.componen
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HeaderComponent } from './header/header.component';
-import {MatSelectModule} from '@angular/material';
+import {MatSelectModule, MatNativeDateModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { CommonModule } from '@angular/common';
@@ -34,6 +37,9 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSortModule } from '@angular/material/sort';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
+import { SecurityComponent } from './security/security.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -51,6 +57,8 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
     HeaderComponent,
     ListUsersComponent,
     ScrollTopComponent
+    SecurityComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -70,9 +78,16 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
     MatDialogModule,
     MatCheckboxModule,
     MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     CommonModule,
     HttpClientModule,
     MatSortModule,
+    StorageServiceModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    FormsModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
