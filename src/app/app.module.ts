@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -34,6 +34,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSortModule } from '@angular/material/sort';
 import { ErrorHandlerComponent } from './error-handler/error-handler.component';
+import { ErrorHandlerImpl } from './error-handler/error-handler';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,12 @@ import { ErrorHandlerComponent } from './error-handler/error-handler.component';
       DeleteCompanyComponent,
       DeleteComputerComponent
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: ErrorHandlerImpl
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
