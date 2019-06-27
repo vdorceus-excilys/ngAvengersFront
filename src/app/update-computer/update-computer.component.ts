@@ -36,7 +36,6 @@ export class UpdateComputerComponent implements OnInit {
               private computerService: ComputerService,
               private route: ActivatedRoute) { }
 
-
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {
       this.id = (params.id);

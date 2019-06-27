@@ -27,7 +27,6 @@ export class CreateComputerComponent implements OnInit {
 
   computer: ComputerDTOModel;
 
-
   constructor(private formBuilder: FormBuilder,
               private computerService: ComputerService,
               private companyService: CompanyService,

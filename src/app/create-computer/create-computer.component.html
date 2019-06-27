@@ -1,7 +1,7 @@
 <div class="formulaire">
   <div class ="unitForm">
   <h1>
-    Add a computer
+    {{ 'form.add' | translate }}
   </h1>
     <br/>
   <form ngNativeValidate [formGroup]="computerForm" (ngSubmit)="onSubmitForm()">

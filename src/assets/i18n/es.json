@@ -19,5 +19,13 @@
     "id": "Id",
     "name": "Nombre",
     "filter": "Filtrar"
+  },
+  "form": {
+    "add": "Agregar una computadora",
+    "update": "Actualizar una computadora"
+  },
+  "formCompany" : {
+    "add": "Añadir una empresa",
+    "update": "Actualizar una empresa"
   }
 }

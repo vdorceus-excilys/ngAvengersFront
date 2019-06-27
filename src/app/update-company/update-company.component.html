@@ -1,7 +1,7 @@
 <div *ngIf="company" class="formulaire">
   <div class ="unitForm">
     <h1>
-      Update a company
+      {{ 'formCompany.add' | translate }}
     </h1>
 <form ngNativeValidate [formGroup]="companyForm" (ngSubmit)="onSubmitForm()">
   <mat-form-field>

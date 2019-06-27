@@ -19,5 +19,13 @@
     "id": "Id",
     "name": "Name",
     "filter": "Filter"
+  },
+  "form": {
+    "add": "Add a computer",
+    "update": "Update a computer"
+  },
+  "formCompany" : {
+    "add": "Add a company",
+    "update": "Update a company"
   }
 }

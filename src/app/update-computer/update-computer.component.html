@@ -1,7 +1,7 @@
 <div *ngIf="computer" class="formulaire">
   <div class="unitForm">
     <h1>
-      Update a Computer
+      {{ 'form.add' | translate }}
     </h1>
   <form ngNativeValidate [formGroup]="computerForm" (ngSubmit)="onSubmitForm()">
     <mat-form-field>
