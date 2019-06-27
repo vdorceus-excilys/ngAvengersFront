@@ -3,8 +3,11 @@
     "title": "Computer Management System",
     "headerMenu": {
       "computers": "Computers",
-      "companies": "Companies",
+      "companies": "Manufacturers",
       "users": "Users"
+    },
+    "user": {
+      "logout": "Logout"
     }
   },
   "listComputers": {
@@ -12,12 +15,31 @@
     "name": "Name",
     "introduced": "Introduced",
     "discontinued": "Discontinued",
-    "company": "Company",
-    "filter": "Filter"
+    "company": "Manufacturers",
+    "filter": "Filter",
+    "actions": "Actions",
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete"
   },
-  "listCompany": {
+  "listCompanies": {
     "id": "Id",
     "name": "Name",
     "filter": "Filter"
+  },
+  "form": {
+    "name": "Name",
+    "introduced": "Introduced",
+    "discontinued": "Discontinued",
+    "company": "Manufacturers",
+    "save": "Save",
+    "add": "Add a computer",
+    "update": "Update a computer"
+  },
+  "login": {
+    "authentification": "Please Sign In",
+    "userName": "Username",
+    "password": "Password",
+    "login": "Login"
   }
 }

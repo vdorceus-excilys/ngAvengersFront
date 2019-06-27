@@ -3,8 +3,11 @@
     "title": "Sistema de Gerenciamento de Computador",
     "headerMenu": {
       "computers": "Computadores",
-      "companies": "Empresas",
+      "companies": "Fabricantes",
       "users": "Usuários"
+    },
+    "user": {
+      "logout": "Sair da sessão"
     }
   },
   "listComputers": {
@@ -12,12 +15,31 @@
     "name": "Nome",
     "introduced": "Data de introdução",
     "discontinued": "Data descontinuada",
-    "company": "Empresa",
-    "filter": "Filtro"
+    "company": "Fabricantes",
+    "filter": "Filtro",
+    "actions": "Ações",
+    "add": "Adicionar",
+    "edit": "Modificar",
+    "delete": "Suprimir"
   },
-  "listCompany": {
+  "listCompanies": {
     "id": "Id",
     "name": "Nome",
     "filter": "Filtro"
+  },
+  "form": {
+    "name": "Nome",
+    "introduced": "Data de introdução",
+    "discontinued": "Data descontinuada",
+    "company": "Fabricantes",
+    "save": "Guardar",
+    "add": "Adicione um computador",
+    "update": "Atualize um computador"
+  },
+  "login": {
+    "authentification": "Por favor inicie sessão",
+    "userName": "Nome de usuário",
+    "password": "Senha",
+    "login": "Iniciar sessão"
   }
 }
