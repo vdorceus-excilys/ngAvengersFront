@@ -1,0 +1,26 @@
+@import '../../variables.scss';
+
+#home {
+  background: linear-gradient(rgba($primary,0.5),rgba($primary,0.7));
+  height: calc(100vh - 52px);
+}
+
+.card {
+    width: 300px;
+    height: 40%;
+    text-align: center;
+    margin: 10%;
+}
+
+.list {
+    display : flex;
+    flex-direction: row;
+}
+
+.image{
+    padding: 10% 15%;
+}
+
+.content {
+  font-weight: bold;
+}

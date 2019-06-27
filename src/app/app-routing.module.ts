@@ -10,9 +10,15 @@ import { CreateCompanyComponent } from './create-company/create-company.componen
 import { UpdateCompanyComponent } from './update-company/update-company.component';
 import { DetailsCompanyComponent } from './details-company/details-company.component';
 import { ListUsersComponent } from './list-users/list-users.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 const routes: Routes = [
+  {
+    path: 'home',
+    component: LandingPageComponent,
+    pathMatch: 'full'
+  },
   {
     path: 'computer',
     component: ListComputerComponent,

@@ -10,6 +10,8 @@ import { CompanyService } from '../company.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteCompanyComponent } from '../delete-company/delete-company.component';
 import { Router } from '@angular/router';
+import { CreateCompanyComponent } from '../create-company/create-company.component';
+import { UpdateCompanyComponent } from '../update-company/update-company.component';
 
 export interface CompanyDTO {
   id: string;
@@ -28,7 +30,7 @@ export interface CompanyDTO {
 
 export class ListCompanyComponent implements OnInit {
 
-  displayedColumns: string[] = ['select', 'name'];
+  displayedColumns: string[] = ['name', 'actions'];
   dataSource: MatTableDataSource<CompanyDTO>;
   selection = new SelectionModel<CompanyDTO>(true, []);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -83,28 +85,56 @@ export class ListCompanyComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
   }
 
-  deleteDialog(): void {
-    const dialogRef = this.selection.isEmpty() ? null : this.dialog.open(DeleteCompanyComponent, {
+  deleteDialog(row: CompanyDTO): void {
+    const dialogRef = this.dialog.open(DeleteCompanyComponent, {
       height: '35%',
       width: '35%',
+      minWidth: '400px',
+      minHeight: '180px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.selection.selected.forEach(element => {
-          this.delete(element);
-        });
+        this.delete(row);
         this.refresh(this.dataSource.data);
       }
     });
   }
 
-  delete(element: CompanyDTO): void {
-    const index = this.dataSource.data.indexOf(element);
+  delete(company: CompanyDTO): void {
+    const index = this.dataSource.data.indexOf(company);
     if (index > -1) {
       this.dataSource.data.splice(index, 1);
-      this.companyService.deleteCompany(element.id).subscribe();
+      this.companyService.deleteCompany('' + company.id).subscribe();
     }
+  }
+
+  addDialog(): void {
+    const dialogRef = this.dialog.open(CreateCompanyComponent, {
+      height: '35%',
+      width: '35%',
+      minWidth: '400px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        //TODO call service
+      }
+    });
+  }
+
+  editDialog(row: any) {
+    const dialogRef = this.dialog.open(UpdateCompanyComponent, {
+      height: '35%',
+      width: '35%',
+      minWidth: '400px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        //TODO call service
+      }
+    });
   }
 
 }

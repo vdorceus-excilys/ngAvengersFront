@@ -1,10 +1,7 @@
 import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
-import { ComputerModel } from '../computer-model';
-import { CompanyModel } from '../company-model';
-import { filter } from 'minimatch';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { ComputerService } from '../computer.service';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatDialog } from '@angular/material/dialog';
@@ -98,7 +95,8 @@ export class ListComputerComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteComputerComponent, {
       height: '35%',
       width: '35%',
-      minWidth: '400px'
+      minWidth: '400px',
+      minHeight: '180px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -126,7 +124,7 @@ export class ListComputerComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        //TODO call service
+        // TODO call service
       }
     });
   }
@@ -135,12 +133,13 @@ export class ListComputerComponent implements OnInit {
     const dialogRef = this.dialog.open(UpdateComputerComponent, {
       height: '35%',
       width: '35%',
-      minWidth: '400px'
+      minWidth: '400px',
+      minHeight: '180px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        //TODO call service
+        // TODO call service
       }
     });
   }
