@@ -105,8 +105,14 @@ mat-select:hover .mat-select-arrow {
   color: $primary;
 }
 
+.brand a:hover, .brand a {
+  color: $orange;
+}
+
+
 @import "../node_modules/bulma/sass/utilities/_all";
 @import "../node_modules/bulma/sass/base/_all.sass";
 @import "../node_modules/bulma/sass/components/navbar.sass";
 @import "../node_modules/bulma/sass/components/tabs.sass";
+@import "../node_modules/bulma/sass/components/card.sass";
 @import "../node_modules/bulma/sass/form/_all.sass";

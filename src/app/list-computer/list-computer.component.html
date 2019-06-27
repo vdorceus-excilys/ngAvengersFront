@@ -4,7 +4,7 @@
       <input id="search" class="input" (keyup)="applyFilter($event.target.value)" placeholder="{{ 'listComputers.filter' | translate }}">
     </div>
     <div class="column is-1 is-offset-7">
-      <button class="button is-primary" (click)="addDialog()">Add</button>
+      <button class="button is-primary" (click)="addDialog()">{{ 'listComputers.add' | translate }}</button>
     </div>
   </div>
 </div>
@@ -45,7 +45,7 @@
     <!-- Actions Column -->
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'listComputers.actions' | translate }} </th>
-      <td mat-cell *matCellDef="let row" > <a class="button is-link is-small" (click)="editDialog(row)">Edit</a><a class="button is-danger is-small" (click)="deleteDialog(row)">Delete</a> </td>
+      <td mat-cell *matCellDef="let row" > <a class="button is-link is-small" (click)="editDialog(row)">{{ 'listComputers.edit' | translate }}</a><a class="button is-danger is-small" (click)="deleteDialog(row)">{{ 'listComputers.delete' | translate }}</a> </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>

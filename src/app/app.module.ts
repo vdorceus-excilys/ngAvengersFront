@@ -40,6 +40,7 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 import { SecurityComponent } from './security/security.component';
 import { LoginComponent } from './login/login.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { DeleteUserComponent } from './delete-user/delete-user.component';
     ScrollTopComponent,
     SecurityComponent,
     LoginComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

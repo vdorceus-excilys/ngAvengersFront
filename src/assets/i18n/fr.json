@@ -3,8 +3,11 @@
     "title": "Système de Gestion d'Ordinateur",
     "headerMenu": {
       "computers": "Ordinateurs",
-      "companies": "Entreprises",
+      "companies": "Fabricants",
       "users": "Utilisateurs"
+    },
+    "user": {
+      "logout": "Déconnecter"
     }
   },
   "listComputers": {
@@ -12,16 +15,31 @@
     "name": "Nom",
     "introduced": "Date d'introduction",
     "discontinued": "Date de fin",
-    "company": "Entreprise",
-    "filter": "Filtre"
+    "company": "Fabricants",
+    "filter": "Filtre",
+    "actions": "Actions",
+    "add": "Ajouter",
+    "edit": "Modifier",
+    "delete": "Supprimer"
   },
-  "listCompany": {
+  "listCompanies": {
     "id": "Id",
     "name": "Nom",
     "filter": "Filtre"
   },
   "form": {
+    "name": "Nom",
+    "introduced": "Date d'introduction",
+    "discontinued": "Date de fin",
+    "company": "Fabricants",
+    "save": "Enregistrer",
     "add": "Ajouter un ordinateur",
     "update": "Mettre à jour un ordinateur"
+  },
+  "login": {
+    "authentification": "Veuillez vous connecter",
+    "userName": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "login": "Se connecter"
   }
 }
