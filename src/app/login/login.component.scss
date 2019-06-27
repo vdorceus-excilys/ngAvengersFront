@@ -11,7 +11,7 @@ $grey-lighter: hsl(0, 0%, 86%);
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
-	//background: rgb(59, 51, 51);
+	background: linear-gradient(rgba($primary,0.5),rgba($primary,0.7));
 
 	.login-card {
 		background: #fff;
@@ -131,8 +131,3 @@ textarea:focus,
 button:focus {
 	outline: none;
 }
-
-.bg {
-    background: url("https://www.clker.com/cliparts/y/K/l/t/I/R/android-digital-d-wallpaper-hd-wallpapers-background-technology-picture-android-hd-wallpaper.svg")no-repeat center center;
-    background-size: cover;
-  }

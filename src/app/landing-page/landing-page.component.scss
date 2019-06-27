@@ -1,3 +1,9 @@
+@import '../../variables.scss';
+
+#home {
+  background: linear-gradient(rgba($primary,0.5),rgba($primary,0.7));
+  height: calc(100vh - 52px);
+}
 
 .example-card {
     width: 200px;
@@ -16,10 +22,3 @@
     width: auto;
     padding-left: 30%;
 }
-
-.bg {
-    background: url("https://www.clker.com/cliparts/y/K/l/t/I/R/android-digital-d-wallpaper-hd-wallpapers-background-technology-picture-android-hd-wallpaper.svg")no-repeat center center;
-    background-size: cover;
-    height: 100vh;
-  }
-

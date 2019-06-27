@@ -1,37 +1,51 @@
-<div class="bg">
+<div id="home">
   <div  style="display: flex" >
-<mat-card class="example-card">
-  <mat-card-header></mat-card-header>
-  <img class="image" mat-card-image src="http://www.myiconfinder.com/uploads/iconsets/256-256-251c205de6105b216e43f280285d959d.png" alt="Computer icon">
-  <mat-card-content>
-    <p>Computers : {{computerNumber}}</p>  
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button [routerLink]="['/computer']">Manage</button>
-  </mat-card-actions>
-</mat-card>
+    <mat-card class="example-card">
+      <mat-card-header></mat-card-header>
+      <img class="image" mat-card-image src="http://www.myiconfinder.com/uploads/iconsets/256-256-251c205de6105b216e43f280285d959d.png" alt="Computer icon">
+      <mat-card-content>
+        <p>Computers : {{computerNumber}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button [routerLink]="['/computer']">Manage</button>
+      </mat-card-actions>
+    </mat-card>
 
-<mat-card class="example-card">
-  <mat-card-header></mat-card-header>
-  <img class="image" mat-card-image src="http://www.anisolutions.com/wp-content/uploads/2015/07/icon-enterprise.png" alt="Company icon">
-  <mat-card-content>
-      <p>Companies: {{companyNumber}}</p>  
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button [routerLink]="['/company']">Manage</button>
-  </mat-card-actions>
-</mat-card>
+    <mat-card class="example-card">
+      <mat-card-header></mat-card-header>
+      <img class="image" mat-card-image src="http://www.anisolutions.com/wp-content/uploads/2015/07/icon-enterprise.png" alt="Company icon">
+      <mat-card-content>
+          <p>Companies: {{companyNumber}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button [routerLink]="['/company']">Manage</button>
+      </mat-card-actions>
+    </mat-card>
 
-<mat-card class="example-card">
-  <mat-card-header></mat-card-header>
-  <img class="image" mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGdPSDLXSdfpFcdY0GpCL7y4E-s5rkWX-E47wAOQRAXJSv3nbfNQ" alt="User icon">
-  <mat-card-content>
-      <p>Computers: {{userNumber}}</p>  
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button [routerLink]="['/user']">Manage</button>
-  </mat-card-actions>
-</mat-card>
-</div>
+    <mat-card class="example-card">
+      <mat-card-header></mat-card-header>
+      <img class="image" mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGdPSDLXSdfpFcdY0GpCL7y4E-s5rkWX-E47wAOQRAXJSv3nbfNQ" alt="User icon">
+      <mat-card-content>
+          <p>Computers: {{userNumber}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button [routerLink]="['/user']">Manage</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="http://www.myiconfinder.com/uploads/iconsets/256-256-251c205de6105b216e43f280285d959d.png" alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="content">
+        <p>Computers : {{computerNumber}}</p>
+        <button class="button is-primary">Manage</button>
+      </div>
+    </div>
+  </div>
 </div>
 
