@@ -3,21 +3,38 @@
     "title": "Sistema de gestión de computador",
     "headerMenu": {
       "computers": "Computadores",
-      "companies": "Empresas",
+      "companies": "Fabricantes",
       "users": "Usuarios"
+    },
+    "user": {
+      "logout": "Cerrar sesión"
     }
   },
-  "listComputers": {
+  "list": {
     "id": "Id",
     "name": "Nombre",
     "introduced": "Fecha introducida",
     "discontinued": "Fecha descontinuada",
-    "company": "Empresa",
-    "filter": "Filtrar"
+    "company": "Fabricantes",
+    "filter": "Filtrar",
+    "actions": "Acciones",
+    "add": "Añadir",
+    "edit": "Modificar",
+    "delete": "suprimir"
   },
-  "listCompany": {
-    "id": "Id",
+  "form": {
     "name": "Nombre",
-    "filter": "Filtrar"
+    "introduced": "Fecha introducida",
+    "discontinued": "Fecha descontinuada",
+    "company": "Fabricantes",
+    "save": "Guardar",
+    "add": "Agregar una computadora",
+    "update": "Actualizar una computadora"
+  },
+  "login": {
+    "authentification": "Por favor inicie sesión",
+    "userName": "Nombre del usuario",
+    "password": "Contraseña",
+    "login": "Iniciar sesión"
   }
 }

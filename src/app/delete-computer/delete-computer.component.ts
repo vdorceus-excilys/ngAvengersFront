@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -6,6 +6,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './delete-computer.component.html',
   styleUrls: ['./delete-computer.component.scss']
 })
+
 export class DeleteComputerComponent {
 
   constructor(public dialogRef: MatDialogRef<DeleteComputerComponent>) { }
