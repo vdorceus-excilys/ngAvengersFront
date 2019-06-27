@@ -13,9 +13,10 @@
     "introduced": "Fecha introducida",
     "discontinued": "Fecha descontinuada",
     "company": "Empresa",
-    "filter": "Filtrar"
+    "filter": "Filtrar",
+    "actions": "Acciones"
   },
-  "listCompany": {
+  "listCompanies": {
     "id": "Id",
     "name": "Nombre",
     "filter": "Filtrar"
