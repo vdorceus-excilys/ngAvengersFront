@@ -10,7 +10,7 @@
       "logout": "Sair da sessão"
     }
   },
-  "listComputers": {
+  "list": {
     "id": "Id",
     "name": "Nome",
     "introduced": "Data de introdução",
@@ -22,17 +22,13 @@
     "edit": "Modificar",
     "delete": "Suprimir"
   },
-  "listCompanies": {
-    "id": "Id",
-    "name": "Nome",
-    "filter": "Filtro"
-  },
   "form": {
     "name": "Nome",
     "introduced": "Data de introdução",
     "discontinued": "Data descontinuada",
     "company": "Fabricantes",
     "save": "Guardar",
+    "cancel": "Cancelar",
     "add": "Adicione um computador",
     "update": "Atualize um computador"
   },

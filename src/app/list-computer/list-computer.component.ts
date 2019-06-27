@@ -9,6 +9,8 @@ import { DeleteComputerComponent } from '../delete-computer/delete-computer.comp
 import { CreateComputerComponent } from '../create-computer/create-computer.component';
 import { UpdateComputerComponent } from '../update-computer/update-computer.component';
 import { ComputerDTOModel } from '../computerDTO-model';
+import { TranslateService } from '@ngx-translate/core';
+import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 
 export interface ComputerDTO {
   id: string;
@@ -39,10 +41,12 @@ export class ListComputerComponent implements OnInit {
 
   constructor(private computerService: ComputerService,
               private changeDetector: ChangeDetectorRef,
+              private translate: TranslateService,
               public dialog: MatDialog) {}
 
   ngOnInit() {
     this.computerService.getComputers().subscribe(data => this.init(data));
+    this.paginator._intl.itemsPerPageLabel = 'N/P: ';
   }
 
   applyFilter(filterValue: string) {
@@ -140,23 +144,15 @@ export class ListComputerComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       this.computerService.getComputers().subscribe(data => this.init(data));
-      if (result) {
-        //this.edit(result);
-      }
     });
   }
 
   edit(computer: ComputerDTO): void {
     const index = this.dataSource.data.indexOf(computer);
-    console.log(index);
     if (index > -1) {
-      //
       this.computerService.getComputerModel(computer.id).subscribe(computerDTO => {
         this.computer = this.map(computerDTO);
-        console.log(this.computer);
-        console.log(this.dataSource.data[index]);
         this.dataSource.data[index] = this.computer;
         this.refresh(this.dataSource.data);
         this.computer = null;
