@@ -1,7 +1,5 @@
 <app-header (eventEmitter)="logout($event)" *ngIf="user" [credentials]="user"></app-header>
-<div class="container">
-  <router-outlet *ngIf="user"></router-outlet>
-</div>
+<router-outlet *ngIf="user"></router-outlet>
 <app-scroll-top></app-scroll-top>
 <app-security (eventEmitter)="updateToken($event)" *ngIf="user==undefined"></app-security>
 
