@@ -1,5 +1,5 @@
 table {
-    width: 100%;
+  width: 100%;
 }
 
 .mat-form-field {
@@ -16,6 +16,7 @@ td, th {
   bottom: 0px;
   position: sticky;
   z-index: 10;
+  border-top: 1px solid rgba(0,0,0,.12);
 }
 
 .column-container {
