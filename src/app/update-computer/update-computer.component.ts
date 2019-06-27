@@ -84,29 +84,38 @@ export class UpdateComputerComponent implements OnInit {
       introduced: '',
       discontinued: '',
       company: ''
-    });
+    },
+    {validator: this.checkDates});
   }
 
   formatDate(date: Moment) {
     return date.clone().locale('en').format('DD-MM-YYYY');
   }
 
+  checkDates(group: FormGroup) {
+    if (group.controls.discontinued.value != '' && group.controls.introduced.value != '' ) {
+    if (group.controls.discontinued.value <= group.controls.introduced.value) {
+    return {notValid: true}
+    }
+    }
+    return null;
+    }
+
   onSubmitForm() {
     const formValue = this.computerForm.value;
 
     if (formValue.name != '') { this.computer.name = formValue.name; }
-    if (formValue.introduced != '' && formValue.introduced) {
-      this.computer.introduced = this.formatDate(formValue.introduced);
-    }
-    if (formValue.discontinued != '' && formValue.discontinued) {
-      this.computer.discontinued = this.formatDate(formValue.discontinued);
-    }
+    this.computer.introduced = this.formatDate(this.introducedDate.value);
+
+    this.computer.discontinued = this.formatDate(this.discontinuedDate.value);
     if (formValue.company != '') { this.computer.companyId = formValue.company;
                                    const company = this.companyList.find(comp => parseInt(comp.id, 10) == this.computer.companyId) ;
                                    this.computer.companyName = company.name;
     }
-
-    this.computerService.updateComputer(this.computer).subscribe();
-    this.router.navigate(['/computer']);
+    if (this.computer.introduced ==null || this.computer.discontinued == null 
+      || this.computer.introduced <= this.computer.discontinued) {
+      this.computerService.updateComputer(this.computer).subscribe();
+      this.router.navigate(['/computer']);
+      }
   }
 }

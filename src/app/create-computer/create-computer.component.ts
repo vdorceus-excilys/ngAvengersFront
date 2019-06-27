@@ -58,11 +58,21 @@ export class CreateComputerComponent implements OnInit {
       introduced: '',
       discontinued: '',
       company: ''
-    });
+    },
+    {validator:this.checkDates});
   }
   formatDate(date: Moment) {
     return date.clone().locale('en').format('DD-MM-YYYY');
   }
+
+  checkDates(group: FormGroup) {
+    if (group.controls.discontinued.value != '' && group.controls.introduced.value !='' ) {
+      if (group.controls.discontinued.value < group.controls.introduced.value) {
+        return {notValid: true}
+      } else { return {notValid: false}}
+    }
+    return null;
+    }
   onSubmitForm() {
       const formValue = this.computerForm.value;
       this.computer = new ComputerDTOModel();
@@ -103,7 +113,11 @@ export class CreateComputerComponent implements OnInit {
           version: 0,
         };
       }
-      this.computerService.addComputer(this.computerModel).subscribe();
-      this.router.navigate(['/computer/']);
+      if (this.computerModel.introduced == null ||
+        this.computerModel.discontinued == null ||
+        this.computerModel.introduced <= this.computerModel.discontinued) {
+          this.computerService.addComputer(this.computerModel).subscribe();
+          this.router.navigate(['/computer/']);
+        }
   }
 }

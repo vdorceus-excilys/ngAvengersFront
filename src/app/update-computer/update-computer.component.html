@@ -12,7 +12,8 @@
     <mat-form-field>
 
       <input matInput [min]="minDate" [max]="maxDate" placeholder="{{ 'listComputers.introduced' | translate }}" 
-      [matDatepicker]="introduced" formControlName="introduced" id="introduced" [formControl]="introducedDate">
+      [matDatepicker]="introduced" formControlName="introduced" 
+      id="introduced" [formControl]="introducedDate" readonly="true">
       
       <mat-datepicker-toggle matSuffix [for]="introduced"></mat-datepicker-toggle>
       <mat-datepicker #introduced></mat-datepicker>
@@ -21,7 +22,8 @@
     <mat-form-field>
 
       <input matInput [min]="minDateDiscontinued" [max]="maxDate" placeholder="{{ 'listComputers.discontinued' | translate }}" 
-      [matDatepicker]="discontinued" formControlName="discontinued" id="discontinued" [formControl]="discontinuedDate">
+      [matDatepicker]="discontinued" formControlName="discontinued" 
+      id="discontinued" [formControl]="discontinuedDate" readonly="true">
 
       <mat-datepicker-toggle matSuffix [for]="discontinued"></mat-datepicker-toggle>
       <mat-datepicker #discontinued></mat-datepicker>
@@ -38,6 +40,8 @@
     </mat-form-field>
     <br/>
     <button>Enregistrer</button>
+    <br/>
+    <small *ngIf="introducedDate <= discontinuedDate">Introduced date is after discontinued date</small>
   </form>
 </div>
 </div>
