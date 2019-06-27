@@ -10,7 +10,7 @@
       "logout": "Cerrar sesión"
     }
   },
-  "listComputers": {
+  "list": {
     "id": "Id",
     "name": "Nombre",
     "introduced": "Fecha introducida",
@@ -21,11 +21,6 @@
     "add": "Añadir",
     "edit": "Modificar",
     "delete": "suprimir"
-  },
-  "listCompanies": {
-    "id": "Id",
-    "name": "Nombre",
-    "filter": "Filtrar"
   },
   "form": {
     "name": "Nombre",

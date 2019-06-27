@@ -8,6 +8,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteComputerComponent } from '../delete-computer/delete-computer.component';
 import { CreateComputerComponent } from '../create-computer/create-computer.component';
 import { UpdateComputerComponent } from '../update-computer/update-computer.component';
+import { TranslateService } from '@ngx-translate/core';
+import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 
 export interface ComputerDTO {
   id: string;
@@ -37,10 +39,12 @@ export class ListComputerComponent implements OnInit {
 
   constructor(private computerService: ComputerService,
               private changeDetector: ChangeDetectorRef,
+              private translate: TranslateService,
               public dialog: MatDialog) {}
 
   ngOnInit() {
     this.computerService.getComputers().subscribe(data => this.refresh(data));
+    this.paginator._intl.itemsPerPageLabel = 'N/P: ';
   }
 
   applyFilter(filterValue: string) {

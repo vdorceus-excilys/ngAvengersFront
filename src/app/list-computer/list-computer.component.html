@@ -2,10 +2,10 @@
   <div class="column-container">
     <div class="columns is-mobile">
       <div class="column is-4">
-        <input id="search" class="input" (keyup)="applyFilter($event.target.value)" placeholder="{{ 'listComputers.filter' | translate }}">
+        <input id="search" class="input" (keyup)="applyFilter($event.target.value)" placeholder="{{ 'list.filter' | translate }}">
       </div>
       <div class="column is-1 is-offset-7">
-        <button class="button is-primary" (click)="addDialog()">{{ 'listComputers.add' | translate }}</button>
+        <button class="button is-primary" (click)="addDialog()">{{ 'list.add' | translate }}</button>
       </div>
     </div>
   </div>
@@ -15,37 +15,37 @@
 
       <!-- ID Column -->
       <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'listComputers.id' | translate }} </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'list.id' | translate }} </th>
         <td mat-cell *matCellDef="let row"> {{row.id}} </td>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'listComputers.name' | translate }} </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'list.name' | translate }} </th>
         <td mat-cell *matCellDef="let row"> {{row.name}} </td>
       </ng-container>
 
       <!-- Introduced Column -->
       <ng-container matColumnDef="introduced">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'listComputers.introduced' | translate }} </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'list.introduced' | translate }} </th>
         <td mat-cell *matCellDef="let row"> {{row.introduced}} </td>
       </ng-container>
 
       <!-- Discontinued Column -->
       <ng-container matColumnDef="discontinued">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'listComputers.discontinued' | translate }} </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'list.discontinued' | translate }} </th>
         <td mat-cell *matCellDef="let row" > {{row.discontinued}} </td>
       </ng-container>
 
       <!-- Company (Name) Column -->
       <ng-container matColumnDef="company">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'listComputers.company' | translate }} </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'list.company' | translate }} </th>
         <td mat-cell *matCellDef="let row" > {{row.company}} </td>
       </ng-container>
 
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'listComputers.actions' | translate }} </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'list.actions' | translate }} </th>
         <td mat-cell *matCellDef="let row" > <a class="button is-link is-small" (click)="editDialog(row)">{{ 'listComputers.edit' | translate }}</a><a class="button is-danger is-small" (click)="deleteDialog(row)">{{ 'listComputers.delete' | translate }}</a> </td>
       </ng-container>
 
