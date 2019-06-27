@@ -37,11 +37,13 @@ svg.mat-paginator-icon:hover {
   color: $primary;
 }
 
-td.mat-column-name{
+td.mat-column-name,
+td.mat-column-username {
   color: $primary;
 }
 
-th.mat-column-name{
+th.mat-column-name,
+th.mat-column-username {
   font-weight: bold;
 }
 

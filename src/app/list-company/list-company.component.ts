@@ -89,7 +89,8 @@ export class ListCompanyComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteCompanyComponent, {
       height: '35%',
       width: '35%',
-      minWidth: '400px'
+      minWidth: '400px',
+      minHeight: '180px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
