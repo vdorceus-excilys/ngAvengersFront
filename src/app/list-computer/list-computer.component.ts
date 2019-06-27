@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteComputerComponent } from '../delete-computer/delete-computer.component';
 import { CreateComputerComponent } from '../create-computer/create-computer.component';
 import { UpdateComputerComponent } from '../update-computer/update-computer.component';
+import { ComputerDTOModel } from '../computerDTO-model';
 
 export interface ComputerDTO {
   id: string;
@@ -34,13 +35,14 @@ export class ListComputerComponent implements OnInit {
   selection = new SelectionModel<ComputerDTO>(true, []);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
+  computer: ComputerDTO;
 
   constructor(private computerService: ComputerService,
               private changeDetector: ChangeDetectorRef,
               public dialog: MatDialog) {}
 
   ngOnInit() {
-    this.computerService.getComputers().subscribe(data => this.refresh(data));
+    this.computerService.getComputers().subscribe(data => this.init(data));
   }
 
   applyFilter(filterValue: string) {
@@ -50,7 +52,7 @@ export class ListComputerComponent implements OnInit {
     }
   }
 
-  refresh(data) {
+  init(data) {
     const dataDTO = data.map(computer => {
       return {
         id: computer.id,
@@ -66,25 +68,26 @@ export class ListComputerComponent implements OnInit {
     this.changeDetector.detectChanges();
   }
 
+  refresh(data) {
+    const dataDTO = data.map(computer => {
+      return {
+        id: computer.id,
+        name: computer.name,
+        introduced: computer.introduced,
+        discontinued: computer.discontinued,
+        company: computer.company
+      };
+    });
+    this.dataSource = new MatTableDataSource(dataDTO);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    this.changeDetector.detectChanges();
+  }
+
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
-  }
-
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
-  masterToggle() {
-    this.isAllSelected() ?
-        this.selection.clear() :
-        this.dataSource.data.forEach(row => this.selection.select(row));
-  }
-
-  /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: ComputerDTO): string {
-    if (!row) {
-      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
-    }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
   }
 
   deleteDialog(row: ComputerDTO): void {
@@ -113,31 +116,64 @@ export class ListComputerComponent implements OnInit {
 
   addDialog(): void {
     const dialogRef = this.dialog.open(CreateComputerComponent, {
-      height: '35%',
+      height: '50%',
       width: '35%',
-      minWidth: '400px'
+      minWidth: '400px',
+      minHeight: '400px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        // TODO call service
-      }
+      this.computerService.getComputers().subscribe(data => this.init(data));
+      this.dataSource.paginator.lastPage();
     });
   }
 
   editDialog(row: any) {
     const dialogRef = this.dialog.open(UpdateComputerComponent, {
       height: '35%',
-      width: '35%',
+      width: '50%',
       minWidth: '400px',
-      minHeight: '180px'
+      minHeight: '400px',
+      data: {
+        id: row.id
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.computerService.getComputers().subscribe(data => this.init(data));
       if (result) {
-        // TODO call service
+        //this.edit(result);
       }
     });
+  }
+
+  edit(computer: ComputerDTO): void {
+    const index = this.dataSource.data.indexOf(computer);
+    console.log(index);
+    if (index > -1) {
+      //
+      this.computerService.getComputerModel(computer.id).subscribe(computerDTO => {
+        this.computer = this.map(computerDTO);
+        console.log(this.computer);
+        console.log(this.dataSource.data[index]);
+        this.dataSource.data[index] = this.computer;
+        this.refresh(this.dataSource.data);
+        this.computer = null;
+      } );
+
+
+    }
+  }
+
+  map(computer: ComputerDTOModel): ComputerDTO {
+    return {
+      id: computer.id,
+      name: computer.name,
+      introduced: computer.introduced,
+      discontinued: computer.discontinued,
+      company: computer.companyName
+    };
   }
 
 }

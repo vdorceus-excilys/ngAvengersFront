@@ -101,6 +101,11 @@ mat-select:hover .mat-select-arrow {
   background-color: $primary;
 }
 
+.mat-form-field.mat-focused .mat-form-field-label,
+.mat-datepicker-toggle-active {
+  color: $primary;
+}
+
 .fa-angle-down:before {
   color: $primary;
 }
