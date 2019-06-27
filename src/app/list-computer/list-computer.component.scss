@@ -1,12 +1,12 @@
 table {
-  width: 100%;
+    width: 100%;
 }
-  
+
 .mat-form-field {
   font-size: 14px;
   width: 100%;
 }
-  
+ 
 td, th {
   width: 20%;
   vertical-align:middle;
@@ -16,4 +16,8 @@ td, th {
   bottom: 0px;
   position: sticky;
   z-index: 10;
+}
+
+.column-container {
+    margin: 1em;
 }
