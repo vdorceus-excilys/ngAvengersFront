@@ -3,6 +3,7 @@ import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { UserModel } from '../user-model';
+import { toast } from 'bulma-toast';
 
 export interface Credentials {
   username: string;
@@ -19,6 +20,14 @@ export class SecurityComponent implements OnInit {
   @Output() eventEmitter: EventEmitter<Credentials> = new EventEmitter();
   users: UserModel[];
   currentUser: UserModel;
+  BadCredentials = {
+    message: '<h1 id="toast">Bad credentials</h1>',
+    type: 'is-danger',
+    position: 'bottom-right',
+    dismissible: true,
+    duration: 10000,
+    animate: { in: 'fadeIn', out: 'fadeOut' }
+  };
 
   constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService,
               private router: Router, private userService: UserService) { }
@@ -32,6 +41,7 @@ export class SecurityComponent implements OnInit {
     this.currentUser = this.users.find(user => user.username === credentials.username);
     if (this.currentUser === undefined) {
       // User not found in list of users
+      toast(this.BadCredentials);
     } else if (this.currentUser.enabled) {
       this.userService.checkPassword(credentials.password, this.currentUser.password).subscribe(
         (state) => {
@@ -43,6 +53,7 @@ export class SecurityComponent implements OnInit {
             this.eventEmitter.emit(credentials);
           } else {
             // failed login
+            toast(this.BadCredentials);
           }
         }
       );
