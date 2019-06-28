@@ -2,7 +2,7 @@
   <div class="column-container">
     <div class="columns is-mobile">
       <div class="column is-4">
-        <input id="search" class="input" (keyup)="applyFilter($event.target.value)" placeholder="{{ 'listComputers.filter' | translate }}">
+        <input id="search" class="input" (keyup)="applyFilter($event.target.value)" placeholder="{{ 'list.filter' | translate }}">
       </div>
     </div>
   </div>
@@ -13,31 +13,31 @@
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-        <td mat-cell *matCellDef="let row" >{{row.id}}</td>
+        <td mat-cell *matCellDef="let row" >{{ row.id }}</td>
       </ng-container>
 
       <!-- Username Column -->
       <ng-container matColumnDef="username">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header >Username</th>
-        <td mat-cell *matCellDef="let row" >{{row.username}}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ 'list.userName' | translate }}</th>
+        <td mat-cell *matCellDef="let row" >{{ row.username }}</td>
       </ng-container>
 
       <!-- Enabled Column -->
       <ng-container matColumnDef="enabled">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header >Enabled</th>
-        <td mat-cell *matCellDef="let row" >{{row.enabled}}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ 'list.enabled' | translate }}</th>
+        <td mat-cell *matCellDef="let row" >{{ row.enabled }}</td>
       </ng-container>
 
       <!-- Role Column -->
       <ng-container matColumnDef="role">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header >Role</th>
-        <td mat-cell *matCellDef="let row" >{{row.role}}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header >{{ 'list.role' | translate }}</th>
+        <td mat-cell *matCellDef="let row" >{{ row.role }}</td>
       </ng-container>
 
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'listUsers.actions' | translate }} </th>
-        <td mat-cell *matCellDef="let row" ><a class="button is-danger is-small" (click)="deleteDialog(row)">Delete</a> </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'list.actions' | translate }} </th>
+        <td mat-cell *matCellDef="let row" ><a class="button is-danger is-small" (click)="deleteDialog(row)">{{ 'list.delete' | translate }}</a> </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayColumns; sticky: true"></tr>

@@ -10,6 +10,12 @@
       "logout": "Sair da sessão"
     }
   },
+  "landing": {
+    "computers": "Computadores",
+    "companies": "Fabricantes",
+    "users": "Usuários",
+    "manage": "Gerir"
+  },
   "list": {
     "id": "Id",
     "name": "Nome",
@@ -18,6 +24,9 @@
     "company": "Fabricantes",
     "filter": "Filtro",
     "actions": "Ações",
+    "userName": "Nome de usuário",
+    "enabled": "Permitido",
+    "role": "Função",
     "add": "Adicionar",
     "edit": "Modificar",
     "delete": "Suprimir"
@@ -28,6 +37,7 @@
     "discontinued": "Data descontinuada",
     "company": "Fabricantes",
     "save": "Guardar",
+    "cancel": "Cancelar",
     "add": "Adicione um computador",
     "update": "Atualize um computador"
   },

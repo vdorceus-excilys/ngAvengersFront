@@ -10,6 +10,12 @@
       "logout": "Déconnecter"
     }
   },
+  "landing": {
+    "computers": "Ordinateurs",
+    "companies": "Fabricants",
+    "users": "Utilisateurs",
+    "manage": "Gérer"
+  },
   "list": {
     "id": "Id",
     "name": "Nom",
@@ -18,6 +24,9 @@
     "company": "Fabricants",
     "filter": "Filtre",
     "actions": "Actions",
+    "userName": "Nom d'utilisateur",
+    "enabled": "Activation",
+    "role": "Rôle",
     "add": "Ajouter",
     "edit": "Modifier",
     "delete": "Supprimer"
@@ -28,6 +37,7 @@
     "discontinued": "Date de fin",
     "company": "Fabricants",
     "save": "Enregistrer",
+    "cancel": "Annuler",
     "add": "Ajouter un ordinateur",
     "update": "Mettre à jour un ordinateur"
   },

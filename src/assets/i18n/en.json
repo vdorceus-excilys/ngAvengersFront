@@ -10,6 +10,12 @@
       "logout": "Logout"
     }
   },
+  "landing": {
+    "computers": "Computers",
+    "companies": "Manufacturers",
+    "users": "Users",
+    "manage": "Manage"
+  },
   "list": {
     "id": "Id",
     "name": "Name",
@@ -18,6 +24,9 @@
     "company": "Manufacturers",
     "filter": "Filter",
     "actions": "Actions",
+    "userName": "Username",
+    "enabled": "Enabled",
+    "role": "Role",
     "add": "Add",
     "edit": "Edit",
     "delete": "Delete"
@@ -28,6 +37,7 @@
     "discontinued": "Discontinued",
     "company": "Manufacturers",
     "save": "Save",
+    "cancel": "Cancel",
     "add": "Add a computer",
     "update": "Update a computer"
   },

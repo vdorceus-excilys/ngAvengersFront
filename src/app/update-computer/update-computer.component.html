@@ -1,5 +1,5 @@
 <div *ngIf="computer" class="formulaire">
-  <form ngNativeValidate [formGroup]="computerForm" (ngSubmit)="onSubmitForm()">
+  <form ngNativeValidate [formGroup]="computerForm">
     <mat-form-field>
       <input matInput placeholder="name" formControlName="name" required value="{{computer.name}}" >
     </mat-form-field>
@@ -22,6 +22,7 @@
       </div>
     </mat-form-field>
     <br/>
-    <button class="btn btn-primary">Enregistrer</button>
+    <button type="button" class="button" (click)="cancel()">{{ 'form.cancel' | translate }}</button>
+    <button type="submit" class="button is-primary" (click)="onSubmitForm()" mat-dialog-close>{{ 'form.save' | translate }}</button>
   </form>
 </div>

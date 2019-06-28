@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef, Inject } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -6,6 +6,8 @@ import { UserService } from 'src/app/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteUserComponent } from '../delete-user/delete-user.component';
 import { toast } from 'bulma-toast';
+import { WebStorageService, LOCAL_STORAGE } from 'angular-webstorage-service';
+import { Credentials } from '../security/security.component';
 
 export interface UserDTO {
   id: string;
@@ -25,6 +27,7 @@ export interface UserDTO {
 export class ListUsersComponent implements OnInit {
   displayColumns: string[] = ['username', 'enabled', 'role', 'actions'];
   dataSource: MatTableDataSource<UserDTO>;
+  currentUserCredentials: Credentials;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -39,14 +42,16 @@ export class ListUsersComponent implements OnInit {
 
   constructor(private userService: UserService,
               private changeDetector: ChangeDetectorRef,
+              @Inject(LOCAL_STORAGE) private storage: WebStorageService,
               public dialog: MatDialog) { }
 
   ngOnInit() {
     this.userService.getUsers().subscribe(data => this.refresh(data), error => toast(this.noInternetMessage));
+    this.paginator._intl.itemsPerPageLabel = 'N/P: ';
   }
 
   refresh(data: any) {
-    const dataDTO = data.map(user => {
+    let dataDTO: UserDTO[] = data.map(user => {
         return {
           id: user.id,
           username: user.username,
@@ -54,6 +59,8 @@ export class ListUsersComponent implements OnInit {
           role: (user.role === 'ROLE_ADMIN') ? 'ADMIN' : 'USER'
         } as UserDTO;
     });
+    this.currentUserCredentials = this.storage.get('user');
+    dataDTO = dataDTO.filter((userDTO) => userDTO.username !== this.currentUserCredentials.username);
     this.dataSource = new MatTableDataSource(dataDTO);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
