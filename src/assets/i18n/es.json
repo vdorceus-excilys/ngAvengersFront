@@ -36,7 +36,7 @@
     "name": "Nombre",
     "introduced": "Fecha introducida",
     "discontinued": "Fecha descontinuada",
-    "company": "Fabricantes",
+    "company": "Fabricante",
     "save": "Guardar",
     "cancel": "Cancelar",
     "add": "Agregar una computadora",
@@ -47,5 +47,13 @@
     "userName": "Nombre del usuario",
     "password": "Contraseña",
     "login": "Iniciar sesión"
+  },
+  "confirmation": {
+    "delete-computer": "¿Estás seguro de que quieres borrar este ordenador?",
+    "delete-company": "¿Estás seguro de que quieres borrar esta empresa?",
+    "delete-user": "¿Estás seguro de que quieres borrar a este usuario?",
+    "computer-title": "Eliminar el ordenador",
+    "company-title": "Eliminar la empresa",
+    "user-title": "Eliminar el usuario"
   }
 }

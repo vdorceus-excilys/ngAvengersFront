@@ -36,7 +36,7 @@
     "name": "Name",
     "introduced": "Introduced",
     "discontinued": "Discontinued",
-    "company": "Manufacturers",
+    "company": "Manufacturer",
     "save": "Save",
     "cancel": "Cancel",
     "add": "Add a computer",
@@ -47,5 +47,13 @@
     "userName": "Username",
     "password": "Password",
     "login": "Login"
+  },
+  "confirmation": {
+    "delete-computer": "Are you sure you want to delete this computer ?",
+    "delete-company": "Are you sure you want to delete this company ?",
+    "delete-user": "Are you sure you want to delete this user ?",
+    "computer-title": "Remove Computer",
+    "company-title": "Remove Company",
+    "user-title": "Remove User"
   }
 }
