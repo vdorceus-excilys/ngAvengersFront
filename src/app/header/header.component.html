@@ -10,7 +10,7 @@
         <ul>
           <li [ngClass] ="{'is-active': this.active == 'computer'}"><a (click)="navigate('computer')">{{ 'header.headerMenu.computers' | translate }}</a></li>
           <li [ngClass] ="{'is-active': this.active == 'company'}"><a (click)="navigate('company')">{{ 'header.headerMenu.companies' | translate }}</a></li>
-          <li [ngClass] ="{'is-active': this.active == 'user'}"><a (click)="navigate('user')">{{ 'header.headerMenu.users' | translate }}</a></li>
+          <li *ngIf="isAdmin" [ngClass] ="{'is-active': this.active == 'user'}"><a (click)="navigate('user')">{{ 'header.headerMenu.users' | translate }}</a></li>
         </ul>
       </div>
     </div>

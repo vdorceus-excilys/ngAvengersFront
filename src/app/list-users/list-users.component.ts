@@ -5,9 +5,10 @@ import { MatSort } from '@angular/material/sort';
 import { UserService } from 'src/app/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteUserComponent } from '../delete-user/delete-user.component';
-import { toast } from 'bulma-toast';
-import { WebStorageService, LOCAL_STORAGE } from 'angular-webstorage-service';
+import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { Credentials } from '../security/security.component';
+import { Router } from '@angular/router';
+import { toast } from 'bulma-toast';
 
 export interface UserDTO {
   id: string;
@@ -43,11 +44,20 @@ export class ListUsersComponent implements OnInit {
   constructor(private userService: UserService,
               private changeDetector: ChangeDetectorRef,
               @Inject(LOCAL_STORAGE) private storage: WebStorageService,
+              private router: Router,
               public dialog: MatDialog) { }
 
   ngOnInit() {
+    if (!this.isAdmin()) {
+      this.router.navigate(['/home']);
+    }
     this.userService.getUsers().subscribe(data => this.refresh(data), error => toast(this.noInternetMessage));
     this.paginator._intl.itemsPerPageLabel = 'N/P: ';
+  }
+
+  isAdmin(): boolean {
+    const credentials: Credentials = this.storage.get('user');
+    return credentials.role === 'ROLE_ADMIN';
   }
 
   refresh(data: any) {
