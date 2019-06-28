@@ -1,9 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { ComputerService } from '../computer.service';
 import { CompanyService } from '../company.service';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { toast } from 'bulma-toast';
+import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import { Credentials } from '../security/security.component';
 
 @Component({
   selector: 'app-landing-page',
@@ -28,12 +30,18 @@ export class LandingPageComponent implements OnInit {
   constructor(private computerService: ComputerService,
               private companyService: CompanyService,
               private userService: UserService,
+              @Inject(LOCAL_STORAGE) private storage: WebStorageService,
               private router: Router) { }
 
   ngOnInit() {
     this.getNumberOfComputers();
     this.getNumberOfCompanies();
     this.getNumberOfUsers();
+  }
+
+  isAdmin(): boolean {
+    const credentials: Credentials = this.storage.get('user');
+    return credentials.role === 'ROLE_ADMIN';
   }
 
   getNumberOfComputers(): void {
