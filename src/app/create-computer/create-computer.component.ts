@@ -87,6 +87,7 @@ export class CreateComputerComponent implements OnInit {
     this.computer = new ComputerDTOModel();
     this.computer.name = formValue.name;
 
+
     if (formValue.introduced) {
       this.computer.introduced = this.formatDate(formValue.introduced);
     }
@@ -126,6 +127,8 @@ export class CreateComputerComponent implements OnInit {
         version: 0,
       };
     }
+
+    console.log(this.computerModel)
     if (this.computerModel.introduced == null ||
       this.computerModel.discontinued == null ||
       this.computerModel.introduced <= this.computerModel.discontinued) {
