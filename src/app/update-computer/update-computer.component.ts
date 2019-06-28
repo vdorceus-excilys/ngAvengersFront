@@ -107,7 +107,7 @@ export class UpdateComputerComponent implements OnInit {
   onSubmitForm() {
     const formValue = this.computerForm.value;
 
-     { this.computer.name = formValue.name; }
+    if(formValue.name !='') { this.computer.name = formValue.name; }
     this.computer.introduced = this.formatDate(this.introducedDate.value);
 
     this.computer.discontinued = this.formatDate(this.discontinuedDate.value);
