@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {ComputerService} from '../computer.service';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ComputerDTOModel } from '../computerDTO-model';
 import {CompanyModel} from '../company-model';
@@ -83,7 +83,7 @@ export class UpdateComputerComponent implements OnInit {
   initForm() {
     this.computerForm = this.formBuilder.group({
       id: '',
-      name: '',
+      name: ['', Validators.required],
       introduced: '',
       discontinued: '',
       company: ''
@@ -107,19 +107,18 @@ export class UpdateComputerComponent implements OnInit {
   onSubmitForm() {
     const formValue = this.computerForm.value;
 
-    if (formValue.name != '') { this.computer.name = formValue.name; }
+     { this.computer.name = formValue.name; }
     this.computer.introduced = this.formatDate(this.introducedDate.value);
 
     this.computer.discontinued = this.formatDate(this.discontinuedDate.value);
-    if (formValue.company != '') { this.computer.companyId = formValue.company;
+    if (formValue.company ) { this.computer.companyId = formValue.company;
                                    const company = this.companyList.find(comp => parseInt(comp.id, 10) == this.computer.companyId) ;
                                    this.computer.companyName = company.name;
     }
 
-    if (this.computer.introduced ==null || this.computer.discontinued == null
-      || this.computer.introduced <= this.computer.discontinued) {
+
   this.computerService.updateComputer(this.computer).subscribe(res => {this.cancel(); });
-}
+
     }
 
 cancel(): void {

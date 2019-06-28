@@ -6,7 +6,7 @@
     <br/>
     <mat-form-field>
 
-      <input matInput [min]="minDate" [max]="maxDate" placeholder="{{ 'form.introduced' | translate }} (dd-mm-yyyy)"
+      <input matInput [min]="minDate" [max]="computerForm.controls.discontinued.value" placeholder="{{ 'form.introduced' | translate }} (dd-mm-yyyy)"
              [matDatepicker]="introduced" formControlName="introduced" id="introduced" readonly="true">
 
       <mat-datepicker-toggle matSuffix [for]="introduced"></mat-datepicker-toggle>
@@ -15,7 +15,7 @@
     <br/>
 
     <mat-form-field>
-      <input matInput [min]="minDate" [max]="maxDate" placeholder="{{ 'form.discontinued' | translate }} (dd-mm-yyyy)"
+      <input matInput [min]=computerForm.controls.introduced.value [max]="maxDate" placeholder="{{ 'form.discontinued' | translate }} (dd-mm-yyyy)"
              [matDatepicker]="discontinued" formControlName="discontinued" id="discontinued" readonly="true">
       <mat-datepicker-toggle matSuffix [for]="discontinued"></mat-datepicker-toggle>
       <mat-datepicker #discontinued></mat-datepicker>

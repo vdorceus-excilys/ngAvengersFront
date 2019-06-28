@@ -1,11 +1,11 @@
 <div *ngIf="computer" class="formulaire">
-  <form ngNativeValidate [formGroup]="computerForm">
+  <form ngNativeValidate [formGroup]="computerForm"  (ngSubmit)="onSubmitForm()">
     <mat-form-field>
       <input matInput placeholder="name" formControlName="name" required value="{{computer.name}}" >
     </mat-form-field>
     <br/>
     <mat-form-field>
-      <input matInput [min]="minDate" [max]="maxDate" placeholder="{{ 'form.introduced' | translate }}"
+      <input matInput [min]="minDate" [max]="discontinuedDate.value" placeholder="{{ 'form.introduced' | translate }}"
              [matDatepicker]="introduced" formControlName="introduced"
              id="introduced" [formControl]="introducedDate" readonly="true">
       <mat-datepicker-toggle matSuffix [for]="introduced"></mat-datepicker-toggle>
@@ -13,7 +13,7 @@
     </mat-form-field>
     <br/>
     <mat-form-field>
-      <input matInput [min]="minDate" [max]="maxDate" placeholder="{{ 'form.discontinued' | translate }}"
+      <input matInput [min]="introducedDate.value" [max]="maxDate" placeholder="{{ 'form.discontinued' | translate }}"
              [matDatepicker]="discontinued" formControlName="discontinued"
              id="discontinued" [formControl]="discontinuedDate" readonly="true">
       <mat-datepicker-toggle matSuffix [for]="discontinued"></mat-datepicker-toggle>
@@ -32,7 +32,9 @@
     <br/>
     <button type="button" class="button" (click)="cancel()">{{ 'form.cancel' | translate }}</button>
     <button type="submit" class="button is-primary" (click)="onSubmitForm()" mat-dialog-close>{{ 'form.save' | translate }}</button>
-  <br/>
-    <small *ngIf="introducedDate <= discontinuedDate">Introduced date is after discontinued date</small>
+
+    <small *ngIf="computerForm.hasError('notValid')">Introduced date is after discontinued date</small>
+
+    <br/>
   </form>
 </div>
