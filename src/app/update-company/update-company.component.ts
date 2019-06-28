@@ -6,6 +6,9 @@ import {Router} from '@angular/router';
 import {CompanyService} from '../company.service';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { Inject } from '@angular/core';
+
 
 
 @Component({
@@ -21,23 +24,23 @@ export class UpdateCompanyComponent implements OnInit {
 
   private routeSub: Subscription;
 
-  id: string
+  id: string;
 
   constructor(private formBuilder: FormBuilder,
               private userService: ComputerService,
               private router: Router,
               private companyService: CompanyService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              public dialogRef: MatDialogRef<UpdateCompanyComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
+                this.id = data.id;
+               }
 
 
   ngOnInit() {
     this.initForm();
 
-    this.routeSub = this.route.params.subscribe(params => {
-      this.id = (params['id']);
-    });
-
-    this.companyService.getCompany(this.id).subscribe(comp => this.company = comp)
+    this.companyService.getCompany(this.id).subscribe(comp => this.company = comp);
     this.initForm();
 
   }
@@ -53,8 +56,11 @@ export class UpdateCompanyComponent implements OnInit {
     const formValue = this.companyForm.value;
     if (formValue['name'] != '') { this.company.name = formValue['name']; }
 
-    this.companyService.updateCompany(this.company).subscribe()
-    this.router.navigate(['/company/']);
+    this.companyService.updateCompany(this.company).subscribe(res => this.cancel());
+  }
+
+  cancel(): void {
+    this.dialogRef.close();
   }
 
 }

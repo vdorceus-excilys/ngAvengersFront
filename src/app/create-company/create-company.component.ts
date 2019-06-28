@@ -5,6 +5,7 @@ import {ComputerService} from '../computer.service';
 import {CompanyService} from '../company.service';
 import {Router} from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-create-company',
   templateUrl: './create-company.component.html',
@@ -18,7 +19,8 @@ export class CreateCompanyComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private computerService: ComputerService,
               private companyService: CompanyService,
-              private router: Router) {
+              private router: Router,
+              public dialogRef: MatDialogRef<CreateCompanyComponent>) {
   }
   ngOnInit() {
     this.initForm();
@@ -30,9 +32,13 @@ export class CreateCompanyComponent implements OnInit {
   }
 
   onSubmitForm() {
-    this.company = new CompanyModel()
-    this.company.name = this.companyForm.value['name']
-    this.companyService.createCompany(this.company).subscribe();
-    this.router.navigate(['/company/']);
+    this.company = new CompanyModel();
+    this.company.name = this.companyForm.value['name'];
+    this.companyService.createCompany(this.company).subscribe(res => this.cancel());
   }
+
+  cancel(): void {
+    this.dialogRef.close();
+  }
+
 }
