@@ -46,5 +46,8 @@
     "userName": "Nom d'utilisateur",
     "password": "Mot de passe",
     "login": "Se connecter"
+  },
+  "error": {
+    "intrSup": "Date d'introduction supérieur à la date de fin"
   }
 }

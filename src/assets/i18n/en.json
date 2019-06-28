@@ -46,5 +46,8 @@
     "userName": "Username",
     "password": "Password",
     "login": "Login"
+  },
+  "error": {
+    "intrSup": "Introduced date greater than discontinued date"
   }
 }

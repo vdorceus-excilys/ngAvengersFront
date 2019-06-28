@@ -46,5 +46,8 @@
     "userName": "Nombre del usuario",
     "password": "Contraseña",
     "login": "Iniciar sesión"
+  },
+  "error": {
+    "intrSup": "Fecha introducida superior a la fecha descontinuada"
   }
 }
