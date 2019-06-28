@@ -59,5 +59,9 @@ export class UpdateCompanyComponent implements OnInit {
 
     this.companyService.updateCompany(this.company).subscribe(res => this.cancel());
   }
+  cancel(): void {
+    this.dialogRef.close();
+  }
+
 
 }

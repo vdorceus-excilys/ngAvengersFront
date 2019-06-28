@@ -61,8 +61,8 @@ export class UpdateComputerComponent implements OnInit {
               private route: ActivatedRoute,
               public dialogRef: MatDialogRef<UpdateComputerComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
-                this.id = data.id;
-              }
+    this.id = data.id;
+  }
 
 
   ngOnInit() {
@@ -82,13 +82,13 @@ export class UpdateComputerComponent implements OnInit {
 
   initForm() {
     this.computerForm = this.formBuilder.group({
-      id: '',
-      name: ['', Validators.required],
-      introduced: '',
-      discontinued: '',
-      company: ''
-    },
-    {validator: this.checkDates});
+        id: '',
+        name: ['', Validators.required],
+        introduced: '',
+        discontinued: '',
+        company: ''
+      },
+      {validator: this.checkDates});
   }
 
   formatDate(date: Moment) {
@@ -97,12 +97,12 @@ export class UpdateComputerComponent implements OnInit {
 
   checkDates(group: FormGroup) {
     if (group.controls.discontinued.value != '' && group.controls.introduced.value != '' ) {
-    if (group.controls.discontinued.value <= group.controls.introduced.value) {
-    return {notValid: true}
-    }
+      if (group.controls.discontinued.value <= group.controls.introduced.value) {
+        return {notValid: true}
+      }
     }
     return null;
-    }
+  }
 
   onSubmitForm() {
     const formValue = this.computerForm.value;
@@ -112,14 +112,16 @@ export class UpdateComputerComponent implements OnInit {
 
     this.computer.discontinued = this.formatDate(this.discontinuedDate.value);
     if (formValue.company ) { this.computer.companyId = formValue.company;
-                                   const company = this.companyList.find(comp => parseInt(comp.id, 10) == this.computer.companyId) ;
-                                   this.computer.companyName = company.name;
+      const company = this.companyList.find(comp => parseInt(comp.id, 10) == this.computer.companyId) ;
+      this.computer.companyName = company.name;
     }
+
+
     this.computerService.updateComputer(this.computer).subscribe(res => {this.cancel(); });
+
   }
 
   cancel(): void {
     this.dialogRef.close();
   }
-}
 }
