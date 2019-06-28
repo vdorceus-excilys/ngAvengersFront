@@ -1,7 +1,7 @@
 <div *ngIf="company" class="formulaire">
 <form ngNativeValidate [formGroup]="companyForm">
   <mat-form-field>
-    <textarea matInput formControlName="name" placeholder="name" required value="{{company.name}}"></textarea>
+    <textarea matInput formControlName="{{ 'form.name' | translate }}" placeholder="name" required value="{{company.name}}"></textarea>
   </mat-form-field>
   <br/>
   <button type="button" class="button" (click)="cancel()">{{ 'form.cancel' | translate }}</button>
