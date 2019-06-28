@@ -10,6 +10,12 @@
       "logout": "Déconnecter"
     }
   },
+  "landing": {
+    "computers": "Ordinateurs",
+    "companies": "Fabricants",
+    "users": "Utilisateurs",
+    "manage": "Gérer"
+  },
   "list": {
     "id": "Id",
     "name": "Nom",

@@ -10,6 +10,12 @@
       "logout": "Logout"
     }
   },
+  "landing": {
+    "computers": "Computers",
+    "companies": "Manufacturers",
+    "users": "Users",
+    "manage": "Manage"
+  },
   "list": {
     "id": "Id",
     "name": "Name",

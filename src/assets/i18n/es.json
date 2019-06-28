@@ -10,6 +10,12 @@
       "logout": "Cerrar sesión"
     }
   },
+  "landing": {
+    "computers": "Computadores",
+    "companies": "Fabricantes",
+    "users": "Usuarios",
+    "manage": "Gestionar"
+  },
   "list": {
     "id": "Id",
     "name": "Nombre",
