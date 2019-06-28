@@ -1,7 +1,7 @@
 <div *ngIf="computer" class="formulaire">
   <form ngNativeValidate [formGroup]="computerForm"  (ngSubmit)="onSubmitForm()">
     <mat-form-field>
-      <input matInput placeholder="name" formControlName="name" required value="{{computer.name}}" >
+      <input matInput placeholder="{{ 'form.name' | translate }}" formControlName="name" required value="{{computer.name}}" >
     </mat-form-field>
     <br/>
     <mat-form-field>

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'ngFront';
+  title = 'CDB - Computer Database';
 
   user: Credentials;
   data: any[];

@@ -38,6 +38,7 @@ export class ListComputerComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   computer: ComputerDTO;
+  size: number;
 
   noInternetMessage = {
     message: '<h1>Please make sure that you are connected to internet</h1>',
@@ -127,6 +128,7 @@ export class ListComputerComponent implements OnInit {
   }
 
   addDialog(): void {
+    this.size = this.dataSource.data.length;
     const dialogRef = this.dialog.open(CreateComputerComponent, {
       height: '50%',
       width: '35%',
@@ -136,7 +138,9 @@ export class ListComputerComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.computerService.getComputers().subscribe(data => this.init(data));
-      this.dataSource.paginator.lastPage();
+      if ( this.size < this.dataSource.data.length ) {
+        this.dataSource.paginator.lastPage();
+      }
     });
   }
 

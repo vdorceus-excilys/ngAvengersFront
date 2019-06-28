@@ -1,7 +1,7 @@
 <div *ngIf="company" class="formulaire">
   <form ngNativeValidate [formGroup]="companyForm">
     <mat-form-field>
-      <input matInput formControlName="name" placeholder="name" required value="{{company.name}}"/>
+      <input matInput formControlName="name" placeholder="{{ 'form.name' | translate }}" required value="{{company.name}}"/>
     </mat-form-field>
     <div class="spacer"></div>
     <div mat-dialog-actions align="end">
