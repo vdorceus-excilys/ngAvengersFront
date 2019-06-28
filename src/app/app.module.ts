@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -36,6 +36,8 @@ import { CommonModule } from '@angular/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSortModule } from '@angular/material/sort';
+import { ErrorHandlerComponent } from './error-handler/error-handler.component';
+import { ErrorHandlerImpl } from './error-handler/error-handler';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 import { SecurityComponent } from './security/security.component';
 import { LoginComponent } from './login/login.component';
@@ -57,6 +59,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     DeleteCompanyComponent,
     HeaderComponent,
     ListUsersComponent,
+    ErrorHandlerComponent,
     ScrollTopComponent,
     SecurityComponent,
     LoginComponent,
@@ -102,7 +105,12 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
       DeleteComputerComponent,
       DeleteUserComponent
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: ErrorHandlerImpl
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,6 +12,7 @@ import { DeleteCompanyComponent } from '../delete-company/delete-company.compone
 import { Router } from '@angular/router';
 import { CreateCompanyComponent } from '../create-company/create-company.component';
 import { UpdateCompanyComponent } from '../update-company/update-company.component';
+import { toast } from 'bulma-toast';
 
 export interface CompanyDTO {
   id: string;
@@ -28,6 +29,7 @@ export interface CompanyDTO {
  * @title Data table with sorting, pagination, and filtering.
  */
 
+
 export class ListCompanyComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'actions'];
@@ -36,7 +38,14 @@ export class ListCompanyComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatTable, {static: false}) table: MatTable<CompanyDTO>;
-
+  noInternetMessage = {
+    message: '<h1>Please make sure that you are connected to internet</h1>',
+    type: 'is-danger',
+    position: 'bottom-right',
+    dismissible: true,
+    duration: 2000,
+    animate: { in: 'fadeIn', out: 'fadeOut' }
+  };
 
   constructor(private companyService: CompanyService,
               private changeDetector: ChangeDetectorRef,
@@ -45,7 +54,12 @@ export class ListCompanyComponent implements OnInit {
               }
 
   ngOnInit() {
+    this.companyService.getCompanies().subscribe(
+      data => { this.refresh(data); },
+      error => toast(this.noInternetMessage)
+    );
     this.companyService.getCompanies().subscribe(data => this.refresh(data));
+    this.paginator._intl.itemsPerPageLabel = 'N/P: ';
   }
 
   refresh(data) {

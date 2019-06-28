@@ -10,6 +10,12 @@
       "logout": "Cerrar sesión"
     }
   },
+  "landing": {
+    "computers": "Computadores",
+    "companies": "Fabricantes",
+    "users": "Usuarios",
+    "manage": "Gestionar"
+  },
   "list": {
     "id": "Id",
     "name": "Nombre",
@@ -18,6 +24,9 @@
     "company": "Fabricantes",
     "filter": "Filtrar",
     "actions": "Acciones",
+    "userName": "Nombre del usuario",
+    "enabled": "Permitido",
+    "role": "Papel",
     "add": "Añadir",
     "edit": "Modificar",
     "delete": "suprimir"
