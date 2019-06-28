@@ -36,7 +36,6 @@ export class UpdateCompanyComponent implements OnInit {
                 this.id = data.id;
                }
 
-
   ngOnInit() {
     this.initForm();
 
@@ -54,13 +53,15 @@ export class UpdateCompanyComponent implements OnInit {
 
   onSubmitForm() {
     const formValue = this.companyForm.value;
-    if (formValue['name'] != '') { this.company.name = formValue['name']; }
+    if (formValue['name'] != '') {
+      this.company.name = formValue['name'];
+    }
 
     this.companyService.updateCompany(this.company).subscribe(res => this.cancel());
   }
-
   cancel(): void {
     this.dialogRef.close();
   }
+
 
 }

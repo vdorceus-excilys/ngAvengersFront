@@ -146,8 +146,8 @@ export class ListComputerComponent implements OnInit {
 
   editDialog(row: any) {
     const dialogRef = this.dialog.open(UpdateComputerComponent, {
-      height: '35%',
-      width: '50%',
+      height: '50%',
+      width: '35%',
       minWidth: '400px',
       minHeight: '400px',
       data: {
