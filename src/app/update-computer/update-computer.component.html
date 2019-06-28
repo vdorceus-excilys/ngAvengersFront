@@ -5,21 +5,17 @@
     </mat-form-field>
     <br/>
     <mat-form-field>
-
-      <input matInput [min]="minDate" [max]="maxDate" placeholder="{{ 'listComputers.introduced' | translate }}"
+      <input matInput [min]="minDate" [max]="maxDate" placeholder="{{ 'form.introduced' | translate }}"
              [matDatepicker]="introduced" formControlName="introduced"
              id="introduced" [formControl]="introducedDate" readonly="true">
-
       <mat-datepicker-toggle matSuffix [for]="introduced"></mat-datepicker-toggle>
       <mat-datepicker #introduced></mat-datepicker>
     </mat-form-field>
     <br/>
     <mat-form-field>
-
-      <input matInput [min]="minDate" [max]="maxDate" placeholder="{{ 'listComputers.discontinued' | translate }}"
+      <input matInput [min]="minDate" [max]="maxDate" placeholder="{{ 'form.discontinued' | translate }}"
              [matDatepicker]="discontinued" formControlName="discontinued"
              id="discontinued" [formControl]="discontinuedDate" readonly="true">
-
       <mat-datepicker-toggle matSuffix [for]="discontinued"></mat-datepicker-toggle>
       <mat-datepicker #discontinued></mat-datepicker>
     </mat-form-field>
