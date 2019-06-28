@@ -32,7 +32,7 @@
     <br/>
     <button type="button" class="button" (click)="cancel()">{{ 'form.cancel' | translate }}</button>
     <button type="submit" class="button is-primary" (click)="onSubmitForm()" mat-dialog-close>{{ 'form.save' | translate }}</button>
+  <br/>
     <small *ngIf="introducedDate <= discontinuedDate">Introduced date is after discontinued date</small>
-
   </form>
 </div>
