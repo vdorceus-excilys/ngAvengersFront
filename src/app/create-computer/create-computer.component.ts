@@ -62,52 +62,78 @@ export class CreateComputerComponent implements OnInit {
       introduced: '',
       discontinued: '',
       company: ''
-    });
+    },
+    {validator:this.checkDates});
   }
+
+
   formatDate(date: Moment) {
     return date.clone().locale('en').format('DD-MM-YYYY');
   }
+
+  checkDates(group: FormGroup) {
+    if (group.controls.discontinued.value != '' && group.controls.introduced.value !='' ) {
+      if (group.controls.discontinued.value < group.controls.introduced.value) {
+        return {notValid: true}
+      } else { return {notValid: false}}
+    }
+    return null;
+  }
+
+
+
   onSubmitForm() {
-      const formValue = this.computerForm.value;
-      this.computer = new ComputerDTOModel();
-      this.computer.name = formValue.name;
+    const formValue = this.computerForm.value;
+    this.computer = new ComputerDTOModel();
+    this.computer.name = formValue.name;
 
-      if (formValue.introduced) { this.computer.introduced = this.formatDate(formValue.introduced); }
+    if (formValue.introduced) {
+      this.computer.introduced = this.formatDate(formValue.introduced);
+    }
 
-      if (formValue.discontinued) { this.computer.discontinued = this.formatDate(formValue.discontinued); }
-      if (formValue.company != '') {
-        this.computer.companyId = formValue.company;
-        const company = this.companyList.find(comp => parseInt(comp.id, 10) == this.computer.companyId);
-        this.computer.companyName = company.name;
+    if (formValue.discontinued) {
+      this.computer.discontinued = this.formatDate(formValue.discontinued);
+    }
+    if (formValue.company != '') {
+      this.computer.companyId = formValue.company;
+      const company = this.companyList.find(comp => parseInt(comp.id, 10) == this.computer.companyId);
+      this.computer.companyName = company.name;
 
-        this.computerModel = {
-          id: '0',
-          name: this.computer.name,
-          introduced: this.computer.introduced,
-          discontinued: this.computer.discontinued,
-          company: {
-            id: this.computer.companyId.toString(),
-            name: this.computer.companyName,
-            version: 0 ,
-          },
+      this.computerModel = {
+        id: '0',
+        name: this.computer.name,
+        introduced: this.computer.introduced,
+        discontinued: this.computer.discontinued,
+        company: {
+          id: this.computer.companyId.toString(),
+          name: this.computer.companyName,
           version: 0,
-        };
+        },
+        version: 0,
+      };
 
-      } else {
-        this.computerModel = {
-          id: '0',
-          name: this.computer.name,
-          introduced: this.computer.introduced,
-          discontinued: this.computer.discontinued,
-          company: {
-            id: null,
-            name: null,
-            version: 0,
-          },
+    } else {
+      this.computerModel = {
+        id: '0',
+        name: this.computer.name,
+        introduced: this.computer.introduced,
+        discontinued: this.computer.discontinued,
+        company: {
+          id: null,
+          name: null,
           version: 0,
-        };
-      }
-      this.computerService.addComputer(this.computerModel).subscribe(res => { this.cancel(); this.event.emit(); });
+        },
+        version: 0,
+      };
+    }
+    if (this.computerModel.introduced == null ||
+      this.computerModel.discontinued == null ||
+      this.computerModel.introduced <= this.computerModel.discontinued) {
+      this.computerService.addComputer(this.computerModel).subscribe(res => {
+        this.cancel();
+        this.event.emit();
+      });
+    }
   }
 
   cancel(): void {

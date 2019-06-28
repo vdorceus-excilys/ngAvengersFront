@@ -1,18 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { StorageServiceModule } from 'angular-webstorage-service';
-import { MatCardModule, MatProgressSpinnerModule } from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,7 +27,7 @@ import { DeleteCompanyComponent } from './delete-company/delete-company.componen
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HeaderComponent } from './header/header.component';
-import { MatSelectModule, MatNativeDateModule } from '@angular/material';
+import {MatSelectModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { CommonModule } from '@angular/common';
@@ -43,6 +41,9 @@ import { SecurityComponent } from './security/security.component';
 import { LoginComponent } from './login/login.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import {MatNativeDateModule} from '@angular/material';
+import {StorageServiceModule} from 'angular-webstorage-service';
+import {MatCardModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,6 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     MatSortModule,
     StorageServiceModule,
     MatCardModule,
-    MatProgressSpinnerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

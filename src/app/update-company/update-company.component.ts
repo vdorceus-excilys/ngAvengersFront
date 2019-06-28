@@ -33,9 +33,8 @@ export class UpdateCompanyComponent implements OnInit {
               private route: ActivatedRoute,
               public dialogRef: MatDialogRef<UpdateCompanyComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
-                this.id = data.id;
-               }
-
+    this.id = data.id;
+  }
 
   ngOnInit() {
     this.initForm();
@@ -54,7 +53,9 @@ export class UpdateCompanyComponent implements OnInit {
 
   onSubmitForm() {
     const formValue = this.companyForm.value;
-    if (formValue['name'] != '') { this.company.name = formValue['name']; }
+    if (formValue['name'] != '') {
+      this.company.name = formValue['name'];
+    }
 
     this.companyService.updateCompany(this.company).subscribe(res => this.cancel());
   }
@@ -62,5 +63,4 @@ export class UpdateCompanyComponent implements OnInit {
   cancel(): void {
     this.dialogRef.close();
   }
-
 }

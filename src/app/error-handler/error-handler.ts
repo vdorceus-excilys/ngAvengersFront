@@ -22,8 +22,10 @@ export class ErrorHandlerImpl extends ErrorHandler {
   handleError(error: Error | HttpErrorResponse) {
     const router = this.injector.get(Router);
 
-    if (error instanceof HttpErrorResponse && !navigator.onLine) {
+    if (error instanceof HttpErrorResponse ) {
+      if (!navigator.onLine) {
         return this.injector.get<any>(toast(noInternetMessage));
+      }
     } else {
         router.navigate(['badRoute']);
     }
