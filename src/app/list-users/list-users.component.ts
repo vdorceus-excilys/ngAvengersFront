@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { UserService } from 'src/app/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteUserComponent } from '../delete-user/delete-user.component';
+import { toast } from 'bulma-toast';
 
 export interface UserDTO {
   id: string;
@@ -27,12 +28,21 @@ export class ListUsersComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
+  noInternetMessage = {
+    message: '<h1>Please make sure that you are connected to internet</h1>',
+    type: 'is-danger',
+    position: 'bottom-right',
+    dismissible: true,
+    duration: 2000,
+    animate: { in: 'fadeIn', out: 'fadeOut' }
+  };
+
   constructor(private userService: UserService,
               private changeDetector: ChangeDetectorRef,
               public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.userService.getUsers().subscribe(data => this.refresh(data));
+    this.userService.getUsers().subscribe(data => this.refresh(data), error => toast(this.noInternetMessage));
   }
 
   refresh(data: any) {
