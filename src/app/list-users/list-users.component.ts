@@ -33,6 +33,7 @@ export class ListUsersComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUsers().subscribe(data => this.refresh(data));
+    this.paginator._intl.itemsPerPageLabel = 'N/P: ';
   }
 
   refresh(data: any) {

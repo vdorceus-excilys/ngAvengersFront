@@ -46,6 +46,7 @@ export class ListCompanyComponent implements OnInit {
 
   ngOnInit() {
     this.companyService.getCompanies().subscribe(data => this.refresh(data));
+    this.paginator._intl.itemsPerPageLabel = 'N/P: ';
   }
 
   refresh(data) {

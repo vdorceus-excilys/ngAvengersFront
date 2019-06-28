@@ -9,7 +9,6 @@ import { DeleteComputerComponent } from '../delete-computer/delete-computer.comp
 import { CreateComputerComponent } from '../create-computer/create-computer.component';
 import { UpdateComputerComponent } from '../update-computer/update-computer.component';
 import { ComputerDTOModel } from '../computerDTO-model';
-import { TranslateService } from '@ngx-translate/core';
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 
 export interface ComputerDTO {
@@ -41,7 +40,6 @@ export class ListComputerComponent implements OnInit {
 
   constructor(private computerService: ComputerService,
               private changeDetector: ChangeDetectorRef,
-              private translate: TranslateService,
               public dialog: MatDialog) {}
 
   ngOnInit() {

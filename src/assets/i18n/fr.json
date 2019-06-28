@@ -24,6 +24,9 @@
     "company": "Fabricants",
     "filter": "Filtre",
     "actions": "Actions",
+    "userName": "Nom d'utilisateur",
+    "enabled": "Activation",
+    "role": "Rôle",
     "add": "Ajouter",
     "edit": "Modifier",
     "delete": "Supprimer"
