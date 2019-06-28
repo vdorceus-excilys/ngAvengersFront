@@ -1,8 +1,9 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, Inject } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { Credentials } from '../security/security.component';
+import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 
 @Component({
   selector: 'app-header',
@@ -18,14 +19,22 @@ export class HeaderComponent implements OnInit {
   @Output() eventEmitter: EventEmitter<any> = new EventEmitter();
   @Input() credentials: Credentials;
   activeDropdown = false;
+  isAdmin: boolean;
 
-  constructor(private translate: TranslateService, private router: Router) {
+  constructor(private translate: TranslateService, private router: Router,
+              @Inject(LOCAL_STORAGE) private storage: WebStorageService) {
     translate.addLangs(['en', 'es', 'fr', 'pt']);
     translate.setDefaultLang('en');
   }
 
   ngOnInit() {
     this.navigate('home');
+    const credentials: Credentials = this.storage.get('user');
+    if (credentials.role === 'ROLE_ADMIN') {
+      this.isAdmin = true;
+    } else {
+      this.isAdmin = false;
+    }
   }
 
   logout() {
