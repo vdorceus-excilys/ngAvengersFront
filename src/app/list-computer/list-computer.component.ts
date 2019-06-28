@@ -9,8 +9,8 @@ import { DeleteComputerComponent } from '../delete-computer/delete-computer.comp
 import { CreateComputerComponent } from '../create-computer/create-computer.component';
 import { UpdateComputerComponent } from '../update-computer/update-computer.component';
 import { ComputerDTOModel } from '../computerDTO-model';
-import { TranslateService } from '@ngx-translate/core';
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
+import { toast } from 'bulma-toast';
 
 export interface ComputerDTO {
   id: string;
@@ -39,13 +39,21 @@ export class ListComputerComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   computer: ComputerDTO;
 
+  noInternetMessage = {
+    message: '<h1>Please make sure that you are connected to internet</h1>',
+    type: 'is-danger',
+    position: 'bottom-right',
+    dismissible: true,
+    duration: 2000,
+    animate: { in: 'fadeIn', out: 'fadeOut' }
+  };
+
   constructor(private computerService: ComputerService,
               private changeDetector: ChangeDetectorRef,
-              private translate: TranslateService,
               public dialog: MatDialog) {}
 
   ngOnInit() {
-    this.computerService.getComputers().subscribe(data => this.init(data));
+    this.computerService.getComputers().subscribe(data => this.init(data), error => toast(this.noInternetMessage));
     this.paginator._intl.itemsPerPageLabel = 'N/P: ';
   }
 

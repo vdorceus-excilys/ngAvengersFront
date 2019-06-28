@@ -115,13 +115,11 @@ export class UpdateComputerComponent implements OnInit {
                                    const company = this.companyList.find(comp => parseInt(comp.id, 10) == this.computer.companyId) ;
                                    this.computer.companyName = company.name;
     }
+    this.computerService.updateComputer(this.computer).subscribe(res => {this.cancel(); });
+  }
 
-
-  this.computerService.updateComputer(this.computer).subscribe(res => {this.cancel(); });
-
-    }
-
-cancel(): void {
-  this.dialogRef.close();
+  cancel(): void {
+    this.dialogRef.close();
+  }
 }
 }

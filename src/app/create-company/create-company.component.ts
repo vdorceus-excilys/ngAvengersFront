@@ -32,8 +32,8 @@ export class CreateCompanyComponent implements OnInit {
   }
 
   onSubmitForm() {
-    this.company = new CompanyModel()
-    this.company.name = this.companyForm.value['name']
+    this.company = new CompanyModel();
+    this.company.name = this.companyForm.value['name'];
     this.companyService.createCompany(this.company).subscribe(res => this.cancel());
   }
 

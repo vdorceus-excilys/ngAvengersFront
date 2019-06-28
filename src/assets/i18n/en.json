@@ -10,6 +10,12 @@
       "logout": "Logout"
     }
   },
+  "landing": {
+    "computers": "Computers",
+    "companies": "Manufacturers",
+    "users": "Users",
+    "manage": "Manage"
+  },
   "list": {
     "id": "Id",
     "name": "Name",
@@ -18,6 +24,10 @@
     "company": "Manufacturers",
     "filter": "Filter",
     "actions": "Actions",
+    "action": "Action",
+    "userName": "Username",
+    "enabled": "Enabled",
+    "role": "Role",
     "add": "Add",
     "edit": "Edit",
     "delete": "Delete"

@@ -10,6 +10,12 @@
       "logout": "Déconnecter"
     }
   },
+  "landing": {
+    "computers": "Ordinateurs",
+    "companies": "Fabricants",
+    "users": "Utilisateurs",
+    "manage": "Gérer"
+  },
   "list": {
     "id": "Id",
     "name": "Nom",
@@ -18,6 +24,10 @@
     "company": "Fabricants",
     "filter": "Filtre",
     "actions": "Actions",
+    "action": "Action",
+    "userName": "Nom d'utilisateur",
+    "enabled": "Activation",
+    "role": "Rôle",
     "add": "Ajouter",
     "edit": "Modifier",
     "delete": "Supprimer"

@@ -114,6 +114,13 @@ mat-select:hover .mat-select-arrow {
   color: $orange;
 }
 
+h1#toast {
+  width: 200px;
+  height: 50px;
+  font-size:1.25em;
+}
+
+
 
 @import "../node_modules/bulma/sass/utilities/_all";
 @import "../node_modules/bulma/sass/base/_all.sass";

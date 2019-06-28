@@ -33,8 +33,8 @@ export class UpdateCompanyComponent implements OnInit {
               private route: ActivatedRoute,
               public dialogRef: MatDialogRef<UpdateCompanyComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
-    this.id = data.id;
-  }
+                this.id = data.id;
+               }
 
   ngOnInit() {
     this.initForm();
@@ -60,7 +60,4 @@ export class UpdateCompanyComponent implements OnInit {
     this.companyService.updateCompany(this.company).subscribe(res => this.cancel());
   }
 
-  cancel(): void {
-    this.dialogRef.close();
-  }
 }
