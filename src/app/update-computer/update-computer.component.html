@@ -21,7 +21,7 @@
     </mat-form-field>
     <br/>
     <mat-form-field>
-      <div class="form-group">
+      <div id="label-company" class="form-group">
         <label for="company">Company</label>
         <mat-select [(ngModel)]="computer.companyId" class="form-control" formControlName="company" id="company" required>
           <mat-option *ngFor="let company of companyList" [value]="company.id">{{company.name}}
@@ -29,10 +29,11 @@
         </mat-select>
       </div>
     </mat-form-field>
-    <br/>
-    <button type="button" class="button" (click)="cancel()">{{ 'form.cancel' | translate }}</button>
-    <button type="submit" class="button is-primary" (click)="onSubmitForm()" mat-dialog-close>{{ 'form.save' | translate }}</button>
-
+    <div class="spacer"></div>
+    <div mat-dialog-actions align="end">
+      <button type="button" class="button" (click)="cancel()">{{ 'form.cancel' | translate }}</button>
+      <button type="submit" class="button is-primary" (click)="onSubmitForm()" mat-dialog-close>{{ 'form.save' | translate }}</button>
+    </div>
     <small *ngIf="computerForm.hasError('notValid')">Introduced date is after discontinued date</small>
 
     <br/>

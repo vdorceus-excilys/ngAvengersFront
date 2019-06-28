@@ -4,4 +4,32 @@
   flex-direction: column;
   justify-content: center;
   width:100%;
+  text-align: center;
+  height: 100%;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+button {
+  margin: 0 0.25em;
+}
+
+.mat-dialog-actions {
+  &[align='end'] {
+    justify-content: flex-end;
+  }
+
+  &[align='center'] {
+    justify-content: center;
+  }
+}
+
+form {
+  width: 70%;
+}
+
+mat-form-field {
+  width: 100%;
 }

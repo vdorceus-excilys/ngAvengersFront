@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 .formulaire{
   align-items: center;
   display: flex;
@@ -5,5 +7,41 @@
   justify-content: center;
   width:100%;
   text-align: center;
+  height: 100%;
+}
 
+.spacer {
+  flex-grow: 1;
+}
+
+button {
+  margin: 0 0.25em;
+}
+
+.mat-dialog-actions {
+  &[align='end'] {
+    justify-content: flex-end;
+  }
+
+  &[align='center'] {
+    justify-content: center;
+  }
+}
+
+form {
+  width: 70%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+#label-company label {
+  color: $primary;
+  padding-bottom: 5px;
+  border-bottom: 2px solid $primary;
+}
+
+#label-company .mat-select {
+  margin-top: 25px;
 }
