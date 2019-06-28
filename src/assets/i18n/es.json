@@ -1,0 +1,59 @@
+{
+  "header": {
+    "title": "Sistema de gestión de computador",
+    "headerMenu": {
+      "computers": "Computadores",
+      "companies": "Fabricantes",
+      "users": "Usuarios"
+    },
+    "user": {
+      "logout": "Cerrar sesión"
+    }
+  },
+  "landing": {
+    "computers": "Computadores",
+    "companies": "Fabricantes",
+    "users": "Usuarios",
+    "manage": "Gestionar"
+  },
+  "list": {
+    "id": "Id",
+    "name": "Nombre",
+    "introduced": "Fecha introducida",
+    "discontinued": "Fecha descontinuada",
+    "company": "Fabricantes",
+    "filter": "Filtrar",
+    "actions": "Acciones",
+    "action": "Acción",
+    "userName": "Nombre del usuario",
+    "enabled": "Permitido",
+    "role": "Papel",
+    "add": "Añadir",
+    "edit": "Modificar",
+    "delete": "Suprimir"
+  },
+  "form": {
+    "name": "Nombre",
+    "introduced": "Fecha introducida",
+    "discontinued": "Fecha descontinuada",
+    "company": "Fabricante",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "add": "Agregar una computadora",
+    "update": "Actualizar una computadora"
+  },
+  "login": {
+    "authentification": "Por favor inicie sesión",
+    "userName": "Nombre del usuario",
+    "password": "Contraseña",
+    "login": "Iniciar sesión"
+  },
+  "confirmation": {
+    "delete-computer": "¿Estás seguro de que quieres borrar este ordenador?",
+    "delete-company": "¿Estás seguro de que quieres borrar esta empresa?",
+    "delete-user": "¿Estás seguro de que quieres borrar a este usuario?",
+    "computer-title": "Eliminar el ordenador",
+    "company-title": "Eliminar la empresa",
+    "user-title": "Eliminar el usuario"
+  }
+}

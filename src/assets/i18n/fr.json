@@ -1,0 +1,59 @@
+{
+  "header": {
+    "title": "Système de Gestion d'Ordinateur",
+    "headerMenu": {
+      "computers": "Ordinateurs",
+      "companies": "Fabricants",
+      "users": "Utilisateurs"
+    },
+    "user": {
+      "logout": "Déconnecter"
+    }
+  },
+  "landing": {
+    "computers": "Ordinateurs",
+    "companies": "Fabricants",
+    "users": "Utilisateurs",
+    "manage": "Gérer"
+  },
+  "list": {
+    "id": "Id",
+    "name": "Nom",
+    "introduced": "Date d'introduction",
+    "discontinued": "Date de fin",
+    "company": "Fabricants",
+    "filter": "Filtre",
+    "actions": "Actions",
+    "action": "Action",
+    "userName": "Nom d'utilisateur",
+    "enabled": "Activation",
+    "role": "Rôle",
+    "add": "Ajouter",
+    "edit": "Modifier",
+    "delete": "Supprimer"
+  },
+  "form": {
+    "name": "Nom",
+    "introduced": "Date d'introduction",
+    "discontinued": "Date de fin",
+    "company": "Fabricant",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "add": "Ajouter un ordinateur",
+    "update": "Mettre à jour un ordinateur"
+  },
+  "login": {
+    "authentification": "Veuillez vous connecter",
+    "userName": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "login": "Se connecter"
+  },
+  "confirmation": {
+    "delete-computer": "Êtes-vous sûr de vouloir effacer cet ordinateur ?",
+    "delete-company": "Êtes-vous sûr de vouloir supprimer ce fabricant ?",
+    "delete-user": "Êtes-vous sûr de vouloir supprimer cet utilisateur ?",
+    "computer-title": "Supprimer l'ordinateur",
+    "company-title": "Supprimer le fabricant",
+    "user-title": "Supprimer l'utilisateur"
+  }
+}

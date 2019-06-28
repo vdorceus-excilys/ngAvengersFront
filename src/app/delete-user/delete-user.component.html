@@ -1,0 +1,11 @@
+<div class="fixActionRow">
+  <h1 mat-dialog-title>{{ 'confirmation.user-title' | translate }}</h1>
+  <div mat-dialog-content>
+    <p>{{ 'confirmation.delete-user' | translate }}</p>
+  </div>
+  <div class="spacer"></div>
+  <div mat-dialog-actions align="end">
+    <button class="button" (click)="cancel()">{{ 'form.cancel' | translate }}</button>
+    <button class="button is-primary" [mat-dialog-close]="true" cdkFocusInitial>{{ 'list.delete' | translate }}</button>
+  </div>
+</div>

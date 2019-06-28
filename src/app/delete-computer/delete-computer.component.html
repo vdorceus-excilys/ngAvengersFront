@@ -1,3 +1,11 @@
-<p>
-  delete-computer works!
-</p>
+<div class="fixActionRow">
+  <h1 mat-dialog-title>{{ 'confirmation.computer-title' | translate }}</h1>
+  <div mat-dialog-content>
+    <p>{{ 'confirmation.delete-computer' | translate }}</p>
+  </div>
+  <div class="spacer"></div>
+  <div mat-dialog-actions align="end">
+    <button class="button" (click)="cancel()">{{ 'form.cancel' | translate }}</button>
+    <button class="button is-primary" [mat-dialog-close]="true" cdkFocusInitial>{{ 'list.delete' | translate }}</button>
+  </div>
+</div>
